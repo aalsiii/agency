@@ -11,52 +11,67 @@ const services = [
     { id: "03", title: "Marketing", desc: "Data-driven global reach." },
     { id: "04", title: "Branding", desc: "Identity that resonates." },
     { id: "05", title: "Graphic Design", desc: "Visuals that speak volumes." },
+    { id: "06", title: "Ad Campaigning", desc: "Strategies that convert." },
 ];
 
 export default function HorizontalServices() {
     return (
-        <section className="relative py-40 bg-gradient-to-b from-background via-secondary/10 to-background overflow-hidden">
-            {/* Background Texture/Noise could go here */}
+        <section className="relative py-32 bg-background overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/50 via-background to-background pointer-events-none" />
 
-            <div className="container mx-auto px-6 mb-20 flex items-end justify-between relative z-10">
-                <div>
-                    <span className="text-primary text-sm font-bold tracking-[0.3em] uppercase block mb-4">Our Expertise</span>
-                    <h2 className="text-5xl md:text-7xl font-serif text-white leading-none">
-                        We Make It <br /> Happen.
-                    </h2>
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+                    <div>
+                        <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase block mb-6">Our Expertise</span>
+                        <h2 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+                            We Make It <br /> Happen.
+                        </h2>
+                    </div>
+                    <Link href="/services" className="hidden md:flex group items-center gap-3 text-white/60 hover:text-primary transition-colors text-xs tracking-[0.2em] uppercase pb-2 border-b border-transparent hover:border-primary/30">
+                        View All Services
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                 </div>
-                <Link href="/services" className="hidden md:flex hover-trigger items-center gap-2 text-white/60 hover:text-primary transition-colors text-sm tracking-widest uppercase mb-2">
-                    All Services <ArrowRight size={16} />
-                </Link>
-            </div>
 
-            <div className="flex overflow-x-auto pb-12 scrollbar-hide snap-x relative z-10">
-                <div className="flex gap-8 px-6 min-w-max">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.id}
-                            initial={{ opacity: 0, x: 100 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
-                            className="group relative w-[350px] md:w-[450px] h-[500px] p-10 bg-zinc-900/40 border border-white/10 backdrop-blur-sm flex flex-col justify-between hover:bg-zinc-900/60 hover:border-primary/30 transition-all duration-500 snap-center hover-trigger cursor-none"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                            className="group relative p-10 h-[420px] bg-zinc-900/40 border border-primary/20 hover:border-primary backdrop-blur-sm flex flex-col justify-between transition-all duration-500 rounded-sm overflow-hidden"
                         >
+                            {/* Permanent Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-100 pointer-events-none" />
+
                             <div className="relative z-10">
-                                <span className="text-7xl font-serif text-white/5 group-hover:text-primary/10 transition-colors duration-500 block mb-12 font-bold">
+                                <span className="text-6xl font-serif text-primary/20 block mb-8 font-bold select-none">
                                     {service.id}
                                 </span>
-                                <h3 className="text-4xl font-serif text-white mb-4 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
-                                <p className="text-muted text-lg font-light leading-relaxed group-hover:text-white/90 transition-colors duration-300">{service.desc}</p>
+                                <h3 className="text-3xl font-serif text-primary mb-4">
+                                    {service.title}
+                                </h3>
+                                <p className="text-white/80 text-base font-light leading-relaxed max-w-[90%]">
+                                    {service.desc}
+                                </p>
                             </div>
 
-                            <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white/40 group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
-                                <ArrowRight size={24} className="-rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                            <div className="relative z-10 flex justify-end">
+                                <div className="w-12 h-12 rounded-full border border-primary bg-primary text-black flex items-center justify-center transition-all duration-500 scale-100">
+                                    <ArrowRight size={20} />
+                                </div>
                             </div>
-
-                            {/* Hover Gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="mt-16 md:hidden text-center">
+                    <Link href="/services" className="inline-flex items-center gap-2 text-primary uppercase tracking-widest text-xs font-bold">
+                        All Services <ArrowRight size={14} />
+                    </Link>
                 </div>
             </div>
         </section>

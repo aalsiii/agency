@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import HorizontalServices from "@/components/home/HorizontalServices";
 import PortfolioPreview from "@/components/portfolio/PortfolioPreview";
 
@@ -11,15 +12,17 @@ const HorizonHeroSection = dynamic(
 );
 
 export default function Home() {
+  useEffect(() => {
+    // Force scroll to top on mount to handle browser scroll restoration
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen bg-background">
       <HorizonHeroSection />
 
       <HorizontalServices />
       <PortfolioPreview />
-
-      {/* Spacer for visual breathing room before footer */}
-      <div className="h-32 bg-background" />
     </main>
   );
 }
