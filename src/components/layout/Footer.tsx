@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import TextRoll from "@/components/ui/TextRoll";
 
 export default function Footer() {
@@ -57,9 +58,23 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center gap-4 text-muted text-xs tracking-widest uppercase pt-12 border-t border-white/5 text-center">
-                    <p>&copy; {new Date().getFullYear()} AGENCY. All rights reserved.</p>
-                    <p> Designed by AALSIII </p>
+                <div className="flex flex-col items-center justify-center gap-8 text-muted text-xs tracking-widest uppercase pt-12 border-t border-white/5 text-center">
+                    <div className="flex items-center gap-2">
+                        <Image
+                            src="/logo.png"
+                            alt="Aalsiii Logo"
+                            width={32}
+                            height={32}
+                            className="opacity-80 transition-opacity duration-500"
+                        />
+                        <span className="text-2xl font-sans font-bold tracking-tight text-white/60">
+                            Aalsiii
+                        </span>
+                    </div>
+                    <div>
+                        <p>&copy; {new Date().getFullYear()} Aalsiii. All rights reserved.</p>
+                        <p className="mt-2 text-[10px] opacity-50 tracking-[0.2em]"> Designed by AALSIII </p>
+                    </div>
                 </div>
             </div>
         </footer>

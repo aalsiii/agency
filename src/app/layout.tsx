@@ -18,8 +18,15 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "AGENCY | Elevate Your Brand",
+  title: "Aalsiii | Elevate Your Brand",
   description: "Premium digital agency for website design, development, and marketing.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({

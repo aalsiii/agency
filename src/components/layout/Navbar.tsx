@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -30,12 +31,24 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-500",
-                scrolled ? "bg-background/80 backdrop-blur-md py-4" : "bg-transparent py-6"
+                scrolled ? "bg-background/80 backdrop-blur-md py-2" : "bg-transparent py-4"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-serif font-bold tracking-tight text-foreground hover:text-primary transition-colors duration-300">
-                    AGENCY
+                <Link href="/" className="flex items-center gap-0 group">
+                    <div className="relative h-16 w-16 md:h-24 md:w-24 flex items-center justify-center">
+                        <Image
+                            src="/logo.png"
+                            alt="Aalsiii Logo"
+                            width={100}
+                            height={100}
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                            priority
+                        />
+                    </div>
+                    <span className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white transition-colors duration-300 relative z-10 -ml-2 md:-ml-6">
+                        Aalsiii
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
