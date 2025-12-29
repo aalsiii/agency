@@ -1,17 +1,26 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+    const pathname = usePathname();
+    const isServicesOrAboutPage = pathname === "/services" || pathname === "/about";
+
     return (
-        <footer className="bg-background pt-32 pb-12 border-t border-white/5 relative z-50">
+        <footer className={`bg-background pb-12 relative z-50 ${isServicesOrAboutPage ? 'pt-0 border-none' : 'pt-32 border-t border-white/5'}`}>
             <div className="container mx-auto px-6">
-                <div className="mb-24 text-center">
-                    <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">Start a Project</p>
-                    <h2 className="text-5xl md:text-8xl lg:text-9xl font-serif text-white leading-none mb-12">
-                        LET'S CREATE <br />
-                        <span className="italic font-light text-white/50">Something Timeless</span>
-                    </h2>
-                    <a href="mailto:hello@agency.com" className="text-xl md:text-3xl text-white hover:text-primary transition-colors border-b border-white/20 pb-2 inline-block">
-                        hello@agency.com
-                    </a>
-                </div>
+                {!isServicesOrAboutPage && (
+                    <div className="mb-24 text-center">
+                        <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">Start a Project</p>
+                        <h2 className="text-5xl md:text-8xl lg:text-9xl font-serif text-white leading-none mb-12">
+                            LET'S CREATE <br />
+                            <span className="italic font-light text-white/50">Something Timeless</span>
+                        </h2>
+                        <a href="mailto:hello@agency.com" className="text-xl md:text-3xl text-white hover:text-primary transition-colors border-b border-white/20 pb-2 inline-block">
+                            hello@agency.com
+                        </a>
+                    </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 border-t border-white/10 pt-12 text-center">
                     <div>

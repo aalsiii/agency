@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${cinzel.variable} ${manrope.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-black`}
       >
         <CustomCursor />

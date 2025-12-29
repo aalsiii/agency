@@ -5,41 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import React, { useState } from "react";
 import Image from "next/image";
 
-// Portfolio Data
-const projects = [
-    {
-        id: 1,
-        title: "Echoes of Silence",
-        category: "E-Commerce",
-        role: "Strategic Design",
-        src: "/images/portfolio/echoes-of-silence.png",
-        desc: "A sanctuary for natural sound healing instruments. We crafted an immersive digital experience that mirrors the serenity of their physical products, resulting in a 40% increase in engagement."
-    },
-    {
-        id: 2,
-        title: "Nada Yoga School",
-        category: "Web Platform",
-        role: "Full Stack Development",
-        src: "/images/portfolio/nada-yoga-school.png",
-        desc: "A comprehensive course booking platform for traditional sound healing education. Streamlined the student enrollment process and integrated a custom learning management system."
-    },
-    {
-        id: 3,
-        title: "Luisa Fotografia",
-        category: "Portfolio",
-        role: "Visual Identity",
-        src: "/images/portfolio/luisa-fotografia.png",
-        desc: "A stunning modern portraiture portfolio designed to capture the essence of every moment. Minimalist aesthetics meet high-performance image optimization."
-    },
-    {
-        id: 4,
-        title: "Dr. Nitasha Buldeo",
-        category: "Integrative Medicine",
-        role: "Web Consultancy",
-        src: "/images/portfolio/nitasha-buldeo.png",
-        desc: "Harmonize Body, Mind & Spirit. Bridging the gap between ancient wisdom and modern biomechanics to activate your body's natural healing intelligence."
-    },
-];
+import { projects } from "@/lib/projects";
+
 
 export default function PortfolioPreview() {
     const [currentIndex, setCurrentIndex] = useState(0);
