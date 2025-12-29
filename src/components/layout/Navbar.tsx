@@ -36,17 +36,17 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-0 group">
-                    <div className="relative h-16 w-16 md:h-24 md:w-24 flex items-center justify-center">
+                    <div className="relative h-10 w-10 md:h-12 md:w-12 flex items-center justify-center">
                         <Image
                             src="/logo.png"
                             alt="Aalsiii Logo"
-                            width={100}
-                            height={100}
+                            width={48}
+                            height={48}
                             className="object-contain transition-transform duration-500 group-hover:scale-105"
                             priority
                         />
                     </div>
-                    <span className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white transition-colors duration-300 relative z-10 -ml-2 md:-ml-6">
+                    <span className="text-xl md:text-2xl font-sans font-bold tracking-tight text-white transition-colors duration-300 relative z-10 -ml-1 md:-ml-2">
                         Aalsiii
                     </span>
                 </Link>
