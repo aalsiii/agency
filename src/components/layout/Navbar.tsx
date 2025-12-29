@@ -35,34 +35,47 @@ export default function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-0 group">
+                <div className="hidden md:flex flex-1 items-center justify-start space-x-12">
+                    {navLinks.slice(0, 2).map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/70 hover:text-white transition-colors duration-300"
+                        >
+                            <TextRoll>{link.name}</TextRoll>
+                        </Link>
+                    ))}
+                </div>
+
+                <Link href="/" className="flex items-center gap-3 group px-4">
                     <div className="relative h-10 w-10 md:h-12 md:w-12 flex items-center justify-center">
                         <Image
                             src="/logo.png"
-                            alt="Aalsiii Logo"
+                            alt="AALSIII Logo"
                             width={48}
                             height={48}
                             className="object-contain transition-transform duration-500 group-hover:scale-105"
                             priority
                         />
                     </div>
-                    <span className="text-xl md:text-2xl font-sans font-bold tracking-tight text-white transition-colors duration-300 relative z-10 -ml-1 md:-ml-2">
-                        Aalsiii
+                    <span className="text-xl md:text-2xl font-sans font-bold tracking-tighter text-white transition-colors duration-300 relative z-10">
+                        AALSIII
                     </span>
                 </Link>
 
-                {/* Desktop Nav */}
-                <div className="hidden md:flex items-center space-x-12">
-                    {navLinks.map((link) => (
+                <div className="hidden md:flex flex-1 items-center justify-end space-x-12">
+                    {navLinks.slice(2).map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-xs font-bold uppercase tracking-[0.2em] text-foreground transition-colors duration-300"
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/70 hover:text-white transition-colors duration-300"
                         >
                             <TextRoll>{link.name}</TextRoll>
                         </Link>
                     ))}
                 </div>
+
+
 
                 {/* Mobile Toggle */}
                 <button

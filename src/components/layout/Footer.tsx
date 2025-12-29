@@ -68,11 +68,11 @@ export default function Footer() {
                             className="opacity-80 transition-opacity duration-500"
                         />
                         <span className="text-2xl font-sans font-bold tracking-tight text-white/60">
-                            Aalsiii
+                            AALSIII
                         </span>
                     </div>
                     <div>
-                        <p>&copy; {new Date().getFullYear()} Aalsiii. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} AALSIII. All rights reserved.</p>
                         <p className="mt-2 text-[10px] opacity-50 tracking-[0.2em]"> Designed by AALSIII </p>
                     </div>
                 </div>

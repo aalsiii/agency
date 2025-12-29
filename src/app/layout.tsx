@@ -18,7 +18,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Aalsiii | Elevate Your Brand",
+  title: "AALSIII | Elevate Your Brand",
   description: "Premium digital agency for website design, development, and marketing.",
   icons: {
     icon: "/logo.png",
