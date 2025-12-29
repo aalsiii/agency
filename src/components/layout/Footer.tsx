@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import TextRoll from "@/components/ui/TextRoll";
 
 export default function Footer() {
     const pathname = usePathname();
@@ -16,8 +17,8 @@ export default function Footer() {
                             LET'S CREATE <br />
                             <span className="italic font-light text-white/50">Something Timeless</span>
                         </h2>
-                        <a href="mailto:hello@agency.com" className="text-xl md:text-3xl text-white hover:text-primary transition-colors border-b border-white/20 pb-2 inline-block">
-                            hello@agency.com
+                        <a href="mailto:bijalwanakshat@gmail.com" className="text-xl md:text-3xl text-white hover:text-primary transition-colors border-b border-white/20 pb-2 inline-block">
+                            <TextRoll>bijalwanakshat@gmail.com</TextRoll>
                         </a>
                     </div>
                 )}
@@ -26,27 +27,32 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-serif text-lg mb-4">Visit Us</h4>
                         <p className="text-muted text-sm leading-relaxed">
-                            100 Smith Street<br />
-                            Collingwood VIC 3066<br />
-                            Australia
+                            Rishikesh, Uttarakhand<br />
+                            India
                         </p>
                     </div>
                     <div>
                         <h4 className="text-white font-serif text-lg mb-4">Inquiries</h4>
                         <p className="text-muted text-sm leading-relaxed mb-2">
-                            <a href="mailto:hello@agency.com" className="hover:text-primary transition-colors">hello@agency.com</a>
+                            <a href="mailto:bijalwanakshat@gmail.com" className="hover:text-primary transition-colors">
+                                bijalwanakshat@gmail.com
+                            </a>
                         </p>
                         <p className="text-muted text-sm leading-relaxed">
-                            <a href="tel:+61383766284" className="hover:text-primary transition-colors">+61 3 8376 6284</a>
+                            <a href="tel:+919389403190" className="hover:text-primary transition-colors">
+                                +91 9389403190
+                            </a>
                         </p>
                     </div>
                     <div>
                         <h4 className="text-white font-serif text-lg mb-4">Follow</h4>
                         <div className="flex flex-col space-y-2 text-muted text-sm uppercase tracking-wider items-center">
-                            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                            <a href="#" className="hover:text-white transition-colors">Twitter</a>
-                            <a href="#" className="hover:text-white transition-colors">Behance</a>
+                            <a href="https://www.instagram.com/akxhatzzz/" target="_blank" rel="noopener noreferrer" className="transition-colors">
+                                <TextRoll>Instagram</TextRoll>
+                            </a>
+                            <a href="https://www.linkedin.com/in/akshat-bijalwan-2910a7378/" target="_blank" rel="noopener noreferrer" className="transition-colors">
+                                <TextRoll>LinkedIn</TextRoll>
+                            </a>
                         </div>
                     </div>
                 </div>

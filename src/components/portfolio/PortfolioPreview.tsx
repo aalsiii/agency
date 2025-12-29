@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { projects } from "@/lib/projects";
 
@@ -57,6 +58,19 @@ export default function PortfolioPreview() {
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[40vw] h-[40vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+                    <div>
+                        <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase block mb-6">Featured Works</span>
+                        <h2 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+                            Selected <br /> Projects.
+                        </h2>
+                    </div>
+                    <Link href="/projects" className="hidden md:flex group items-center gap-3 text-white/60 hover:text-primary transition-colors text-xs tracking-[0.2em] uppercase pb-2 border-b border-transparent hover:border-primary/30">
+                        Explore All Projects
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
                     {/* Left Column: Stacked Images */}
@@ -115,7 +129,7 @@ export default function PortfolioPreview() {
                                 className="space-y-6"
                             >
                                 <div>
-                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-2">
+                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary leading-tight mb-2">
                                         {currentProject.title}
                                     </h2>
                                     <p className="text-primary font-medium tracking-wide">
@@ -153,6 +167,13 @@ export default function PortfolioPreview() {
                         </div>
                     </div>
 
+                </div>
+
+                {/* Mobile Navigation Link */}
+                <div className="mt-16 lg:hidden text-center">
+                    <Link href="/projects" className="inline-flex items-center gap-2 text-primary uppercase tracking-widest text-xs font-bold">
+                        Explore All Projects <ArrowRight size={14} />
+                    </Link>
                 </div>
             </div>
         </section>

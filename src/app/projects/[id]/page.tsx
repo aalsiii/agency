@@ -17,134 +17,129 @@ export default function ProjectDetailPage() {
     }
 
     return (
-        <article className="min-h-screen bg-background">
-            {/* Hero Section */}
-            <header className="relative h-[70vh] w-full flex items-end pb-12 md:pb-24">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={project.src}
-                        alt={project.title}
-                        fill
-                        className="object-cover brightness-50"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                </div>
+        <article className="min-h-screen bg-background overflow-hidden relative">
+            {/* Background Aesthetics */}
+            <div className="absolute top-0 left-0 w-full h-[60vh] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/30 via-background to-background pointer-events-none" />
 
-                <div className="container mx-auto px-6 md:px-12 relative z-10 w-full">
+            {/* Hero Section */}
+            <header className="relative pt-48 pb-12 md:pb-24 z-10">
+                <div className="container mx-auto px-6 md:px-12 w-full">
                     <Link
                         href="/projects"
-                        className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors group"
+                        className="inline-flex items-center text-white/80 hover:text-white mb-16 transition-colors group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to Works
                     </Link>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="max-w-4xl"
-                    >
-                        <div className="flex flex-wrap gap-4 mb-6">
-                            <span className="px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-sm font-medium tracking-wide uppercase">
-                                {project.category}
-                            </span>
-                            <span className="px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/80 text-sm font-medium tracking-wide uppercase">
-                                {project.timeline}
-                            </span>
-                        </div>
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">
-                            {project.title}
-                        </h1>
-                        <p className="text-xl md:text-2xl text-muted max-w-2xl leading-relaxed mb-8">
-                            {project.desc}
-                        </p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                        {/* Left Column: Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="space-y-8"
+                        >
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-primary leading-[1.1]">
+                                {project.title}
+                            </h1>
 
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-primary hover:text-black transition-all duration-300 group"
-                            >
-                                Visit Live Site
-                                <ExternalLink className="w-5 h-5 ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                            </a>
-                        )}
-                    </motion.div>
+                            <div className="flex flex-wrap gap-4">
+                                <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase">
+                                    {project.category}
+                                </span>
+                                <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 text-xs font-bold tracking-widest uppercase">
+                                    {project.timeline}
+                                </span>
+                            </div>
+
+                            <p className="text-xl md:text-2xl text-muted leading-relaxed max-w-xl">
+                                {project.desc}
+                            </p>
+
+                            <div className="pt-8">
+                                {project.liveUrl && (
+                                    <a
+                                        href={project.liveUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-primary hover:text-black transition-all duration-300 group shadow-2xl"
+                                    >
+                                        Visit Live Site
+                                        <ExternalLink className="w-5 h-5 ml-3 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                )}
+                            </div>
+                        </motion.div>
+
+                        {/* Right Column: Hero Image Preview */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, x: 30 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] group"
+                        >
+                            <Image
+                                src={project.src}
+                                alt={project.title}
+                                fill
+                                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent pointer-events-none" />
+                        </motion.div>
+                    </div>
                 </div>
             </header>
 
             {/* Content Section */}
-            <div className="container mx-auto px-6 md:px-12 py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
+            <div className="container mx-auto px-6 md:px-12 py-24 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                     {/* Sidebar / Metadata */}
                     <div className="lg:col-span-4 space-y-12">
                         <div>
-                            <h3 className="text-white font-serif text-xl mb-4">Client</h3>
+                            <h3 className="text-white font-serif text-2xl mb-4">Client</h3>
                             <p className="text-muted text-lg">{project.client}</p>
                         </div>
                         <div>
-                            <h3 className="text-white font-serif text-xl mb-4">Services</h3>
+                            <h3 className="text-white font-serif text-2xl mb-4">Services</h3>
                             <p className="text-muted text-lg">{project.role}</p>
                         </div>
-
                     </div>
 
                     {/* Main Content */}
-                    <div className="lg:col-span-8 space-y-16">
+                    <div className="lg:col-span-8 space-y-24">
                         <section>
-                            <h2 className="text-3xl font-serif text-white mb-6">The Challenge</h2>
-                            <p className="text-lg text-muted leading-relaxed">
+                            <h2 className="text-4xl font-serif text-white mb-8 border-l-4 border-primary pl-6">The Challenge</h2>
+                            <p className="text-xl text-muted leading-relaxed">
                                 {project.challenge}
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-3xl font-serif text-white mb-6">The Solution</h2>
-                            <p className="text-lg text-muted leading-relaxed">
+                            <h2 className="text-4xl font-serif text-white mb-8 border-l-4 border-primary pl-6">The Solution</h2>
+                            <p className="text-xl text-muted leading-relaxed">
                                 {project.solution}
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-3xl font-serif text-white mb-6">The Result</h2>
-                            <p className="text-lg text-muted leading-relaxed">
+                            <h2 className="text-4xl font-serif text-white mb-8 border-l-4 border-primary pl-6">The Result</h2>
+                            <p className="text-xl text-muted leading-relaxed">
                                 {project.results}
                             </p>
                         </section>
                     </div>
                 </div>
-
-                {/* Gallery Grid */}
-                {project.galleryImages.length > 0 && (
-                    <div className="mt-24 space-y-8">
-                        <h2 className="text-3xl font-serif text-white text-center mb-12">Project Gallery</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {project.galleryImages.map((img, idx) => (
-                                <div key={idx} className="relative aspect-video rounded-xl overflow-hidden bg-zinc-900 shadow-2xl border border-white/5">
-                                    <Image
-                                        src={img}
-                                        alt={`${project.title} screenshot ${idx + 1}`}
-                                        fill
-                                        className="object-cover hover:scale-105 transition-transform duration-700"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
             </div>
 
-            {/* Next Project Teaser (Simple) */}
-            <div className="border-t border-white/10 mt-24">
+            {/* Next Project Teaser */}
+            <div className="border-t border-white/10 mt-24 relative z-10">
                 <div className="container mx-auto px-6 py-24 text-center">
-                    <p className="text-primary tracking-widest uppercase text-sm font-bold mb-4">Next Project</p>
-                    <Link href="/projects" className="text-5xl md:text-7xl font-serif text-white hover:text-primary transition-colors inline-flex items-center gap-4 group">
-                        View All Works
-                        <ArrowUpRight className="w-12 h-12 md:w-20 md:h-20 group-hover:-translate-y-2 group-hover:translate-x-2 transition-transform" />
+                    <p className="text-primary tracking-widest uppercase text-sm font-bold mb-6">Next Project</p>
+                    <Link href="/projects" className="text-6xl md:text-8xl font-serif text-white hover:text-primary transition-colors inline-flex items-center gap-8 group">
+                        View More
+                        <ArrowUpRight className="w-16 h-16 md:w-24 md:h-24 group-hover:-translate-y-4 group-hover:translate-x-4 transition-transform" />
                     </Link>
                 </div>
             </div>

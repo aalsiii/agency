@@ -10,7 +10,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 // @ts-ignore
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { Menu } from "lucide-react";
+
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +22,6 @@ export const HorizonHeroSection = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const subtitleRef = useRef<HTMLDivElement>(null);
     const scrollProgressRef = useRef<HTMLDivElement>(null);
-    const menuRef = useRef<HTMLDivElement>(null);
 
     const smoothCameraPos = useRef({ x: 0, y: 30, z: 100 });
 
@@ -104,6 +103,11 @@ export const HorizonHeroSection = () => {
 
             animate();
             setIsReady(true);
+
+            // Force scroll to top once the 3D scene is ready
+            if (typeof window !== 'undefined') {
+                window.scrollTo(0, 0);
+            }
         };
 
         const createStarField = () => {
@@ -468,20 +472,8 @@ export const HorizonHeroSection = () => {
     useEffect(() => {
         if (!isReady) return;
 
-        gsap.set([menuRef.current, titleRef.current, subtitleRef.current, scrollProgressRef.current], {
-            visibility: 'visible'
-        });
-
         const tl = gsap.timeline();
 
-        if (menuRef.current) {
-            tl.from(menuRef.current, {
-                x: -100,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-        }
 
         if (titleRef.current) {
             const titleChars = titleRef.current.querySelectorAll('.title-char');
@@ -573,23 +565,20 @@ export const HorizonHeroSection = () => {
         ));
     };
 
+    const sectionTitles = ["VISION", "CRAFT", "IMPACT"];
+
+    const isHeroActive = scrollProgress < 0.99;
+
     return (
         <div ref={containerRef} className="relative w-full h-[300vh] bg-black">
             <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-0" />
 
-            <div ref={menuRef} className="fixed left-8 top-1/2 -translate-y-1/2 z-50 text-white/50 hidden md:block opacity-0 invisible" >
-                <div className="flex flex-col gap-2 mb-8 items-center">
-                    <Menu className="w-6 h-6" />
-                </div>
-                <div className="writing-vertical-rl text-xs tracking-[0.3em] font-light">SPACE</div>
-            </div>
-
             <section className="absolute top-0 left-0 w-full h-screen z-10 flex flex-col items-center justify-center pointer-events-none text-white overflow-hidden">
-                <h1 ref={titleRef} className="text-6xl md:text-9xl font-bold tracking-[0.2em] mb-4 mix-blend-overlay opacity-0 invisible font-serif">
+                <h1 ref={titleRef} className="text-6xl md:text-9xl font-bold tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-serif">
                     {splitTitle("VISION")}
                 </h1>
 
-                <div ref={subtitleRef} className="text-center font-light tracking-widest text-sm md:text-base text-primary/80 uppercase opacity-0 invisible font-sans">
+                <div ref={subtitleRef} className="text-center font-light tracking-widest text-sm md:text-base text-white/50 uppercase font-sans">
                     <p className="subtitle-line block mb-2">
                         Redefining Digital Landscapes,
                     </p>
@@ -620,16 +609,24 @@ export const HorizonHeroSection = () => {
             </section>
 
 
-            <div ref={scrollProgressRef} className="fixed bottom-12 right-12 z-50 flex items-center gap-4 text-white text-xs tracking-widest opacity-0 invisible">
-                <div className="writing-vertical-rl transform rotate-180">SCROLL</div>
-                <div className="h-24 w-[1px] bg-white/20 relative overflow-hidden">
+            <div
+                ref={scrollProgressRef}
+                className="fixed bottom-12 right-12 z-50 flex items-center gap-4 text-white text-[10px] tracking-widest transition-all duration-700 pointer-events-none"
+                style={{
+                    opacity: isHeroActive ? 1 : 0,
+                    transform: isHeroActive ? "translateY(0)" : "translateY(20px)",
+                    visibility: isHeroActive ? "visible" : "hidden"
+                }}
+            >
+                <div className="writing-vertical-rl transform rotate-180 opacity-40 font-bold tracking-[0.4em]">SCROLL</div>
+                <div className="h-24 w-[1px] bg-white/10 relative overflow-hidden">
                     <div
-                        className="absolute top-0 left-0 w-full bg-white transition-all duration-100 ease-out"
+                        className="absolute top-0 left-0 w-full bg-primary transition-all duration-100 ease-out"
                         style={{ height: `${scrollProgress * 100}%` }}
                     />
                 </div>
-                <div className="font-mono">
-                    {String(currentSection + 1).padStart(2, '0')} / {String(totalSections).padStart(2, '0')}
+                <div className="font-serif font-bold text-primary min-w-[80px] text-right tracking-[0.2em]">
+                    {sectionTitles[currentSection] || sectionTitles[0]}
                 </div>
             </div>
         </div>

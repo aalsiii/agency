@@ -16,7 +16,7 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.6 }}
                 className="mb-16 md:mb-24"
             >
-                <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">Our Work</h1>
+                <h1 className="text-5xl md:text-7xl font-serif text-primary mb-6">Our Work</h1>
                 <p className="text-xl text-muted max-w-2xl">
                     A collection of digital experiences crafted with precision, passion, and purpose.
                 </p>

@@ -14,12 +14,28 @@ const HorizonHeroSection = dynamic(
 export default function Home() {
   useEffect(() => {
     // Force scroll to top on mount to handle browser scroll restoration
-    window.scrollTo(0, 0);
+    if (typeof window !== 'undefined') {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+
+      // Immediate reset
+      window.scrollTo(0, 0);
+
+      // Delayed reset to catch any layout shifts or late-rendering components
+      const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
     <main className="min-h-screen bg-background">
-      <HorizonHeroSection />
+      <div className="min-h-[300vh]">
+        <HorizonHeroSection />
+      </div>
 
       <HorizontalServices />
       <PortfolioPreview />
