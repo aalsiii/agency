@@ -1,10 +1,24 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 export default function CustomCursor() {
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
+        // Check if device is mobile or touch-enabled
+        const checkMobile = () => {
+            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const isSmallScreen = window.innerWidth <= 1024;
+            setIsMobile(isTouch || isSmallScreen);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        if (isMobile) return;
+
         const dot = document.getElementById('cursor-dot');
         const outline = document.getElementById('cursor-outline');
 
@@ -53,10 +67,13 @@ export default function CustomCursor() {
         window.addEventListener('mouseover', handleMouseOver);
 
         return () => {
+            window.removeEventListener('resize', checkMobile);
             window.removeEventListener('mousemove', moveCursor);
             window.removeEventListener('mouseover', handleMouseOver);
         }
-    }, []);
+    }, [isMobile]);
+
+    if (isMobile) return null;
 
     return (
         <>
