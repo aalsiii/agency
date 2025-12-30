@@ -24,18 +24,73 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-32 md:mb-48"
+                    className="mb-6 md:mb-8"
                 >
                     <h1 className="text-5xl md:text-7xl font-serif text-primary mb-8 tracking-tighter">
                         About Us
                     </h1>
-                    <p className="text-xl text-muted max-w-2xl">
-                        Born from a desire to bridge the gap between aesthetics and functionality, we are a collective of dreamers, doers, and digital artisans.
+                    <p className="text-xl md:text-2xl text-muted max-w-4xl leading-relaxed font-light">
+                        We are a forward-thinking creative agency dedicated to bridging the gap between sophisticated aesthetics and high-performance functionality. Our collective of designers, engineers, and digital strategists work at the intersection of architectural precision and artistic intuition, crafting bespoke digital experiences that don't just look stunning—they drive meaningful impact.
                     </p>
                 </motion.div>
 
+                {/* Team Lead Section */}
+                <section className="mb-16 md:mb-24 border-t border-white/10 pt-8 px-6">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-5 max-w-screen-xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="relative w-full max-w-sm aspect-square rounded-xl overflow-hidden group flex-shrink-0"
+                        >
+                            <img
+                                src="/images/team-lead.jpg"
+                                alt="Team Lead"
+                                className="w-full h-full object-cover grayscale transition-transform duration-1000 scale-105 group-hover:scale-100"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-40" />
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="max-w-xl space-y-6"
+                        >
+                            <div className="space-y-3">
+                                <span className="text-primary font-bold uppercase tracking-widest text-xs">Creative Direction</span>
+                                <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight">Our Focus</h2>
+                                <div className="h-px w-16 bg-primary/30" />
+                            </div>
+
+                            <div className="space-y-4 text-base md:text-lg text-muted/80 font-light leading-relaxed">
+                                <p>
+                                    Our technical direction is guided by a commitment to making digital growth accessible and straightforward. We focus on building robust, scalable solutions that solve real business challenges without unnecessary complexity, ensuring your technology evolves with your needs.
+                                </p>
+                                <p>
+                                    We work closely with our partners to ensure the technology we build serves their long-term strategic goals, providing a solid foundation for sustainable growth. It's about more than just code; it's about building a resilient digital presence that works as hard as you do, day in and day out.
+                                </p>
+                                <p>
+                                    By prioritizing clarity and efficiency, we help businesses navigate the complexities of the digital landscape with confidence, turning ambitious visions into functional realities.
+                                </p>
+                            </div>
+
+                            <div className="pt-2">
+                                <Link
+                                    href="/contact"
+                                    className="text-primary hover:text-white transition-colors duration-300 flex items-center gap-2 text-sm font-medium"
+                                >
+                                    Let's discuss your vision <ArrowUpRight className="w-4 h-4" />
+                                </Link>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
                 {/* Our Philosophy Section - Left Aligned, No Image */}
-                <section className="mb-48 md:mb-64 border-t border-white/10 pt-32">
+                <section className="mb-16 md:mb-24 border-t border-white/10 pt-12">
                     <div className="max-w-3xl space-y-12">
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
@@ -59,8 +114,8 @@ export default function AboutPage() {
                 </section>
 
                 {/* Our Values Section - Central Spine Layout (Reference Match) */}
-                <section className="mb-48 md:mb-64 relative max-w-6xl mx-auto px-4 md:px-0">
-                    <div className="mb-32 text-center">
+                <section className="mb-24 md:mb-32 relative max-w-6xl mx-auto px-4 md:px-0">
+                    <div className="mb-16 text-center">
                         <h2 className="text-4xl md:text-6xl font-serif text-primary tracking-tight">Our Values</h2>
                     </div>
 

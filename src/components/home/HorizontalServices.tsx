@@ -5,14 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { gsap } from "gsap";
 
-const services = [
-    { id: "01", title: "Web Design", desc: "Immersive digital experiences." },
-    { id: "02", title: "Development", desc: "Robust and scalable code." },
-    { id: "03", title: "Marketing", desc: "Data-driven global reach." },
-    { id: "04", title: "Branding", desc: "Identity that resonates." },
-    { id: "05", title: "Graphic Design", desc: "Visuals that speak volumes." },
-    { id: "06", title: "Ad Campaigning", desc: "Strategies that convert." },
-];
+import { services } from "@/lib/services";
 
 export default function HorizontalServices() {
     return (
@@ -34,7 +27,7 @@ export default function HorizontalServices() {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.id}
@@ -42,7 +35,7 @@ export default function HorizontalServices() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-                            className="group relative p-10 h-[420px] bg-zinc-900/40 border border-primary/20 hover:border-primary backdrop-blur-sm flex flex-col justify-between transition-all duration-500 rounded-sm overflow-hidden"
+                            className="group relative p-8 h-[380px] bg-zinc-900/40 border border-primary/20 hover:border-primary backdrop-blur-sm flex flex-col justify-between transition-all duration-500 rounded-sm overflow-hidden"
                         >
                             {/* Permanent Glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-100 pointer-events-none" />
@@ -55,7 +48,7 @@ export default function HorizontalServices() {
                                     {service.title}
                                 </h3>
                                 <p className="text-white/80 text-base font-light leading-relaxed max-w-[90%]">
-                                    {service.desc}
+                                    {service.description}
                                 </p>
                             </div>
 

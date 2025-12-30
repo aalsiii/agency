@@ -5,21 +5,18 @@ import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 
 const infoItems = [
     {
-        id: "01",
         icon: Mail,
         label: "Digital Inquiry",
         value: "bijalwanakshat@gmail.com",
         href: "mailto:bijalwanakshat@gmail.com"
     },
     {
-        id: "02",
         icon: Phone,
         label: "Direct Line",
         value: "+91 9389403190",
         href: "tel:+919389403190"
     },
     {
-        id: "03",
         icon: MapPin,
         label: "Studio Location",
         value: "Rishikesh, Uttarakhand, India",
@@ -43,9 +40,6 @@ export default function ContactInfo() {
             <div className="space-y-16">
                 {infoItems.map((item, index) => (
                     <div key={index} className="group relative">
-                        <span className="absolute -left-12 top-0 text-4xl font-serif font-bold text-primary/10 select-none group-hover:text-primary/20 transition-colors">
-                            {item.id}
-                        </span>
                         <span className="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">
                             {item.label}
                         </span>

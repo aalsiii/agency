@@ -96,4 +96,24 @@ export const projects: Project[] = [
             "/images/portfolio/nitasha-gallery-3.png"
         ]
     },
+    {
+        id: 5,
+        slug: "eazypregnancy",
+        title: "eazyPregnancy",
+        category: "Women Wellness",
+        role: "Content Strategy & Web Platform",
+        src: "/images/portfolio/eazypregnancy.png",
+        desc: "Empowering mothers through every stage of pregnancy. We built a comprehensive platform that combines expert medical guidance with a supportive community for an ‘eazy’ journey.",
+        client: "eazyPregnancy",
+        timeline: "12 Weeks",
+        challenge: "eazyPregnancy needed a platform that could provide reliable medical information while maintaining a warm, supportive tone. They also required an SEO strategy to rank in the competitive women's wellness space.",
+        solution: "We developed a SEO-optimized web platform with a focus on high-intent keywords like 'Garbh Sanskar' and 'Indian pregnancy diet'. We also integrated a blog system backed by experts like Dr. Priya Shikha Modi.",
+        results: "Successfully launched the platform with a 50% increase in organic reach within the first two months. The content strategy established them as a key player in the Indian pregnancy wellness market.",
+        liveUrl: "https://eazypregnancy.com",
+        galleryImages: [
+            "/images/portfolio/eazypregnancy.png",
+            "/images/portfolio/eazypregnancy.png",
+            "/images/portfolio/eazypregnancy.png"
+        ]
+    },
 ];
