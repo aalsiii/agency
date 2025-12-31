@@ -9,7 +9,7 @@ import { services } from "@/lib/services";
 
 export default function HorizontalServices() {
     return (
-        <section className="relative py-32 bg-background overflow-hidden">
+        <section className="relative py-32 bg-[var(--background-layer-1)] overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/50 via-background to-background pointer-events-none" />
 
@@ -35,7 +35,7 @@ export default function HorizontalServices() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-                            className="group relative p-8 h-[380px] bg-zinc-900/40 border border-primary/20 hover:border-primary backdrop-blur-sm flex flex-col justify-between transition-all duration-500 rounded-sm overflow-hidden"
+                            className="group relative p-8 h-[380px] bg-[var(--background-layer-2)] border border-white/20 hover:bg-[var(--surface-highlight)] hover:border-primary/40 backdrop-blur-sm flex flex-col justify-between transition-all duration-500 rounded-lg overflow-hidden"
                         >
                             {/* Permanent Glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-100 pointer-events-none" />

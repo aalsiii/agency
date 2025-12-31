@@ -35,7 +35,7 @@ export default function ServicesPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: index * 0.1 }}
-                        className="grid md:grid-cols-12 gap-10 md:gap-16 items-start border-t border-white/10 pt-16"
+                        className="grid md:grid-cols-12 gap-10 md:gap-16 items-start border-t border-white/20 pt-16"
                     >
                         {/* Service ID & Title */}
                         <div className="md:col-span-4">

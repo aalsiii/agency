@@ -33,7 +33,7 @@ export default function ProjectsPage() {
                     >
                         <Link href={`/projects/${project.slug}`} className="group block space-y-4">
                             {/* Image Container */}
-                            <div className="relative aspect-video overflow-hidden rounded-xl bg-zinc-900 border border-white/10 group-hover:border-primary/50 transition-colors duration-500">
+                            <div className="relative aspect-video overflow-hidden rounded-xl bg-[var(--background-layer-2)] border border-white/20 hover:border-primary/50 transition-colors duration-500">
                                 <Image
                                     src={project.src}
                                     alt={project.title}
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                                     </h3>
                                     <p className="text-muted text-sm mt-1">{project.role}</p>
                                 </div>
-                                <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-white/70 uppercase tracking-wider backdrop-blur-sm">
+                                <span className="px-3 py-1 rounded-full border border-white/20 bg-[var(--background-layer-1)] text-xs font-medium text-white/70 uppercase tracking-wider backdrop-blur-sm">
                                     {project.category}
                                 </span>
                             </div>

@@ -48,7 +48,7 @@ export default function ProjectDetailPage() {
                                 <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase">
                                     {project.category}
                                 </span>
-                                <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 text-xs font-bold tracking-widest uppercase">
+                                <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/20 text-white/60 text-xs font-bold tracking-widest uppercase">
                                     {project.timeline}
                                 </span>
                             </div>
@@ -77,7 +77,7 @@ export default function ProjectDetailPage() {
                             initial={{ opacity: 0, scale: 0.95, x: 30 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] group"
+                            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-900 border border-white/20 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] group"
                         >
                             <Image
                                 src={project.src}
@@ -134,7 +134,7 @@ export default function ProjectDetailPage() {
             </div>
 
             {/* Next Project Teaser */}
-            <div className="border-t border-white/10 mt-24 relative z-10">
+            <div className="border-t border-white/20 mt-24 relative z-10">
                 <div className="container mx-auto px-6 py-24 text-center">
                     <p className="text-primary tracking-widest uppercase text-sm font-bold mb-6">Next Project</p>
                     <Link href="/projects" className="text-6xl md:text-8xl font-serif text-white hover:text-primary transition-colors inline-flex items-center gap-8 group">

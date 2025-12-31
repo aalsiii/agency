@@ -34,8 +34,8 @@ export default function AboutPage() {
                     </p>
                 </motion.div>
 
-                {/* Team Lead Section */}
-                <section className="mb-16 md:mb-24 border-t border-white/10 pt-8 px-6">
+                {/* Team Lead Section - Sandwich Layer 1 */}
+                <section className="mb-16 md:mb-24 pt-24 pb-24 -mx-6 md:-mx-12 px-6 md:px-12 bg-[var(--background-layer-1)] border-y border-white/20">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-5 max-w-screen-xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -89,8 +89,8 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Our Philosophy Section - Left Aligned, No Image */}
-                <section className="mb-16 md:mb-24 border-t border-white/10 pt-12">
+                {/* Our Philosophy Section - Base Background (Sandwich Middle) */}
+                <section className="mb-16 md:mb-24 pt-12">
                     <div className="max-w-3xl space-y-12">
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
@@ -113,8 +113,8 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Our Values Section - Central Spine Layout (Reference Match) */}
-                <section className="mb-24 md:mb-32 relative max-w-6xl mx-auto px-4 md:px-0">
+                {/* Our Values Section - Sandwich Layer 1 */}
+                <section className="mb-24 md:mb-32 relative py-24 -mx-6 md:-mx-12 px-6 md:px-12 bg-[var(--background-layer-1)] border-y border-white/20">
                     <div className="mb-16 text-center">
                         <h2 className="text-4xl md:text-6xl font-serif text-primary tracking-tight">Our Values</h2>
                     </div>

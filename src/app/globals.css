@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
 :root {
+  /* Premium Dynamic Dark Mode Palette */
   --background: #050505;
+  /* Deepest Black - Base */
+  --background-layer-1: #0A0A0A;
+  /* Slightly elevated (Footer/Sections) */
+  --background-layer-2: #141414;
+  /* Cards/Interactions */
+  --surface-highlight: #1A1A1A;
+  /* Hover states */
+
   --foreground: #FFFFFF;
+  --foreground-muted: #A1A1AA;
 
   /* Reference Palette */
   --primary: #C5A059;
-  /* Soft Gold */
   --primary-foreground: #000000;
 
-  --secondary: #121212;
+  --secondary: #141414;
   --secondary-foreground: #EDEDED;
 
   --muted: #A0A0A0;
+  --border-subtle: rgba(255, 255, 255, 0.08);
   --accent: #1F1F1F;
 
   --font-serif: var(--font-cinzel);

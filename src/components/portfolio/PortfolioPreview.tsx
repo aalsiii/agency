@@ -82,11 +82,11 @@ export default function PortfolioPreview() {
                         <div className="relative w-full max-w-4xl aspect-video">
 
                             {/* Decorative Back Cards */}
-                            <div className="absolute top-0 left-0 w-full h-full bg-white/5 rounded-[1.5rem] -rotate-2 scale-[0.98] translate-x-[-10px] translate-y-[-5px] z-0" />
-                            <div className="absolute top-0 left-0 w-full h-full bg-zinc-900 border border-white/5 rounded-[1.5rem] -rotate-1 scale-[0.99] translate-x-[-5px] translate-y-[-2px] z-10" />
+                            <div className="absolute top-0 left-0 w-full h-full bg-[var(--background-layer-1)] rounded-[1.5rem] -rotate-2 scale-[0.98] translate-x-[-10px] translate-y-[-5px] z-0" />
+                            <div className="absolute top-0 left-0 w-full h-full bg-[var(--background-layer-2)] border border-white/20 rounded-[1.5rem] -rotate-1 scale-[0.99] translate-x-[-5px] translate-y-[-2px] z-10" />
 
                             {/* Main Active Image */}
-                            <div className="absolute inset-0 z-20 overflow-hidden rounded-[1.5rem] shadow-2xl bg-zinc-900 border border-white/10">
+                            <div className="absolute inset-0 z-20 overflow-hidden rounded-[1.5rem] shadow-2xl bg-[var(--background-layer-2)] border border-white/20">
                                 <AnimatePresence initial={false} custom={direction} mode="wait">
                                     <motion.div
                                         key={currentIndex}
@@ -142,7 +142,7 @@ export default function PortfolioPreview() {
                                 </p>
 
                                 {/* Category Tag */}
-                                <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-bold tracking-widest uppercase text-white/80">
+                                <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/20 bg-[var(--background-layer-2)] backdrop-blur-sm text-xs font-bold tracking-widest uppercase text-white/80">
                                     {currentProject.category}
                                 </div>
                             </motion.div>

@@ -54,7 +54,7 @@ export default function ContactInfo() {
                 ))}
             </div>
 
-            <div className="pt-16 border-t border-white/5">
+            <div className="pt-16 border-t border-white/20">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
                     <div>
                         <span className="text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-8 block">
@@ -66,7 +66,7 @@ export default function ContactInfo() {
                                     key={index}
                                     href={social.href}
                                     whileHover={{ y: -5, backgroundColor: "rgba(197, 160, 89, 0.1)", borderColor: "#C5A059" }}
-                                    className="w-14 h-14 rounded-sm border border-white/5 flex items-center justify-center text-muted hover:text-primary transition-all duration-500 bg-white/[0.02] backdrop-blur-md"
+                                    className="w-14 h-14 rounded-sm border border-white/20 flex items-center justify-center text-muted hover:text-primary transition-all duration-500 bg-white/[0.02] backdrop-blur-md"
                                     title={social.name}
                                 >
                                     <social.icon size={20} />
@@ -77,7 +77,7 @@ export default function ContactInfo() {
                 </div>
             </div>
 
-            <div className="flex items-center gap-4 py-8 px-8 bg-white/[0.02] border border-white/5 rounded-sm backdrop-blur-md">
+            <div className="flex items-center gap-4 py-8 px-8 bg-white/[0.02] border border-white/20 rounded-sm backdrop-blur-md">
                 <div className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>

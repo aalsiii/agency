@@ -9,7 +9,7 @@ export default function Footer() {
     const isServicesOrAboutPage = pathname === "/services" || pathname === "/about";
 
     return (
-        <footer className={`bg-background pb-12 relative z-50 ${isServicesOrAboutPage ? 'pt-0 border-none' : 'pt-32 border-t border-white/5'}`}>
+        <footer className={`bg-[var(--background-layer-1)] pb-12 relative z-50 ${isServicesOrAboutPage ? 'pt-0 border-none' : 'pt-32 border-t border-[var(--border-subtle)]'}`}>
             <div className="container mx-auto px-6">
                 {!isServicesOrAboutPage && (
                     <div className="mb-24 text-center">
@@ -24,7 +24,7 @@ export default function Footer() {
                     </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 border-t border-white/10 pt-12 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 border-t border-[var(--border-subtle)] pt-12 text-center">
                     <div>
                         <h4 className="text-white font-serif text-lg mb-4">Visit Us</h4>
                         <p className="text-muted text-sm leading-relaxed">
@@ -58,7 +58,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center gap-8 text-muted text-xs tracking-widest uppercase pt-12 border-t border-white/5 text-center">
+                <div className="flex flex-col items-center justify-center gap-8 text-muted text-xs tracking-widest uppercase pt-12 border-t border-[var(--border-subtle)] text-center">
                     <div className="flex items-center gap-2">
                         <Image
                             src="/logo.png"

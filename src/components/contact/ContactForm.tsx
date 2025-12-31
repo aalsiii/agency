@@ -50,8 +50,8 @@ export default function ContactForm() {
     };
 
     const containerClasses = (name: string) => `
-        relative p-8 bg-zinc-900/40 border border-white/5 transition-all duration-700 rounded-sm overflow-hidden
-        ${focused === name ? "border-primary/40 bg-zinc-900/60 ring-1 ring-primary/20 shadow-[0_0_40px_rgba(197,160,89,0.05)]" : "hover:border-white/10"}
+        relative p-8 bg-zinc-900/40 border border-white/20 transition-all duration-700 rounded-sm overflow-hidden
+        ${focused === name ? "border-primary/40 bg-zinc-900/60 ring-1 ring-primary/20 shadow-[0_0_40px_rgba(197,160,89,0.05)]" : "hover:border-white/20"}
     `;
 
     const labelClasses = (name: string) => `
