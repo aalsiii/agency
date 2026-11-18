@@ -18,33 +18,50 @@ import {
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
-  const [
-    totalLeads,
-    newLeadsCount,
-    totalAudits,
-    pendingAuditsCount,
-    totalServices,
-    totalCaseStudies,
-    totalTestimonials,
-    totalCareers,
-    totalApplications,
-    totalSubscribers,
-    recentLeads,
-    recentAudits,
-  ] = await Promise.all([
-    prisma.lead.count(),
-    prisma.lead.count({ where: { status: "NEW" } }),
-    prisma.auditRequest.count(),
-    prisma.auditRequest.count({ where: { status: "PENDING" } }),
-    prisma.service.count({ where: { isActive: true } }),
-    prisma.caseStudy.count(),
-    prisma.testimonial.count(),
-    prisma.career.count({ where: { isActive: true } }),
-    prisma.application.count(),
-    prisma.newsletterSubscriber.count(),
-    prisma.lead.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
-    prisma.auditRequest.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
-  ]);
+  let totalLeads = 0;
+  let newLeadsCount = 0;
+  let totalAudits = 0;
+  let pendingAuditsCount = 0;
+  let totalServices = 0;
+  let totalCaseStudies = 0;
+  let totalTestimonials = 0;
+  let totalCareers = 0;
+  let totalApplications = 0;
+  let totalSubscribers = 0;
+  let recentLeads: any[] = [];
+  let recentAudits: any[] = [];
+
+  try {
+    [
+      totalLeads,
+      newLeadsCount,
+      totalAudits,
+      pendingAuditsCount,
+      totalServices,
+      totalCaseStudies,
+      totalTestimonials,
+      totalCareers,
+      totalApplications,
+      totalSubscribers,
+      recentLeads,
+      recentAudits,
+    ] = await Promise.all([
+      prisma.lead.count(),
+      prisma.lead.count({ where: { status: "NEW" } }),
+      prisma.auditRequest.count(),
+      prisma.auditRequest.count({ where: { status: "PENDING" } }),
+      prisma.service.count({ where: { isActive: true } }),
+      prisma.caseStudy.count(),
+      prisma.testimonial.count(),
+      prisma.career.count({ where: { isActive: true } }),
+      prisma.application.count(),
+      prisma.newsletterSubscriber.count(),
+      prisma.lead.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
+      prisma.auditRequest.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
+    ]);
+  } catch (error) {
+    console.error("Database connection fallback on AdminDashboardPage:", error);
+  }
 
   return (
     <div className="p-6 md:p-8 space-y-8">

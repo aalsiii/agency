@@ -11,8 +11,16 @@ interface Props {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({ where: { slug } });
-  if (!post) return { title: "Article Not Found | NextCurrent Media" };
+  let post: any = null;
+  try {
+    post = await prisma.blogPost.findUnique({ where: { slug } });
+  } catch (e) {
+    console.error("Metadata fetch fallback for article:", slug);
+  }
+
+  if (!post) {
+    return { title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | NextCurrent Insights` };
+  }
 
   return {
     title: `${post.title} | NextCurrent Insights`,
@@ -27,9 +35,15 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function InsightArticlePage({ params }: Props) {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post: any = null;
+
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("Database connection fallback on InsightArticlePage:", error);
+  }
 
   if (!post) {
     return notFound();
@@ -41,14 +55,19 @@ export default async function InsightArticlePage({ params }: Props) {
   } catch {}
 
   // Related articles
-  const related = await prisma.blogPost.findMany({
-    where: {
-      slug: { not: slug },
-      isPublished: true,
-    },
-    take: 2,
-    orderBy: { publishedAt: "desc" },
-  });
+  let related: any[] = [];
+  try {
+    related = await prisma.blogPost.findMany({
+      where: {
+        slug: { not: slug },
+        isPublished: true,
+      },
+      take: 2,
+      orderBy: { publishedAt: "desc" },
+    });
+  } catch (e) {
+    console.error("Error fetching related articles:", e);
+  }
 
   return (
     <article className="min-h-screen bg-background text-foreground pt-36 pb-24 relative overflow-hidden">
@@ -104,7 +123,7 @@ export default async function InsightArticlePage({ params }: Props) {
 
         {/* Article Body */}
         <div className="prose prose-invert prose-lg max-w-none space-y-6 font-light leading-relaxed text-muted/90">
-          {post.content.split("\n\n").map((block, i) => {
+          {(post.content as string).split("\n\n").map((block: string, i: number) => {
             if (block.startsWith("### ")) {
               return (
                 <h3 key={i} className="text-2xl md:text-3xl font-serif text-white pt-6 mb-3">

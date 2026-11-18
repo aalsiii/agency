@@ -21,8 +21,16 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const service = await prisma.service.findUnique({ where: { slug } });
-  if (!service) return { title: "Service Not Found | NextCurrent Media" };
+  let service: any = null;
+  try {
+    service = await prisma.service.findUnique({ where: { slug } });
+  } catch (error) {
+    console.error("Metadata fetch fallback for service:", slug);
+  }
+
+  if (!service) {
+    return { title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | NextCurrent Media` };
+  }
 
   return {
     title: `${service.title} | NextCurrent Media`,
@@ -36,9 +44,15 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function IndividualServicePage({ params }: PageProps) {
   const { slug } = await params;
-  const service = await prisma.service.findUnique({
-    where: { slug },
-  });
+  let service: any = null;
+
+  try {
+    service = await prisma.service.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("Database connection fallback on ServiceDetail:", error);
+  }
 
   if (!service) {
     return notFound();
@@ -62,15 +76,20 @@ export default async function IndividualServicePage({ params }: PageProps) {
   } catch {}
 
   // Fetch relevant case studies matching category
-  const relevantProjects = await prisma.caseStudy.findMany({
-    where: {
-      OR: [
-        { category: service.category },
-        { isFeatured: true },
-      ],
-    },
-    take: 2,
-  });
+  let relevantProjects: any[] = [];
+  try {
+    relevantProjects = await prisma.caseStudy.findMany({
+      where: {
+        OR: [
+          { category: service.category },
+          { isFeatured: true },
+        ],
+      },
+      take: 2,
+    });
+  } catch (e) {
+    console.error("Error fetching relevant projects:", e);
+  }
 
   return (
     <article className="min-h-screen bg-background text-foreground pt-36 pb-24 relative overflow-hidden">

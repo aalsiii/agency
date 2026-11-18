@@ -12,8 +12,16 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const cs = await prisma.caseStudy.findUnique({ where: { slug } });
-  if (!cs) return { title: "Case Study Not Found | NextCurrent Media" };
+  let cs: any = null;
+  try {
+    cs = await prisma.caseStudy.findUnique({ where: { slug } });
+  } catch (e) {
+    console.error("Metadata fetch fallback for case study:", slug);
+  }
+
+  if (!cs) {
+    return { title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | NextCurrent Media` };
+  }
 
   return {
     title: `${cs.title} | NextCurrent Media`,
@@ -27,9 +35,15 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function CaseStudyDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = await prisma.caseStudy.findUnique({
-    where: { slug },
-  });
+  let project: any = null;
+
+  try {
+    project = await prisma.caseStudy.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("Database connection fallback on CaseStudyDetail:", error);
+  }
 
   if (!project) {
     return notFound();
@@ -52,13 +66,18 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   } catch {}
 
   // Fetch related case studies
-  const relatedProjects = await prisma.caseStudy.findMany({
-    where: {
-      slug: { not: slug },
-    },
-    take: 2,
-    orderBy: { order: "asc" },
-  });
+  let relatedProjects: any[] = [];
+  try {
+    relatedProjects = await prisma.caseStudy.findMany({
+      where: {
+        slug: { not: slug },
+      },
+      take: 2,
+      orderBy: { order: "asc" },
+    });
+  } catch (e) {
+    console.error("Error fetching related projects:", e);
+  }
 
   return (
     <article className="min-h-screen bg-background text-foreground pt-36 pb-24 relative overflow-hidden">
