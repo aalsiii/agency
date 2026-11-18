@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google"; // Adjust if different in actual file
+import { Cinzel, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
-
-import { Cinzel, Manrope } from "next/font/google";
+import { CurrencyProvider } from "@/lib/currency-context";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -17,15 +16,17 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "AALSIII | Elevate Your Brand",
-  description: "Premium digital agency for website design, development, and marketing.",
+  title: "NextCurrent Media | Performance Acquisition & Web Engineering",
+  description: "High-performance client acquisition funnels, Next.js web applications, and search visibility for ambitious brands.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-  },
-  openGraph: {
-    images: ["/logo.png"],
+    icon: "/icon.png",
   },
 };
 
@@ -38,12 +39,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${cinzel.variable} ${manrope.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-black`}
+        className={`${cinzel.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-black`}
       >
-        <CustomCursor />
-        <Navbar />
-        {children}
-        <Footer />
+        <CurrencyProvider>
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
+        </CurrencyProvider>
       </body>
     </html>
   );

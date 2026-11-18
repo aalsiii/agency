@@ -14,7 +14,7 @@
   --foreground: #FFFFFF;
   --foreground-muted: #A1A1AA;
 
-  /* Reference Palette */
+  /* Reference Palette - Luxury Warm Gold */
   --primary: #C5A059;
   --primary-foreground: #000000;
 
@@ -27,6 +27,7 @@
 
   --font-serif: var(--font-cinzel);
   --font-sans: var(--font-manrope);
+  --font-mono: var(--font-mono);
 }
 
 @theme inline {
@@ -41,12 +42,19 @@
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 html {
   scroll-behavior: smooth;
   cursor: none;
-  /* Hide default cursor for custom cursor */
+  /* Hide default cursor for custom cursor on public site */
+}
+
+/* Allow normal cursor inside admin dashboard or for touch devices */
+body.admin-mode,
+.admin-mode html {
+  cursor: auto !important;
 }
 
 body.hovering #cursor-outline {
@@ -70,6 +78,17 @@ h4,
 h5,
 h6 {
   font-family: var(--font-serif), serif;
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote {
+  text-wrap: pretty;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
 }
 
 /* Custom Scrollbar */

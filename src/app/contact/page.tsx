@@ -1,52 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Suspense } from "react";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 
 export default function ContactPage() {
-    return (
-        <main className="relative min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background overflow-hidden">
-            {/* Background Aesthetics */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/30 via-background to-background pointer-events-none" />
+  return (
+    <main className="min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background text-foreground relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
-            {/* Background Stroke Text */}
-            <div className="absolute top-1/4 -right-20 pointer-events-none select-none overflow-hidden">
-                <span className="text-[15rem] md:text-[25rem] font-serif font-black text-stroke uppercase leading-none opacity-20">
-                    Contact
-                </span>
-            </div>
+      <div className="max-w-7xl mx-auto relative z-10 space-y-12">
+        {/* Header */}
+        <div className="space-y-4 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-serif text-white tracking-tight">
+            Initiate Project Inquiry
+          </h1>
+          <div className="font-mono text-xs text-primary/80">
+            // direct strategist response within 24 hours · month-to-month retainers
+          </div>
+          <p className="text-muted text-base md:text-lg font-light leading-relaxed pt-2">
+            Whether you want to scale Meta and Google ad spend profitably, engineer a custom Next.js web application, or dominate local search in your city, our lead strategists are ready to review your goals.
+          </p>
+        </div>
 
-            <div className="container mx-auto relative z-10">
-                {/* Header */}
-                <header className="mb-16 md:mb-24 relative">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h1 className="text-5xl md:text-7xl font-serif text-primary mb-6">
-                            Contact Us
-                        </h1>
-                        <p className="text-xl text-muted max-w-2xl">
-                            Whether you have a question about our services, a project idea, or just want to say hello, we&apos;d love to hear from you.
-                        </p>
-                    </motion.div>
-                </header>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Form */}
+          <div className="lg:col-span-7">
+            <Suspense fallback={<div className="p-8 text-center font-mono text-xs text-muted">loading inquiry form...</div>}>
+              <ContactForm />
+            </Suspense>
+          </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                    {/* Left Column: Form */}
-                    <div className="order-2 lg:order-1 relative">
-                        <div className="absolute -inset-12 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-                        <ContactForm />
-                    </div>
-
-                    {/* Right Column: Info */}
-                    <div className="order-1 lg:order-2">
-                        <ContactInfo />
-                    </div>
-                </div>
-            </div>
-        </main>
-    );
+          {/* Contact Details */}
+          <div className="lg:col-span-5">
+            <ContactInfo />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }

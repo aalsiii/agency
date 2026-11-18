@@ -1,0 +1,211 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN") // ADMIN, EDITOR
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Lead {
+  id                String         @id @default(cuid())
+  name              String
+  email             String
+  phone             String?
+  country           String?
+  company           String?
+  website           String?
+  serviceInterested String?
+  servicesRequested String?        // JSON array of selected services (for multi-step)
+  projectObjectives String?
+  timeline          String?
+  budget            String?
+  currency          String         @default("INR") // INR, USD
+  message           String
+  status            String         @default("NEW") // NEW, CONTACTED, QUALIFIED, PROPOSAL_SENT, WON, LOST, ARCHIVED
+  priority          String         @default("MEDIUM") // LOW, MEDIUM, HIGH
+  notes             String?
+  source            String         @default("website")
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  activities        LeadActivity[]
+}
+
+model LeadActivity {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  action    String   // "STATUS_CHANGE", "NOTE_ADDED", "EMAIL_SENT", "FOLLOW_UP_SCHEDULED"
+  details   String
+  createdBy String?  // admin email or user
+  createdAt DateTime @default(now())
+}
+
+model AuditRequest {
+  id              String   @id @default(cuid())
+  businessName    String
+  websiteUrl      String
+  instagramHandle String?
+  industry        String
+  primaryGoal     String   // e.g. "Generate Leads", "Scale ROAS", "Rank #1 on Google", "Redesign Website"
+  monthlySpend    String?  // "< ₹50k", "₹50k - ₹2L", "₹2L - ₹5L", "₹5L+"
+  name            String
+  email           String
+  phone           String
+  auditScore      Int      @default(74)
+  status          String   @default("PENDING") // PENDING, IN_REVIEW, REPORT_SENT, CLOSED
+  reportNotes     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Service {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  tagline      String
+  shortDesc    String
+  fullDesc     String
+  category     String   // "Growth & Marketing", "Digital Experiences", "Creative & Branding", "Strategy & Consulting"
+  icon         String   // Lucide icon name: "TrendingUp", "Globe", "Search", "Share2", "Target", "Zap"
+  priceInr     Int      @default(14999)
+  priceUsd     Int      @default(599)
+  billingType  String   @default("monthly") // "monthly", "one-time", "custom"
+  features     String   // JSON string array of features
+  deliverables String?  // JSON string array of detailed deliverables
+  problems     String?  // JSON string array of problems addressed
+  methodology  String?  // JSON string array of process steps
+  benefits     String?  // JSON string array of benefits
+  faqs         String?  // JSON string array of { question: string, answer: string }
+  idealFor     String?  // e.g. "Brands spending >$1k/mo looking to scale"
+  badge        String?  // "Most Popular", "High ROI", "Quick Delivery"
+  isActive     Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model CaseStudy {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  title             String
+  clientName        String
+  industry          String
+  category          String   // "Performance Marketing", "Digital Experiences", "Creative & Branding", "Strategy & Consulting"
+  heroMetricNumber  String   // "+340%"
+  heroMetricLabel   String   // "ROAS on Meta Ads"
+  challenge         String
+  strategy          String?  // Strategic approach description
+  execution         String?  // Execution details
+  solution          String
+  resultsSummary    String
+  metrics           String   // JSON array of { label: string, value: string }
+  deliverables      String   // JSON array of strings
+  technologies      String?  // JSON array of tech strings e.g. ["Next.js", "Tailwind", "Prisma"]
+  websiteUrl        String?  // Live client website link
+  coverImage        String?
+  galleryImages     String?  // JSON array of image URLs
+  clientLogo        String?
+  testimonialQuote  String?
+  testimonialAuthor String?
+  testimonialRole   String?
+  isFeatured        Boolean  @default(false)
+  order             Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  clientName String
+  clientRole String
+  company    String
+  avatarUrl  String?
+  quote      String
+  rating     Int      @default(5)
+  isFeatured Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Career {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  title        String
+  department   String        // "Engineering", "Marketing", "Design", "Strategy"
+  location     String        @default("Remote / Hybrid")
+  type         String        @default("Full-Time") // "Full-Time", "Contract", "Internship"
+  experience   String        // "2+ years"
+  description  String
+  requirements String        // JSON array of strings
+  benefits     String        // JSON array of strings
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  applications Application[]
+}
+
+model Application {
+  id           String   @id @default(cuid())
+  careerId     String
+  career       Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  name         String
+  email        String
+  phone        String
+  resumeUrl    String?
+  portfolioUrl String?
+  notes        String?
+  status       String   @default("PENDING") // "PENDING", "REVIEWED", "INTERVIEW", "REJECTED", "HIRED"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String   @default("footer")
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String
+  coverImage  String?
+  authorName  String   @default("NextCurrent Team")
+  category    String   // "Growth", "Web", "Funnels", "SEO"
+  tags        String   // JSON array of tags
+  readTime    String   @default("4 min read")
+  isPublished Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+model ToolLog {
+  id        String   @id @default(cuid())
+  toolName  String   // "caption-generator", "reel-hooks", "ad-copy", "site-audit"
+  input     String
+  output    String?
+  createdAt DateTime @default(now())
+}
