@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,11 +11,12 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  MousePointerClick,
   Play,
 } from "lucide-react";
 
 export default function BrandExecutionPillars() {
+  const [activeWebIndex, setActiveWebIndex] = useState(0);
+
   const socialFeeds = [
     {
       img: "/images/social/nadayoga-feed.jpg",
@@ -32,6 +33,39 @@ export default function BrandExecutionPillars() {
     {
       img: "/images/social/syara-rae-feed.jpg",
       offset: "md:translate-y-4",
+    },
+  ];
+
+  const websiteShowcase = [
+    {
+      id: "nitasha",
+      title: "Dr. Nitasha Buldeo Clinic",
+      domain: "nitashabuldeo.com",
+      img: "/images/websites/nitasha-buldeo.jpg",
+    },
+    {
+      id: "yogamani",
+      title: "Yogamani Rishikesh",
+      domain: "yogamani.org",
+      img: "/images/websites/yogamani.jpg",
+    },
+    {
+      id: "echoes",
+      title: "Echoes of Silence Shop",
+      domain: "echoesofsilence.in",
+      img: "/images/websites/echoes-shop.jpg",
+    },
+    {
+      id: "rudraksha",
+      title: "Rudraksha Antiquei",
+      domain: "rudrakshaantiquei.com",
+      img: "/images/websites/rudraksha-store.jpg",
+    },
+    {
+      id: "admin",
+      title: "Custom Admin CMS",
+      domain: "admin.nextcurrent.studio",
+      img: "/images/websites/admin-gallery.jpg",
     },
   ];
 
@@ -138,146 +172,107 @@ export default function BrandExecutionPillars() {
         </div>
 
         {/* =========================================================================
-            PILLAR 2: WEBSITE DEVELOPMENT & ENGINEERING (Split Mac Browser + Speed)
+            PILLAR 2: WEBSITE DEVELOPMENT & ENGINEERING (Visual Browser Showcase)
            ========================================================================= */}
-        <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Visual Column on Left for Alternating Flow */}
-            <div className="lg:col-span-6 order-2 lg:order-1 space-y-4">
-              {/* Browser Preview Window Frame */}
-              <div className="rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                {/* Browser Toolbar Header */}
-                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-neutral-300 flex items-center gap-2">
-                    <Globe size={11} className="text-primary" />
-                    <span>yourbrand.com</span>
-                    <span className="text-emerald-400 font-semibold">SSL 256-bit</span>
-                  </div>
-                  <div className="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">
-                    0.38s
-                  </div>
-                </div>
+        <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl space-y-10">
+          {/* Header & Value Proposition */}
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
+              <Globe size={13} />
+              <span>02 · High-Performance Website Engineering</span>
+            </div>
 
-                {/* Inner Website Visual Preview */}
-                <div className="relative aspect-[16/10] bg-neutral-950 overflow-hidden">
-                  <Image
-                    src="/images/portfolio/luisa-fotografia.png"
-                    alt="Engineered Website Interface"
-                    fill
-                    className="object-cover object-top"
-                  />
-                  {/* Floating Live Conversion Overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/80 border border-white/15 backdrop-blur-md flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                        <MousePointerClick size={14} />
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-medium text-white">
-                          Direct 1-Click WhatsApp & Calendar
-                        </div>
-                        <div className="text-[10px] text-neutral-400 font-light">
-                          Zero friction inquiry flow converts 4x higher
-                        </div>
-                      </div>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-full bg-primary text-black font-mono text-[10px] font-semibold">
-                      Live
-                    </span>
-                  </div>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-normal text-white tracking-tight leading-snug">
+              Websites That Look Stunning & Perform Flawlessly
+            </h3>
+
+            <p className="text-neutral-300 text-sm md:text-base font-light leading-relaxed">
+              From bespoke clinic platforms and retreat portals to luxury e-commerce stores and custom content dashboards—engineered for instant speed and visual brilliance.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              {[
+                "Custom Next.js Platforms",
+                "Luxury E-Commerce",
+                "Interactive Retreat Sites",
+                "Custom Admin CMS Dashboards",
+                "Sub-Second Load Times",
+              ].map((pill, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-neutral-300"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Featured macOS Browser Showcase */}
+          <div className="space-y-5">
+            {/* Main Interactive Browser Plate */}
+            <div className="rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
+              {/* Browser Toolbar Header */}
+              <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                </div>
+                <div className="px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-neutral-300 flex items-center gap-2">
+                  <Globe size={11} className="text-primary" />
+                  <span>{websiteShowcase[activeWebIndex].domain}</span>
+                  <span className="text-emerald-400 font-semibold">SSL 256-bit</span>
+                </div>
+                <div className="text-[10px] font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
+                  Live Preview
                 </div>
               </div>
 
-              {/* Lighthouse 100/100 Benchmark Matrix */}
-              <div className="grid grid-cols-4 gap-2.5">
-                {[
-                  { label: "Performance", score: "100", color: "text-emerald-400", border: "border-emerald-500/30" },
-                  { label: "Accessibility", score: "100", color: "text-emerald-400", border: "border-emerald-500/30" },
-                  { label: "Best Practices", score: "100", color: "text-emerald-400", border: "border-emerald-500/30" },
-                  { label: "Google SEO", score: "100", color: "text-emerald-400", border: "border-emerald-500/30" },
-                ].map((lh, i) => (
-                  <div
-                    key={i}
-                    className={`p-2.5 rounded-xl bg-black/40 border ${lh.border} text-center space-y-0.5`}
-                  >
-                    <div className={`text-base font-mono font-bold ${lh.color}`}>
-                      {lh.score}
-                    </div>
-                    <div className="text-[10px] text-neutral-400 font-light truncate">
-                      {lh.label}
-                    </div>
-                  </div>
-                ))}
+              {/* Inner Website Visual Preview */}
+              <div className="relative aspect-[16/9] w-full bg-neutral-950 overflow-hidden">
+                <Image
+                  src={websiteShowcase[activeWebIndex].img}
+                  alt={websiteShowcase[activeWebIndex].title}
+                  fill
+                  className="object-cover object-top transition-all duration-500"
+                  priority
+                />
               </div>
             </div>
 
-            {/* Right Content Column */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
-                <Globe size={13} />
-                <span>02 · High-Performance Website Engineering</span>
-              </div>
-
-              <h3 className="text-3xl md:text-4xl font-sans font-normal text-white tracking-tight leading-snug">
-                Websites That Look Stunning & Convert Like Crazy
-              </h3>
-
-              <p className="text-neutral-300 text-sm md:text-base font-light leading-relaxed">
-                Your website is your 24/7 digital closer. Slow, clunky templates make visitors leave in 3 seconds. We build custom Next.js platforms optimized for instant loading, intuitive navigation, and effortless client bookings.
-              </p>
-
-              <div className="space-y-3.5 pt-2">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
-                  <div className="space-y-0.5">
-                    <h4 className="text-sm font-sans font-medium text-white">
-                      Sub-Second Loading Speeds (0.4s FCP)
-                    </h4>
-                    <p className="text-xs text-neutral-400 font-light">
-                      Engineered with Next.js 16 SSR & global edge caching so your pages load instantly without annoying lag.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
-                  <div className="space-y-0.5">
-                    <h4 className="text-sm font-sans font-medium text-white">
-                      Frictionless Booking & Direct WhatsApp Integration
-                    </h4>
-                    <p className="text-xs text-neutral-400 font-light">
-                      Qualified prospects can reserve appointments directly into your Google Calendar or initiate live WhatsApp chats in 1 tap.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
-                  <div className="space-y-0.5">
-                    <h4 className="text-sm font-sans font-medium text-white">
-                      Google Rank & Structured SEO Architecture
-                    </h4>
-                    <p className="text-xs text-neutral-400 font-light">
-                      Schema markup, semantic HTML, and localized metadata that helps your brand rank on the first page of search results.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2 flex items-center gap-4">
-                <Link
-                  href="/services/web-development"
-                  className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
-                >
-                  <span>Explore Web Development Capabilities</span>
-                  <ArrowRight size={13} />
-                </Link>
-              </div>
+            {/* 5-Website Thumbnail Selector Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2">
+              {websiteShowcase.map((site, idx) => {
+                const isActive = activeWebIndex === idx;
+                return (
+                  <button
+                    key={site.id}
+                    type="button"
+                    onClick={() => setActiveWebIndex(idx)}
+                    className={`rounded-xl overflow-hidden border p-1.5 text-left transition-all ${
+                      isActive
+                        ? "border-primary bg-primary/10 shadow-[0_0_20px_rgba(197,160,89,0.25)] scale-[1.02]"
+                        : "border-white/10 bg-white/[0.02] hover:border-white/30 hover:bg-white/[0.04]"
+                    }`}
+                  >
+                    <div className="aspect-[16/10] relative rounded-lg overflow-hidden bg-neutral-900 border border-white/5 mb-1.5">
+                      <Image
+                        src={site.img}
+                        alt={site.title}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-[11px] font-sans font-medium text-white truncate px-1">
+                      {site.title}
+                    </div>
+                    <div className="text-[9px] font-mono text-neutral-400 truncate px-1">
+                      {site.domain}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
