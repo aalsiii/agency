@@ -10,24 +10,85 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
-  Heart,
-  MessageCircle,
-  Bookmark,
-  Share2,
-  Play,
-  Zap,
-  BarChart3,
-  Calendar,
   Sparkles,
-  ArrowUpRight,
   ShieldCheck,
   MousePointerClick,
-  Send,
-  Eye,
+  Play,
+  Instagram,
+  ChevronRight,
 } from "lucide-react";
 
+interface SocialAccountData {
+  id: string;
+  handle: string;
+  name: string;
+  tag: string;
+  followers: string;
+  posts: string;
+  following: string;
+  bioSnippet: string;
+  image: string;
+  metricHighlight: string;
+  subtext: string;
+}
+
+const socialAccounts: SocialAccountData[] = [
+  {
+    id: "nadayoga",
+    handle: "@nadayogaschool",
+    name: "Nada Yoga School",
+    tag: "Yoga & Sound Healing Academy",
+    followers: "7,219",
+    posts: "312",
+    following: "134",
+    bioSnippet: "Yoga Teacher Training & Sound Healing in Rishikesh",
+    image: "/images/social/nadayoga-feed.jpg",
+    metricHighlight: "7,219 Followers · 312 Posts Published",
+    subtext: "Complete social & admissions management",
+  },
+  {
+    id: "nadayoga-espanol",
+    handle: "@nadayogaschoolespanol",
+    name: "Escuela Nada Yoga",
+    tag: "Spanish International Academy",
+    followers: "13.6K",
+    posts: "93",
+    following: "8",
+    bioSnippet: "Programas presenciales en Español · 18 años enseñando",
+    image: "/images/social/nadayoga-espanol-feed.jpg",
+    metricHighlight: "13,600+ Followers · High Global Reach",
+    subtext: "Spanish cohort admissions & viral reach",
+  },
+  {
+    id: "valalino",
+    handle: "@valalinocoach",
+    name: "Dr. Val Alino",
+    tag: "Keynote Speaker & Author",
+    followers: "5,421",
+    posts: "3,478",
+    following: "3,691",
+    bioSnippet: "Int. Keynote Speaker · Bestselling Author · NLP",
+    image: "/images/social/valalino-feed.jpg",
+    metricHighlight: "5,421 Followers · VIP Inbound Inquiries",
+    subtext: "Keynote bookings & executive clients",
+  },
+  {
+    id: "syara-rae",
+    handle: "@syara_rae",
+    name: "Syara Rae",
+    tag: "Ex BBC Broadcaster & Author",
+    followers: "4,840",
+    posts: "28",
+    following: "1,655",
+    bioSnippet: "Multidimensional Author · The Burnout Portal",
+    image: "/images/social/syara-rae-feed.jpg",
+    metricHighlight: "4,840 Followers · Authority Launch",
+    subtext: "Book launch campaign & community trust",
+  },
+];
+
 export default function BrandExecutionPillars() {
-  const [activeTab, setActiveTab] = useState<"social" | "web" | "ads" | "email">("social");
+  const [selectedSocial, setSelectedSocial] = useState<SocialAccountData>(socialAccounts[0]);
 
   return (
     <section className="py-24 md:py-32 bg-background border-t border-white/10 relative overflow-hidden">
@@ -60,7 +121,7 @@ export default function BrandExecutionPillars() {
         </div>
 
         {/* =========================================================================
-            PILLAR 1: SOCIAL MEDIA MANAGEMENT (Realistic Instagram Feed & Mobile View)
+            PILLAR 1: SOCIAL MEDIA MANAGEMENT (Featuring Real Managed Client Feeds)
            ========================================================================= */}
         <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -79,6 +140,51 @@ export default function BrandExecutionPillars() {
                 Most brands post randomly and wonder why nobody buys. We design cohesive, magazine-quality visual feeds, viral short-form Reels, and storytelling carousels that captivate your dream clients and turn passive scrollers into committed buyers.
               </p>
 
+              {/* Real Client Account Switcher Buttons */}
+              <div className="space-y-2 pt-1">
+                <div className="text-xs font-mono text-neutral-400 flex items-center gap-1.5">
+                  <Instagram size={13} className="text-primary" />
+                  <span>Real Client Feeds We Curate & Manage Daily:</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {socialAccounts.map((account) => {
+                    const isSelected = selectedSocial.id === account.id;
+                    return (
+                      <button
+                        key={account.id}
+                        type="button"
+                        onClick={() => setSelectedSocial(account)}
+                        className={`text-left p-3 rounded-xl border transition-all flex items-center justify-between gap-2 ${
+                          isSelected
+                            ? "bg-primary/15 border-primary text-white shadow-[0_0_20px_rgba(197,160,89,0.2)]"
+                            : "bg-white/[0.02] border-white/10 text-neutral-400 hover:text-white hover:border-white/20"
+                        }`}
+                      >
+                        <div className="space-y-0.5 truncate">
+                          <div className="text-xs font-mono font-medium text-white flex items-center gap-1.5">
+                            <span>{account.handle}</span>
+                            {isSelected && <ShieldCheck size={11} className="text-primary" />}
+                          </div>
+                          <div className="text-[10px] text-neutral-400 truncate">
+                            {account.tag}
+                          </div>
+                        </div>
+                        <span
+                          className={`text-[10px] font-mono px-2 py-0.5 rounded shrink-0 ${
+                            isSelected
+                              ? "bg-primary text-black font-semibold"
+                              : "bg-white/5 text-primary/80"
+                          }`}
+                        >
+                          {account.followers}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Core Deliverable Bullets */}
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
                   <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
@@ -87,7 +193,7 @@ export default function BrandExecutionPillars() {
                       Curated Aesthetic Feed & Editorial Design
                     </h4>
                     <p className="text-xs text-neutral-400 font-light">
-                      Consistent visual identity, high-fashion layouts, and bespoke photography curation that commands premium pricing.
+                      Consistent visual identity, custom typography graphics, and bespoke photography curation that commands premium pricing.
                     </p>
                   </div>
                 </div>
@@ -99,7 +205,7 @@ export default function BrandExecutionPillars() {
                       Viral Reels & Storytelling Carousels
                     </h4>
                     <p className="text-xs text-neutral-400 font-light">
-                      Scripted hooks, dynamic video editing, and educational carousels engineered for maximum shares and algorithmic reach.
+                      Scripted hooks, dynamic video editing, and educational carousels engineered for maximum shares and organic algorithmic reach.
                     </p>
                   </div>
                 </div>
@@ -128,156 +234,60 @@ export default function BrandExecutionPillars() {
               </div>
             </div>
 
-            {/* Right Visual Column: Realistic Mobile Phone Mockup with Instagram Feed Grid */}
-            <div className="lg:col-span-6 flex justify-center relative">
+            {/* Right Visual Column: Realistic Mobile Phone Mockup Displaying Real Client Feed */}
+            <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
               {/* Floating Top Metric Pill */}
               <div className="absolute -top-4 -right-2 md:right-4 z-20 px-3.5 py-2 rounded-2xl bg-[#14141a]/95 border border-primary/30 shadow-[0_15px_30px_rgba(0,0,0,0.8)] backdrop-blur-md flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <div>
                   <div className="text-[11px] font-mono text-white font-medium">
-                    +142 Inbound Inquiries
+                    {selectedSocial.metricHighlight}
                   </div>
                   <div className="text-[10px] text-neutral-400 font-light">
-                    Organic DM & Calendar bookings
+                    {selectedSocial.subtext}
                   </div>
                 </div>
               </div>
 
               {/* Floating Bottom Metric Pill */}
               <div className="absolute -bottom-4 -left-2 md:left-4 z-20 px-3.5 py-2 rounded-2xl bg-[#14141a]/95 border border-white/15 shadow-[0_15px_30px_rgba(0,0,0,0.8)] backdrop-blur-md flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                   <Sparkles size={13} />
                 </div>
                 <div>
                   <div className="text-[11px] font-mono text-primary font-medium">
-                    8.4% Engagement Rate
+                    {selectedSocial.handle} · Verified
                   </div>
                   <div className="text-[10px] text-neutral-400 font-light">
-                    3.2x above industry average
+                    {selectedSocial.tag}
                   </div>
                 </div>
               </div>
 
               {/* iPhone Hardware Frame */}
-              <div className="w-[310px] sm:w-[340px] rounded-[44px] bg-[#0c0c11] border-[5px] border-neutral-700/80 p-3.5 shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative">
+              <div className="w-[300px] sm:w-[330px] rounded-[48px] bg-[#0c0c11] border-[6px] border-neutral-700/80 p-2.5 shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative">
                 {/* Dynamic Island Speaker Notch */}
-                <div className="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-24 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-center">
                   <div className="w-2.5 h-2.5 rounded-full bg-neutral-900 mr-2" />
                   <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
                 </div>
 
-                {/* Social App Header */}
-                <div className="space-y-3 pb-3 border-b border-white/10">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-mono font-semibold text-white">
-                        nextcurrent.studio
-                      </span>
-                      <ShieldCheck size={13} className="text-primary fill-primary/20" />
-                    </div>
-                    <div className="flex items-center gap-2 text-neutral-400">
-                      <Send size={13} />
-                      <Bookmark size={13} />
-                    </div>
+                {/* Inner Screen displaying the actual Instagram Screenshot */}
+                <div className="rounded-[38px] overflow-hidden bg-black relative max-h-[580px] overflow-y-auto scrollbar-none border border-white/10">
+                  <Image
+                    src={selectedSocial.image}
+                    alt={`${selectedSocial.name} Instagram Feed`}
+                    width={450}
+                    height={1000}
+                    className="w-full h-auto object-top transition-all duration-300"
+                    priority
+                  />
+                  {/* Subtle Bottom Scroll Cue */}
+                  <div className="sticky bottom-0 left-0 right-0 py-2.5 bg-gradient-to-t from-black via-black/85 to-transparent flex items-center justify-center pointer-events-none">
+                    <span className="text-[9px] font-mono text-neutral-300 bg-black/80 px-3 py-0.5 rounded-full border border-white/15 backdrop-blur-xs flex items-center gap-1">
+                      <span>↕ Scroll to view feed posts</span>
+                    </span>
                   </div>
-
-                  {/* Profile Info Bar */}
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-amber-500 via-primary to-yellow-200">
-                      <div className="w-full h-full rounded-full bg-neutral-900 overflow-hidden relative">
-                        <Image
-                          src="/images/portfolio/luisa-gallery-1.png"
-                          alt="Profile Brand Avatar"
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-4 text-center">
-                      <div>
-                        <div className="text-xs font-mono font-semibold text-white">148</div>
-                        <div className="text-[10px] text-neutral-400 font-light">Posts</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-semibold text-primary">48.2K</div>
-                        <div className="text-[10px] text-neutral-400 font-light">Followers</div>
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-semibold text-white">192</div>
-                        <div className="text-[10px] text-neutral-400 font-light">Following</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bio Description */}
-                  <div className="space-y-1">
-                    <p className="text-[11px] font-sans font-medium text-white leading-tight">
-                      NextCurrent · Digital Growth & Brand Engineering
-                    </p>
-                    <p className="text-[10px] text-neutral-400 font-light leading-snug">
-                      Transforming brands into booked-out digital powerhouses.
-                    </p>
-                    <div className="text-[10px] font-mono text-primary hover:underline cursor-pointer">
-                      🔗 nextcurrent.co/case-studies
-                    </div>
-                  </div>
-
-                  {/* Story Highlights Circles */}
-                  <div className="flex items-center justify-between gap-1.5 pt-1 overflow-x-hidden">
-                    {[
-                      { label: "Results", img: "/images/portfolio/luisa-gallery-2.png" },
-                      { label: "Reels", img: "/images/portfolio/echoes-gallery-1.png" },
-                      { label: "Process", img: "/images/portfolio/nitasha-gallery-1.png" },
-                      { label: "Proof", img: "/images/portfolio/echoes-gallery-3.png" },
-                    ].map((st, i) => (
-                      <div key={i} className="flex flex-col items-center gap-1">
-                        <div className="w-10 h-10 rounded-full p-[1.5px] border border-primary/60 overflow-hidden relative">
-                          <Image
-                            src={st.img}
-                            alt={st.label}
-                            fill
-                            className="object-cover rounded-full"
-                          />
-                        </div>
-                        <span className="text-[9px] font-mono text-neutral-300">{st.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 3x2 Curated Social Feed Grid */}
-                <div className="grid grid-cols-3 gap-1 pt-2">
-                  {[
-                    { img: "/images/portfolio/luisa-gallery-1.png", metric: "▶ 482K", icon: Play },
-                    { img: "/images/portfolio/echoes-gallery-2.png", metric: "⧉ 38K", icon: Eye },
-                    { img: "/images/portfolio/nitasha-gallery-1.png", metric: "♡ 4.8K", icon: Heart },
-                    { img: "/images/portfolio/luisa-gallery-3.png", metric: "▶ 219K", icon: Play },
-                    { img: "/images/portfolio/echoes-gallery-3.png", metric: "⧉ Booked", icon: Calendar },
-                    { img: "/images/portfolio/nitasha-gallery-2.png", metric: "▶ 640K", icon: Play },
-                  ].map((post, idx) => {
-                    const PostIcon = post.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="aspect-square relative rounded-md overflow-hidden bg-neutral-900 group cursor-pointer border border-white/5"
-                      >
-                        <Image
-                          src={post.img}
-                          alt="Social Media Feed Content Tile"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        {/* Overlay with metric badge */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                          <span className="text-[9px] font-mono text-white flex items-center gap-1 bg-black/60 px-1.5 py-0.5 rounded backdrop-blur-xs">
-                            <PostIcon size={8} className="text-primary" />
-                            {post.metric}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
                 </div>
               </div>
             </div>
