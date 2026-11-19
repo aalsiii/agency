@@ -180,18 +180,16 @@ export default function GrowthDiagnosticEngine() {
               <button
                 key={b.id}
                 onClick={() => setSelectedBottleneck(b.id)}
-                className={`p-6 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer ${
-                  selectedBottleneck === b.id
-                    ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_25px_rgba(197,160,89,0.12)]"
-                    : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/30"
-                }`}
+                className={`p-6 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer ${selectedBottleneck === b.id
+                  ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_25px_rgba(197,160,89,0.12)]"
+                  : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/30"
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[10px] text-primary/80">[ friction ]</span>
                   <div
-                    className={`w-3.5 h-3.5 rounded-full border transition-colors ${
-                      selectedBottleneck === b.id ? "bg-primary border-primary" : "border-white/30"
-                    }`}
+                    className={`w-3.5 h-3.5 rounded-full border transition-colors ${selectedBottleneck === b.id ? "bg-primary border-primary" : "border-white/30"
+                      }`}
                   />
                 </div>
                 <div>
@@ -216,11 +214,10 @@ export default function GrowthDiagnosticEngine() {
                 <button
                   key={ind.id}
                   onClick={() => setSelectedIndustry(ind.id)}
-                  className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer ${
-                    selectedIndustry === ind.id
-                      ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_20px_rgba(197,160,89,0.1)]"
-                      : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/20"
-                  }`}
+                  className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer ${selectedIndustry === ind.id
+                    ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_20px_rgba(197,160,89,0.1)]"
+                    : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/20"
+                    }`}
                 >
                   <h4 className="text-xs font-serif font-semibold text-white">{ind.label}</h4>
                   <p className="text-[11px] text-muted font-light mt-1">{ind.sub}</p>
@@ -240,11 +237,10 @@ export default function GrowthDiagnosticEngine() {
                 <button
                   key={tgt.id}
                   onClick={() => setSelectedTarget(tgt.id)}
-                  className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer ${
-                    selectedTarget === tgt.id
-                      ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_20px_rgba(197,160,89,0.1)]"
-                      : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/20"
-                  }`}
+                  className={`p-4 rounded-xl border text-left transition-all duration-300 cursor-pointer ${selectedTarget === tgt.id
+                    ? "bg-[var(--surface-highlight)] border-primary shadow-[0_0_20px_rgba(197,160,89,0.1)]"
+                    : "bg-[var(--background-layer-2)] border-white/10 hover:border-white/20"
+                    }`}
                 >
                   <h4 className="text-xs font-serif font-semibold text-white">{tgt.label}</h4>
                   <p className="text-[11px] text-muted font-light mt-1">{tgt.sub}</p>

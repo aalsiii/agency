@@ -150,9 +150,8 @@ export default function HomeClient({
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                window.location.href = `/free-audit${
-                  quickAuditUrl ? `?url=${encodeURIComponent(quickAuditUrl)}` : ""
-                }`;
+                window.location.href = `/free-audit${quickAuditUrl ? `?url=${encodeURIComponent(quickAuditUrl)}` : ""
+                  }`;
               }}
               className="p-2 bg-[var(--background-layer-2)] border border-white/15 hover:border-primary/50 transition-colors rounded-full flex items-center justify-between gap-3 shadow-2xl"
             >
