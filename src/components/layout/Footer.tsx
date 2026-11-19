@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import TextRoll from "@/components/ui/TextRoll";
 import { Shield } from "lucide-react";
+import { useAdmin } from "@/lib/use-admin";
 
 export default function Footer() {
   const pathname = usePathname();
+  const { isAdmin } = useAdmin();
   const isServicesOrAboutPage = pathname === "/services" || pathname === "/about";
 
   // Hide footer on admin routes
@@ -94,10 +96,12 @@ export default function Footer() {
               <Link href="/terms-and-conditions" className="hover:text-primary transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/admin" className="text-white/40 hover:text-primary flex items-center gap-1.5 pt-2">
-                <Shield size={12} />
-                <span>Admin Backstage</span>
-              </Link>
+              {isAdmin && (
+                <Link href="/admin" className="text-primary/70 hover:text-white flex items-center gap-1.5 pt-2">
+                  <Shield size={12} />
+                  <span>Admin Backstage</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>

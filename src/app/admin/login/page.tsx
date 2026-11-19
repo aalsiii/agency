@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Mail, ArrowRight, ShieldCheck, Sparkles, AlertCircle } from "lucide-react";
+import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("bijalwanakshat@gmail.com");
-  const [password, setPassword] = useState("NextCurrentAdmin2026!");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -84,9 +84,10 @@ export default function AdminLoginPage() {
                 <input
                   type="email"
                   required
+                  placeholder="admin@nextcurrent.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-muted focus:outline-none focus:border-primary/60 font-mono transition"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-muted/40 focus:outline-none focus:border-primary/60 font-mono transition"
                 />
               </div>
             </div>
@@ -100,9 +101,10 @@ export default function AdminLoginPage() {
                 <input
                   type="password"
                   required
+                  placeholder="••••••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-muted focus:outline-none focus:border-primary/60 font-mono transition"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-muted/40 focus:outline-none focus:border-primary/60 font-mono transition"
                 />
               </div>
             </div>
@@ -118,10 +120,8 @@ export default function AdminLoginPage() {
           </form>
 
           <div className="mt-6 pt-6 border-t border-white/10 text-center">
-            <p className="font-mono text-[11px] text-muted">
-              Pre-configured for local developer verification:
-              <br />
-              <span className="text-white">bijalwanakshat@gmail.com</span>
+            <p className="font-mono text-[11px] text-muted/70">
+              Restricted area. Authorized agency personnel only.
             </p>
           </div>
         </div>

@@ -11,12 +11,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
     }
 
+    const normalizedEmail = email.toLowerCase().trim();
+    const registeredAdminEmail = (process.env.ADMIN_EMAIL || "bijalwanakshat@gmail.com").toLowerCase().trim();
+
+    // Strict validation: Only the registered administrator email is permitted
+    if (normalizedEmail !== registeredAdminEmail) {
+      return NextResponse.json(
+        { error: "Access denied. Only the registered agency administrator email is authorized." },
+        { status: 403 }
+      );
+    }
+
     const user = await prisma.user.findUnique({
-      where: { email: email.toLowerCase().trim() },
+      where: { email: normalizedEmail },
     });
 
-    if (!user) {
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+    if (!user || user.role !== "ADMIN") {
+      return NextResponse.json(
+        { error: "Access denied. Only the registered agency administrator email is authorized." },
+        { status: 403 }
+      );
     }
 
     const isMatch = await bcrypt.compare(password, user.passwordHash);

@@ -19,6 +19,11 @@ import AdminNavActions from "./AdminNavActions";
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   const admin = await getCurrentAdmin();
 
+  // If unauthenticated (e.g. on /admin/login), render children without admin sidebar
+  if (!admin) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="min-h-screen bg-[var(--background)] text-white flex flex-col md:flex-row antialiased admin-mode">
       {/* Sidebar Navigation */}

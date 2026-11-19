@@ -7,6 +7,7 @@ import { Menu, X, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import TextRoll from "@/components/ui/TextRoll";
+import { useAdmin } from "@/lib/use-admin";
 
 const navLeft = [
   { name: "Work", href: "/work" },
@@ -24,6 +25,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isAdmin } = useAdmin();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,14 +91,16 @@ export default function Navbar() {
             Start a Project
           </Link>
 
-          {/* Admin Portal Link */}
-          <Link
-            href="/admin"
-            title="Admin Portal"
-            className="p-1.5 text-white/40 hover:text-primary transition-colors"
-          >
-            <Shield size={15} />
-          </Link>
+          {/* Admin Portal Link - Strictly visible only to authenticated administrator */}
+          {isAdmin && (
+            <Link
+              href="/admin"
+              title="Admin Backstage"
+              className="p-1.5 text-primary hover:text-white transition-colors"
+            >
+              <Shield size={15} />
+            </Link>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -146,13 +150,16 @@ export default function Navbar() {
               Start a Project
             </Link>
 
-            <Link
-              href="/admin"
-              onClick={() => setIsOpen(false)}
-              className="text-xs uppercase tracking-[0.3em] text-primary/70 hover:text-primary pt-4"
-            >
-              Admin Portal
-            </Link>
+            {isAdmin && (
+              <Link
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="text-xs uppercase tracking-[0.3em] text-primary hover:text-white pt-4 flex items-center gap-1.5"
+              >
+                <Shield size={12} />
+                <span>Admin Portal</span>
+              </Link>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
