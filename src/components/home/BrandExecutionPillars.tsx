@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  Play,
 } from "lucide-react";
 
 export default function BrandExecutionPillars() {
@@ -290,91 +289,36 @@ export default function BrandExecutionPillars() {
               </div>
             </div>
 
-            {/* Right Visual Column: Meta Ads Manager Dashboard Mockup + Sponsored Ad Card */}
-            <div className="lg:col-span-6 space-y-4">
-              {/* Ad Telemetry Dashboard Card */}
-              <div className="p-6 rounded-2xl bg-black border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="font-mono text-xs text-white font-medium">
-                      Campaign Performance Telemetry
-                    </span>
+            {/* Right Visual Column: Meta Ads Manager Dashboard Visual */}
+            <div className="lg:col-span-6">
+              {/* App / Browser Window Frame */}
+              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
+                {/* Window Header */}
+                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                   </div>
-                  <span className="font-mono text-[10px] text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
-                    Live Meta Advantage+
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                    <div className="text-[10px] font-mono text-neutral-400">Blended ROAS</div>
-                    <div className="text-xl font-mono font-bold text-primary">4.82x</div>
-                    <div className="text-[9px] text-emerald-400 font-mono">↑ +38% MoM</div>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
+                    <TrendingUp size={11} className="text-primary" />
+                    <span>meta-ads-manager.telemetry</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                    <div className="text-[10px] font-mono text-neutral-400">Cost Per Call</div>
-                    <div className="text-xl font-mono font-bold text-white">$14.20</div>
-                    <div className="text-[9px] text-emerald-400 font-mono">↓ -42% CPA</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                    <div className="text-[10px] font-mono text-neutral-400">Revenue Yield</div>
-                    <div className="text-xl font-mono font-bold text-emerald-400">$64,800</div>
-                    <div className="text-[9px] text-neutral-400 font-mono">30-day window</div>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    Live Campaigns
                   </div>
                 </div>
 
-                {/* Sponsored Ad Creative Mockup Preview */}
-                <div className="rounded-xl bg-[#141419] border border-white/10 p-4 space-y-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-neutral-800 overflow-hidden relative">
-                      <Image
-                        src="/images/portfolio/echoes-gallery-1.png"
-                        alt="Client Brand"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <div className="text-xs font-sans font-medium text-white flex items-center gap-1.5">
-                        <span>NextCurrent Brand Partner</span>
-                        <ShieldCheck size={11} className="text-primary" />
-                      </div>
-                      <div className="text-[10px] font-mono text-neutral-400">
-                        Sponsored · Instagram Feed
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-neutral-300 font-light leading-relaxed">
-                    &ldquo;Struggling to fill your monthly cohort? See how we scaled this brand to full capacity in under 60 days with a high-converting website and targeted acquisition.&rdquo;
-                  </p>
-
-                  <div className="aspect-[16/9] relative rounded-lg overflow-hidden bg-neutral-900 border border-white/10">
-                    <Image
-                      src="/images/portfolio/valalino-real.png"
-                      alt="Paid Ad Creative Visual"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full bg-primary/90 text-black flex items-center justify-center shadow-lg">
-                        <Play size={16} className="ml-0.5 fill-black" />
-                      </div>
-                    </div>
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 text-[9px] font-mono text-white backdrop-blur-xs">
-                      15s High-Retention Hook
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-1">
-                    <div className="text-[11px] font-mono text-neutral-300">
-                      nextcurrent.co/case-studies
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-primary text-black font-mono text-xs font-semibold">
-                      Learn More →
-                    </span>
-                  </div>
+                {/* Inner Real Meta Ads Dashboard Visual */}
+                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
+                  <Image
+                    src="/images/marketing/meta-ads-dashboard.jpg"
+                    alt="Meta Ads Performance Marketing Telemetry Dashboard"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
                 </div>
               </div>
             </div>
