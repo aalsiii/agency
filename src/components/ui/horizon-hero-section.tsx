@@ -154,28 +154,25 @@ export const HorizonHeroSection = () => {
 
                 const material = new THREE.ShaderMaterial({
                     uniforms: {
-                        time: { value: 0 },
-                        depth: { value: i }
+                        time: { value: 0 }
                     },
                     vertexShader: `
             attribute float size;
             attribute vec3 color;
             varying vec3 vColor;
-            uniform float time;
-            uniform float depth;
             
             void main() {
               vColor = color;
-              vec3 pos = position;
+              vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
               
-              // Slow rotation based on depth
-              float angle = time * 0.05 * (1.0 - depth * 0.3);
-              mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
-              pos.xy = rot * pos.xy;
-              
-              vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-              gl_PointSize = size * (300.0 / -mvPosition.z);
-              gl_Position = projectionMatrix * mvPosition;
+              // Discard any stars behind or near camera near-plane to prevent infinite point-size smears
+              if (mvPosition.z >= -10.0) {
+                gl_Position = vec4(999.0, 999.0, 999.0, 1.0);
+                gl_PointSize = 0.0;
+              } else {
+                gl_PointSize = clamp(size * (150.0 / -mvPosition.z), 1.0, 6.0);
+                gl_Position = projectionMatrix * mvPosition;
+              }
             }
           `,
                     fragmentShader: `
@@ -186,7 +183,7 @@ export const HorizonHeroSection = () => {
               if (dist > 0.5) discard;
               
               float opacity = 1.0 - smoothstep(0.0, 0.5, dist);
-              gl_FragColor = vec4(vColor, opacity);
+              gl_FragColor = vec4(vColor, opacity * 0.85);
             }
           `,
                     transparent: true,
@@ -291,6 +288,7 @@ export const HorizonHeroSection = () => {
                     color: layer.color,
                     transparent: true,
                     opacity: layer.opacity,
+                    depthWrite: true,
                     side: THREE.DoubleSide
                 });
 
@@ -328,7 +326,9 @@ export const HorizonHeroSection = () => {
           uniform float time;
           
           void main() {
-            float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
+            if (vPosition.y < 0.0) discard;
+            float horizonFade = smoothstep(0.0, 100.0, vPosition.y);
+            float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0) * horizonFade;
             vec3 atmosphere = vec3(0.3, 0.6, 1.0) * intensity;
             
             float pulse = sin(time * 2.0) * 0.1 + 0.9;
@@ -362,11 +362,7 @@ export const HorizonHeroSection = () => {
             const time = Date.now() * 0.001;
 
             refs.stars.forEach((starField, i) => {
-                // @ts-ignore - material is shader material
-                if (starField.material.uniforms) {
-                    // @ts-ignore - material is shader material
-                    starField.material.uniforms.time.value = time;
-                }
+                starField.rotation.z = time * 0.015 * (1.0 - i * 0.25);
             });
 
             // @ts-ignore - material is shader material
