@@ -107,7 +107,30 @@ export default function EditorialWorkShowcase() {
       {/* Subtle ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[50vh] bg-primary/5 rounded-full blur-[170px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-8">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+          <div className="space-y-3">
+            <div className="font-mono text-xs text-primary/80">
+              // client partnerships · proven track record
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-normal text-white tracking-tight leading-tight">
+              Businesses That Trusted Us
+            </h2>
+            <p className="text-muted text-base max-w-xl font-light leading-relaxed">
+              Real platforms, academies, and personal brands we have redesigned, written, and scaled to full capacity.
+            </p>
+          </div>
+
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--background-layer-2)] border border-primary/20 hover:border-primary/60 text-xs font-mono text-primary/90 hover:text-white transition-all self-start md:self-auto shrink-0 shadow-sm"
+          >
+            <span>Explore All 5 Case Studies</span>
+            <ArrowRight size={13} />
+          </Link>
+        </div>
+
         {/* Main Featured Showcase Plate */}
         <div className="rounded-3xl bg-[#0c0c11] border border-white/10 p-6 sm:p-8 lg:p-12 shadow-2xl relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
