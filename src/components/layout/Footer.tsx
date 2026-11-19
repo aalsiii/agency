@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         {!isServicesOrAboutPage && (
           <div className="mb-24 text-center space-y-6">
-            <h2 className="text-5xl md:text-8xl lg:text-9xl font-serif text-white leading-none">
+            <h2 className="text-4xl md:text-7xl lg:text-8xl font-sans font-normal text-white tracking-tight leading-none">
               LET&apos;S BUILD SOMETHING ENDURING
             </h2>
             <div className="font-mono text-xs text-primary/80">

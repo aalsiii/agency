@@ -93,11 +93,10 @@ export default function HomeClient({
           <div className="container mx-auto px-6 max-w-6xl space-y-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-                  <Star size={12} className="fill-primary text-primary" />
-                  <span>Verified Client Feedback & Outcomes</span>
+                <div className="font-mono text-xs text-primary/80">
+                  // verified client partnerships · real outcomes
                 </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
+                <h2 className="text-4xl md:text-5xl font-sans font-normal text-white tracking-tight leading-tight">
                   What Founders & Leaders Say
                 </h2>
                 <p className="text-muted text-base max-w-xl font-light leading-relaxed">
@@ -152,11 +151,10 @@ export default function HomeClient({
       <section className="py-28 bg-background border-t border-white/10">
         <div className="container mx-auto px-6 max-w-5xl space-y-12">
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-              <Sparkles size={12} />
-              <span>The NextCurrent Advantage · Operational Clarity</span>
+            <div className="font-mono text-xs text-primary/80">
+              // the nextcurrent advantage · operational clarity
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-white">
+            <h2 className="text-4xl md:text-5xl font-sans font-normal text-white tracking-tight leading-tight">
               Why Leaders Choose NextCurrent
             </h2>
             <p className="text-muted text-sm font-light max-w-lg mx-auto leading-relaxed">
@@ -232,11 +230,11 @@ export default function HomeClient({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="container mx-auto px-6 max-w-3xl space-y-8 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-            <span>24-Hour Response Guarantee</span>
+          <div className="font-mono text-xs text-primary/80">
+            // start your growth sprint · 24-hour response
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-6xl font-sans font-normal text-white tracking-tight leading-tight">
             Ready to Build Something Enduring?
           </h2>
 

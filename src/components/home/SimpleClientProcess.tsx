@@ -57,12 +57,11 @@ export default function SimpleClientProcess() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-            <Sparkles size={13} />
-            <span>Zero Headaches · 4-Week Turnaround</span>
+          <div className="font-mono text-xs text-primary/80">
+            // client journey · 4-week turnaround roadmap
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-normal text-white tracking-tight leading-tight">
             How Simple It Is to{" "}
             <span className="text-gold-gradient">
               Work With Us
@@ -101,7 +100,7 @@ export default function SimpleClientProcess() {
                     <Icon size={18} />
                   </div>
 
-                  <h3 className="text-xl font-serif font-bold text-white group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-sans font-medium text-white group-hover:text-primary transition-colors">
                     {s.title}
                   </h3>
 

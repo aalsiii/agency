@@ -63,10 +63,10 @@ export default function Navbar() {
 
         {/* Center Brand */}
         <Link href="/" className="flex items-center gap-3 group px-4">
-          <div className="w-8 h-8 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center text-primary font-serif font-bold text-xs group-hover:border-primary group-hover:scale-105 transition-all duration-500">
+          <div className="w-8 h-8 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center text-primary font-sans font-semibold text-xs group-hover:border-primary group-hover:scale-105 transition-all duration-500">
             NC
           </div>
-          <span className="text-xl md:text-2xl font-serif font-bold tracking-tight text-white transition-colors duration-300 relative z-10">
+          <span className="text-xl md:text-2xl font-sans font-medium tracking-tight text-white transition-colors duration-300 relative z-10">
             NextCurrent
           </span>
         </Link>

@@ -203,12 +203,11 @@ export default function VisualFunnelExplainer() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-16">
         {/* Section Header in Simple, Welcoming English */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-            <Sparkles size={13} />
-            <span>Plain English · How It Works</span>
+          <div className="font-mono text-xs text-primary/80">
+            // plain english · customer acquisition funnel
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-normal text-white tracking-tight leading-tight">
             How We Turn Strangers Into{" "}
             <span className="text-gold-gradient">
               Paying Clients
@@ -243,7 +242,7 @@ export default function VisualFunnelExplainer() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-serif font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                  <h3 className="text-xl font-sans font-medium text-white group-hover:text-primary transition-colors leading-snug">
                     {step.title}
                   </h3>
                   <p className="font-mono text-[11px] text-primary/80 mt-1">
@@ -278,7 +277,7 @@ export default function VisualFunnelExplainer() {
         {/* Funnel Bottom Summary Pill */}
         <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
-            <h4 className="text-base font-serif font-bold text-white">
+            <h4 className="text-base font-sans font-medium text-white">
               Want this exact funnel built and managed for your brand?
             </h4>
             <p className="text-xs text-neutral-400 font-light">

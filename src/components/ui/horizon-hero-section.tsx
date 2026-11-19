@@ -570,7 +570,7 @@ export const HorizonHeroSection = () => {
             <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full z-0" />
 
             <section className="absolute top-0 left-0 w-full h-screen z-10 flex flex-col items-center justify-center pointer-events-none text-white overflow-hidden">
-                <h1 ref={titleRef} className="text-6xl md:text-9xl font-bold tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-serif">
+                <h1 ref={titleRef} className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans">
                     {splitTitle("VISION")}
                 </h1>
 
@@ -585,7 +585,7 @@ export const HorizonHeroSection = () => {
             </section>
 
             <section className="absolute top-[100vh] left-0 w-full h-screen z-10 flex flex-col items-center justify-center pointer-events-none text-white">
-                <h1 className="text-6xl md:text-9xl font-bold tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-serif">
+                <h1 className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans">
                     CRAFT
                 </h1>
                 <div className="text-center font-light tracking-widest text-sm md:text-base text-white/80 uppercase font-sans">
@@ -595,7 +595,7 @@ export const HorizonHeroSection = () => {
             </section>
 
             <section className="absolute top-[200vh] left-0 w-full h-screen z-10 flex flex-col items-center justify-center pointer-events-none text-white">
-                <h1 className="text-6xl md:text-9xl font-bold tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-serif">
+                <h1 className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans">
                     IMPACT
                 </h1>
                 <div className="text-center font-light tracking-widest text-sm md:text-base text-white/80 uppercase font-sans">
@@ -621,7 +621,7 @@ export const HorizonHeroSection = () => {
                         style={{ height: `${scrollProgress * 100}%` }}
                     />
                 </div>
-                <div className="font-serif font-bold text-primary min-w-[80px] text-right tracking-[0.2em]">
+                <div className="font-mono font-medium text-primary min-w-[80px] text-right tracking-[0.2em]">
                     {sectionTitles[currentSection] || sectionTitles[0]}
                 </div>
             </div>

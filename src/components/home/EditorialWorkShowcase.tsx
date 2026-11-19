@@ -176,7 +176,7 @@ export default function EditorialWorkShowcase() {
               </div>
 
               {/* Title */}
-              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-bold text-white leading-[1.18] tracking-tight">
+              <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-sans font-medium text-white leading-[1.18] tracking-tight">
                 {active.title}
               </h3>
 
@@ -241,7 +241,7 @@ export default function EditorialWorkShowcase() {
                 />
               </div>
               <div className="space-y-0.5">
-                <p className="font-serif text-sm font-bold text-white truncate">
+                <p className="font-sans text-sm font-medium text-white truncate">
                   {p.client}
                 </p>
                 <p className="text-xs text-neutral-400 font-sans truncate">

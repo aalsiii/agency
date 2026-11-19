@@ -65,12 +65,11 @@ export default function BeforeAfterTransformation() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
-            <Sparkles size={13} />
-            <span>The Transformation · Real Outcomes</span>
+          <div className="font-mono text-xs text-primary/80">
+            // operational transformation · real outcomes
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-normal text-white tracking-tight leading-tight">
             Before vs. After{" "}
             <span className="text-gold-gradient">
               NextCurrent
@@ -93,7 +92,7 @@ export default function BeforeAfterTransformation() {
                     <TrendingDown size={16} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-serif font-bold text-white">Before NextCurrent</h3>
+                    <h3 className="text-xl font-sans font-medium text-white">Before NextCurrent</h3>
                     <p className="font-mono text-[11px] text-red-400/80">Where most businesses get stuck</p>
                   </div>
                 </div>
@@ -134,7 +133,7 @@ export default function BeforeAfterTransformation() {
                     <TrendingUp size={16} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-serif font-bold text-white">After NextCurrent</h3>
+                    <h3 className="text-xl font-sans font-medium text-white">After NextCurrent</h3>
                     <p className="font-mono text-[11px] text-primary">The engineered growth engine</p>
                   </div>
                 </div>
