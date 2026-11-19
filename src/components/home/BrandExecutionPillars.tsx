@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -15,8 +15,6 @@ import {
 } from "lucide-react";
 
 export default function BrandExecutionPillars() {
-  const [activeWebIndex, setActiveWebIndex] = useState(0);
-
   const socialFeeds = [
     {
       img: "/images/social/nadayoga-feed.jpg",
@@ -36,37 +34,13 @@ export default function BrandExecutionPillars() {
     },
   ];
 
-  const websiteShowcase = [
-    {
-      id: "nitasha",
-      title: "Dr. Nitasha Buldeo Clinic",
-      domain: "nitashabuldeo.com",
-      img: "/images/websites/nitasha-buldeo.jpg",
-    },
-    {
-      id: "yogamani",
-      title: "Yogamani Rishikesh",
-      domain: "yogamani.org",
-      img: "/images/websites/yogamani.jpg",
-    },
-    {
-      id: "echoes",
-      title: "Echoes of Silence Shop",
-      domain: "echoesofsilence.in",
-      img: "/images/websites/echoes-shop.jpg",
-    },
-    {
-      id: "rudraksha",
-      title: "Rudraksha Antiquei",
-      domain: "rudrakshaantiquei.com",
-      img: "/images/websites/rudraksha-store.jpg",
-    },
-    {
-      id: "admin",
-      title: "Custom Admin CMS",
-      domain: "admin.nextcurrent.studio",
-      img: "/images/websites/admin-gallery.jpg",
-    },
+  const websiteScreenshots = [
+    "/images/websites/nitasha-buldeo.jpg",
+    "/images/websites/yogamani.jpg",
+    "/images/websites/valalino-web.jpg",
+    "/images/websites/echoes-shop.jpg",
+    "/images/websites/rudraksha-store.jpg",
+    "/images/websites/admin-gallery.jpg",
   ];
 
   return (
@@ -172,10 +146,10 @@ export default function BrandExecutionPillars() {
         </div>
 
         {/* =========================================================================
-            PILLAR 2: WEBSITE DEVELOPMENT & ENGINEERING (Visual Browser Showcase)
+            PILLAR 2: WEBSITE DEVELOPMENT & ENGINEERING (Visual 6-Browser Grid)
            ========================================================================= */}
         <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl space-y-10">
-          {/* Header & Value Proposition */}
+          {/* Header & Concept Value Proposition */}
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
               <Globe size={13} />
@@ -187,16 +161,17 @@ export default function BrandExecutionPillars() {
             </h3>
 
             <p className="text-neutral-300 text-sm md:text-base font-light leading-relaxed">
-              From bespoke clinic platforms and retreat portals to luxury e-commerce stores and custom content dashboards—engineered for instant speed and visual brilliance.
+              Every website is custom-architected for instant sub-second loading, intuitive mobile navigation, and effortless client conversions. No clunky templates—just bespoke digital experiences tailored to your growth.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 pt-1">
               {[
                 "Custom Next.js Platforms",
-                "Luxury E-Commerce",
-                "Interactive Retreat Sites",
-                "Custom Admin CMS Dashboards",
-                "Sub-Second Load Times",
+                "Editorial Personal Brands",
+                "High-Ticket E-Commerce",
+                "Interactive Retreat Hubs",
+                "Custom Admin CMS",
+                "Sub-Second Edge Speeds",
               ].map((pill, idx) => (
                 <span
                   key={idx}
@@ -208,72 +183,41 @@ export default function BrandExecutionPillars() {
             </div>
           </div>
 
-          {/* Featured macOS Browser Showcase */}
-          <div className="space-y-5">
-            {/* Main Interactive Browser Plate */}
-            <div className="rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
-              {/* Browser Toolbar Header */}
-              <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+          {/* 6-Card Visual Website Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+            {websiteScreenshots.map((imgSrc, idx) => (
+              <div
+                key={idx}
+                className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.8)] hover:border-primary/50 hover:shadow-[0_20px_45px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
+              >
+                {/* Minimalist macOS Browser Bar (Zero brand names, clean concept) */}
+                <div className="px-3.5 py-2.5 bg-[#121217] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
+                    <Globe size={10} className="text-primary" />
+                    <span>digital-platform.engine</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    0.38s
+                  </div>
                 </div>
-                <div className="px-4 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-mono text-neutral-300 flex items-center gap-2">
-                  <Globe size={11} className="text-primary" />
-                  <span>{websiteShowcase[activeWebIndex].domain}</span>
-                  <span className="text-emerald-400 font-semibold">SSL 256-bit</span>
-                </div>
-                <div className="text-[10px] font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
-                  Live Preview
+
+                {/* Website Visual Screen */}
+                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
+                  <Image
+                    src={imgSrc}
+                    alt="Engineered Website Interface Concept"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               </div>
-
-              {/* Inner Website Visual Preview */}
-              <div className="relative aspect-[16/9] w-full bg-neutral-950 overflow-hidden">
-                <Image
-                  src={websiteShowcase[activeWebIndex].img}
-                  alt={websiteShowcase[activeWebIndex].title}
-                  fill
-                  className="object-cover object-top transition-all duration-500"
-                  priority
-                />
-              </div>
-            </div>
-
-            {/* 5-Website Thumbnail Selector Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2">
-              {websiteShowcase.map((site, idx) => {
-                const isActive = activeWebIndex === idx;
-                return (
-                  <button
-                    key={site.id}
-                    type="button"
-                    onClick={() => setActiveWebIndex(idx)}
-                    className={`rounded-xl overflow-hidden border p-1.5 text-left transition-all ${
-                      isActive
-                        ? "border-primary bg-primary/10 shadow-[0_0_20px_rgba(197,160,89,0.25)] scale-[1.02]"
-                        : "border-white/10 bg-white/[0.02] hover:border-white/30 hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    <div className="aspect-[16/10] relative rounded-lg overflow-hidden bg-neutral-900 border border-white/5 mb-1.5">
-                      <Image
-                        src={site.img}
-                        alt={site.title}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="text-[11px] font-sans font-medium text-white truncate px-1">
-                      {site.title}
-                    </div>
-                    <div className="text-[9px] font-mono text-neutral-400 truncate px-1">
-                      {site.domain}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+            ))}
           </div>
         </div>
 
