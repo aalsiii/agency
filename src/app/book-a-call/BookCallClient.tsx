@@ -48,12 +48,12 @@ export default function BookCallClient() {
               Direct WhatsApp alternative:
             </span>
             <a
-              href="https://wa.me/918057435939"
+              href="https://wa.me/919389403190"
               target="_blank"
               rel="noreferrer"
               className="font-mono text-xs text-primary hover:text-white transition-colors block mt-1"
             >
-              +91 80574 35939 →
+              +91 93894 03190 →
             </a>
           </div>
         </div>

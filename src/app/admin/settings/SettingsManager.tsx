@@ -9,8 +9,8 @@ export default function SettingsManager() {
     agency_tagline: "Build your brand's next stage of growth with high-velocity funnels & modern web engineering.",
     contact_email: "hello@nextcurrentmedia.com",
     admin_notify_email: "bijalwanakshat@gmail.com",
-    whatsapp_number: "918057435939",
-    phone_display: "+91 80574 35939",
+    whatsapp_number: "919389403190",
+    phone_display: "+91 93894 03190",
     office_address: "Dehradun / Delhi NCR, India & Serving Global Clients",
     announcement_bar: "Q2 Growth Cohort Open: Claim Your Free Growth & Funnel Audit Today",
     show_announcement: "true",
@@ -151,7 +151,7 @@ export default function SettingsManager() {
                 type="text"
                 value={settings.whatsapp_number}
                 onChange={(e) => handleChange("whatsapp_number", e.target.value)}
-                placeholder="918057435939"
+                placeholder="919389403190"
                 className="w-full bg-white/5 border border-white/10 focus:border-primary/60 rounded-xl py-2 px-3.5 text-xs text-white outline-none"
               />
               <p className="text-[10px] text-muted mt-1">Used for 1-click WhatsApp chat triggers.</p>
@@ -165,7 +165,7 @@ export default function SettingsManager() {
                 type="text"
                 value={settings.phone_display}
                 onChange={(e) => handleChange("phone_display", e.target.value)}
-                placeholder="+91 80574 35939"
+                placeholder="+91 93894 03190"
                 className="w-full bg-white/5 border border-white/10 focus:border-primary/60 rounded-xl py-2 px-3.5 text-xs text-white outline-none"
               />
             </div>

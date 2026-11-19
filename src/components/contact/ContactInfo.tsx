@@ -13,8 +13,8 @@ const infoItems = [
   {
     icon: Phone,
     label: "Direct & WhatsApp Line",
-    value: "+91 80574 35939",
-    href: "https://wa.me/918057435939",
+    value: "+91 93894 03190",
+    href: "https://wa.me/919389403190",
   },
   {
     icon: MapPin,
@@ -27,7 +27,7 @@ const infoItems = [
 const socials = [
   { icon: Instagram, href: "https://www.instagram.com/akxhatzzz/", name: "Instagram" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/akshat-bijalwan-2910a7378/", name: "LinkedIn" },
-  { icon: MessageSquare, href: "https://wa.me/918057435939", name: "WhatsApp" },
+  { icon: MessageSquare, href: "https://wa.me/919389403190", name: "WhatsApp" },
 ];
 
 export default function ContactInfo() {

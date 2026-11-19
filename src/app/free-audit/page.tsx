@@ -425,7 +425,7 @@ export default function FreeAuditPage() {
                           required
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+91 80574 35939"
+                          placeholder="+91 93894 03190"
                           className="w-full bg-[var(--background-layer-2)] border border-white/20 focus:border-primary rounded-sm p-4 text-sm text-white outline-none"
                         />
                       </div>
@@ -489,7 +489,7 @@ export default function FreeAuditPage() {
 
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href={`https://wa.me/918057435939?text=Hi%20NextCurrent%2C%20I%20just%20submitted%20an%20audit%20request%20for%20${encodeURIComponent(
+                  href={`https://wa.me/919389403190?text=Hi%20NextCurrent%2C%20I%20just%20submitted%20an%20audit%20request%20for%20${encodeURIComponent(
                     businessName
                   )}.`}
                   target="_blank"

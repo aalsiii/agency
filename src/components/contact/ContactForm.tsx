@@ -116,7 +116,7 @@ export default function ContactForm() {
         </div>
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href={`https://wa.me/918057435939?text=Hi%20NextCurrent%20Media%2C%20I%20just%20submitted%20an%20inquiry%20as%20${encodeURIComponent(
+            href={`https://wa.me/919389403190?text=Hi%20NextCurrent%20Media%2C%20I%20just%20submitted%20an%20inquiry%20as%20${encodeURIComponent(
               formData.name
             )}.`}
             target="_blank"
@@ -195,7 +195,7 @@ export default function ContactForm() {
             <input
               type="tel"
               name="phone"
-              placeholder="+91 80574 35939"
+              placeholder="+91 93894 03190"
               className="w-full bg-transparent text-white text-lg font-serif outline-none placeholder:text-white/10"
               onFocus={() => setFocused("phone")}
               onBlur={() => setFocused(null)}

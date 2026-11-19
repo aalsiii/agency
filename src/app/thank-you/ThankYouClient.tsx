@@ -46,7 +46,7 @@ export default function ThankYouClient() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <a
-            href={`https://wa.me/918057435939?text=Hi%20NextCurrent%20Media%2C%20I%20just%20submitted%20project%20inquiry%20${encodeURIComponent(leadId || "online")}.`}
+            href={`https://wa.me/919389403190?text=Hi%20NextCurrent%20Media%2C%20I%20just%20submitted%20project%20inquiry%20${encodeURIComponent(leadId || "online")}.`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-primary bg-primary text-black font-semibold text-xs tracking-wider hover:bg-white hover:border-white transition-all w-full sm:w-auto justify-center"
