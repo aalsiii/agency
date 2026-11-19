@@ -1,28 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
-  Check,
-  Video,
-  Target,
-  FileText,
-  Gauge,
-  Sparkles,
   Star,
-  ExternalLink,
-  Shield,
-  Zap,
-  Globe,
-  TrendingUp,
+  Sparkles,
 } from "lucide-react";
 import HorizontalServices from "@/components/home/HorizontalServices";
 import EditorialWorkShowcase from "@/components/home/EditorialWorkShowcase";
 import GrowthDiagnosticEngine from "@/components/home/GrowthDiagnosticEngine";
+import VisualFunnelExplainer from "@/components/home/VisualFunnelExplainer";
+import BeforeAfterTransformation from "@/components/home/BeforeAfterTransformation";
+import SimpleClientProcess from "@/components/home/SimpleClientProcess";
 
 const HorizonHeroSection = dynamic(
   () => import("@/components/ui/horizon-hero-section").then((mod) => mod.HorizonHeroSection),
@@ -71,221 +64,53 @@ export default function HomeClient({
   testimonials?: TestimonialData[];
   caseStudies?: CaseStudyData[];
 }) {
-  const [quickAuditUrl, setQuickAuditUrl] = useState("");
-
-  const trustedClients = [
-    { name: "Nada Yoga School", url: "https://www.nadyoga.org/", note: "Full Marketing & Web Overhaul" },
-    { name: "Val Alino Coach", url: "https://www.valalino.com/", note: "Brand & Social Strategy" },
-    { name: "Luisa Photography", url: "https://www.luisaphotography.com/", note: "Bespoke Portfolio Web Dev" },
-    { name: "Eazy Pregnancy", url: "https://www.eazypregnancy.com/", note: "SEO Rich Content & Copy" },
-    { name: "Rudraksha Antiquei", url: "https://www.rudrakshaantiquei.com/", note: "Next.js E-Commerce Storefront" },
-  ];
-
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* 1. Iconic Horizon 3D Hero Section */}
-      <div className="min-h-[300vh]">
-        <HorizonHeroSection />
-      </div>
+      {/* 1. Cinematic 3D Horizon Hero (Immediate Value Prop, Dual CTAs & Live Client Proof) */}
+      <HorizonHeroSection />
 
-      {/* 2. Authority & Client Proof Banner (Immediate Trust Anchor) */}
-      <section className="border-y border-white/10 bg-[var(--background-layer-1)] py-8 relative z-20">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-1">
-              <span className="font-mono text-[10px] text-primary/80 uppercase tracking-widest block">
-                // verified client partnerships
-              </span>
-              <p className="text-xs text-muted font-light">
-                Engineering platforms & driving qualified pipeline for ambitious digital brands:
-              </p>
-            </div>
+      {/* 2. Visual Client Acquisition Funnel (Explains in Plain English How We Turn Strangers into Paying Clients) */}
+      <VisualFunnelExplainer />
 
-            <div className="flex flex-wrap items-center gap-3">
-              {trustedClients.map((client, idx) => (
-                <a
-                  key={idx}
-                  href={client.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group px-3.5 py-1.5 rounded-full bg-[var(--background-layer-2)] border border-white/10 hover:border-primary/50 text-[11px] font-mono text-white/80 hover:text-primary transition-all flex items-center gap-1.5"
-                >
-                  <span>{client.name}</span>
-                  <ExternalLink size={10} className="text-muted group-hover:text-primary transition-colors" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Real Client Work Showcase (Browser Chrome Frame with Real Screenshots) */}
+      {/* 3. Selected Real Client Work (Real Screenshots in Mac Browser Frame & Deliverables) */}
       <EditorialWorkShowcase />
 
-      {/* 4. Interactive Growth Diagnostic (Replaces Old Scope Calculator with Zero Prices) */}
-      <GrowthDiagnosticEngine />
+      {/* 4. Before vs. After NextCurrent (Side-by-Side Visual Comparison in Plain English) */}
+      <BeforeAfterTransformation />
 
-      {/* 5. Horizontal Practice Capabilities Overview */}
+      {/* 5. Core Practice Pillars & Pictography (Digital Experiences, Performance Marketing, Brand, Strategy) */}
       <HorizontalServices />
 
-      {/* 6. Diagnostic Funnel Scanner Callout */}
-      <section className="py-32 bg-[var(--background-layer-1)] border-y border-white/10 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* 6. Simple 4-Step Client Roadmap (How Easy It Is to Work With Us · Kickoff to Launch) */}
+      <SimpleClientProcess />
 
-        <div className="container mx-auto px-6 relative z-10 max-w-4xl text-center space-y-6">
-          <div className="font-mono text-xs text-primary/80 tracking-wide">
-            // complimentary video teardown · mobile speed audit · ad creative fatigue analysis
-          </div>
+      {/* 7. Unified Growth Diagnostic & Free Audit Studio (5-Min Video Teardown + Playbooks + Free Tools) */}
+      <GrowthDiagnosticEngine />
 
-          <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">
-            Where your client acquisition funnel is leaking revenue
-          </h2>
-
-          <p className="text-muted text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed pt-2">
-            We inspect your mobile load speed, Meta ad creative attrition, and Google search indexation, then record a private 5-minute video teardown showing exactly what to remediate.
-          </p>
-
-          {/* Interactive scanner input */}
-          <div className="max-w-xl mx-auto pt-6">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.location.href = `/free-audit${quickAuditUrl ? `?url=${encodeURIComponent(quickAuditUrl)}` : ""
-                  }`;
-              }}
-              className="p-2 bg-[var(--background-layer-2)] border border-white/15 hover:border-primary/50 transition-colors rounded-full flex items-center justify-between gap-3 shadow-2xl"
-            >
-              <input
-                type="text"
-                value={quickAuditUrl}
-                onChange={(e) => setQuickAuditUrl(e.target.value)}
-                placeholder="Enter your website URL (e.g. yourbrand.com)"
-                className="bg-transparent text-sm text-white placeholder:text-muted/50 px-6 py-2 outline-none flex-1 font-sans"
-              />
-              <button
-                type="submit"
-                className="px-8 py-3.5 rounded-full bg-primary text-black font-semibold text-xs tracking-wider hover:bg-white hover:text-black transition-all duration-300 shrink-0 cursor-pointer"
-              >
-                Scan Funnel
-              </button>
-            </form>
-            <div className="flex items-center justify-center gap-6 text-[11px] font-mono text-muted/70 mt-4">
-              <span>[ 100% free ]</span>
-              <span>[ no sales call ]</span>
-              <span>[ 24h turnaround ]</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Free Marketing & Creative Utilities Terminal (Traffic Magnet) */}
-      <section className="py-32 bg-background border-t border-white/10 relative overflow-hidden">
-        <div className="container mx-auto px-6 max-w-6xl relative z-10 space-y-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <div className="font-mono text-xs text-primary/80 mb-2">
-                // free public utilities · developer tools
-              </div>
-              <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
-                Free Marketing & Growth Utilities
-              </h2>
-              <p className="text-muted text-base max-w-lg font-light mt-3">
-                The exact formula sheets, ad angles, and diagnostic scripts our team deploys daily. Completely free to use.
-              </p>
-            </div>
-
-            <Link
-              href="/free-tools"
-              className="font-mono text-xs text-primary hover:text-white border-b border-primary/30 pb-1 flex items-center gap-2"
-            >
-              <span>[ launch tools terminal ]</span>
-              <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                index: "01",
-                badge: "hooks",
-                title: "Reel Hook Generator",
-                desc: "5 pattern-interrupting hooks crafted to stop scrolling thumbs.",
-                icon: Video,
-              },
-              {
-                index: "02",
-                badge: "ads",
-                title: "Ad Copy Crafter",
-                desc: "High-ROAS Meta and Google ad headlines and primary text angles.",
-                icon: Target,
-              },
-              {
-                index: "03",
-                badge: "captions",
-                title: "Caption & Hashtag Suite",
-                desc: "Engaging post copy formatted with comment conversion triggers.",
-                icon: FileText,
-              },
-              {
-                index: "04",
-                badge: "speed",
-                title: "Website Speed Scanner",
-                desc: "Real-time Core Web Vitals and mobile friction diagnostics.",
-                icon: Gauge,
-              },
-            ].map((t, idx) => {
-              const Icon = t.icon;
-              return (
-                <Link
-                  key={idx}
-                  href="/free-tools"
-                  className="group p-7 bg-[var(--background-layer-1)] border border-white/10 hover:border-primary/50 transition-all duration-300 rounded-xl flex flex-col justify-between space-y-6"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs text-primary/70">[{t.index} // {t.badge}]</span>
-                      <Icon size={16} className="text-muted group-hover:text-primary transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-serif text-white group-hover:text-primary transition-colors">
-                      {t.title}
-                    </h3>
-                    <p className="text-muted text-xs font-light leading-relaxed">{t.desc}</p>
-                  </div>
-
-                  <span className="font-mono inline-flex items-center gap-2 text-xs text-primary group-hover:text-white transition-colors">
-                    <span>open tool</span>
-                    <ArrowUpRight size={13} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Executive Client Endorsements */}
+      {/* 8. Executive Client Endorsements & Proof */}
       {testimonials.length > 0 && (
-        <section className="py-32 bg-[var(--background-layer-1)] border-t border-white/10 relative overflow-hidden">
-          <div className="container mx-auto px-6 max-w-6xl space-y-16">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <div className="font-mono text-xs text-primary/80 uppercase tracking-widest mb-2">
-                  // verified client partnerships & results
+        <section className="py-28 bg-[var(--background-layer-1)] border-t border-white/10 relative overflow-hidden">
+          <div className="container mx-auto px-6 max-w-6xl space-y-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
+                  <Star size={12} className="fill-primary text-primary" />
+                  <span>Verified Client Feedback & Outcomes</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
-                  What founders & leaders say
+                  What Founders & Leaders Say
                 </h2>
-                <p className="text-muted text-base max-w-lg font-light mt-3">
-                  Direct feedback from the executive brands and digital platforms we manage and scale.
+                <p className="text-muted text-base max-w-xl font-light leading-relaxed">
+                  Real feedback from the brands, platforms, and coaches we manage, engineer, and scale.
                 </p>
               </div>
 
               <Link
                 href="/work"
-                className="font-mono text-xs text-primary hover:text-white border-b border-primary/30 pb-1 flex items-center gap-2 self-start md:self-auto"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 hover:border-primary text-xs font-mono text-white hover:text-primary transition-all self-start md:self-auto"
               >
-                <span>[ explore all 5 case studies ]</span>
-                <ArrowRight size={14} />
+                <span>Explore All Case Studies</span>
+                <ArrowRight size={13} />
               </Link>
             </div>
 
@@ -293,12 +118,12 @@ export default function HomeClient({
               {testimonials.map((t) => (
                 <div
                   key={t.id}
-                  className="p-8 rounded-2xl bg-[var(--background-layer-2)] border border-white/10 flex flex-col justify-between hover:border-primary/40 transition group"
+                  className="p-8 rounded-2xl bg-[var(--background-layer-2)] border border-white/10 flex flex-col justify-between hover:border-primary/40 hover:shadow-[0_10px_30px_rgba(197,160,89,0.12)] transition-all group"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center gap-1 text-primary">
                       {Array.from({ length: t.rating || 5 }).map((_, i) => (
-                        <Star key={i} size={13} className="fill-primary" />
+                        <Star key={i} size={14} className="fill-primary text-primary" />
                       ))}
                     </div>
 
@@ -309,7 +134,7 @@ export default function HomeClient({
 
                   <div className="pt-6 mt-6 border-t border-white/10 space-y-1">
                     <p className="font-serif font-bold text-sm text-white">{t.clientName}</p>
-                    <p className="font-mono text-xs text-primary/80">
+                    <p className="font-mono text-xs text-primary">
                       {t.clientRole}
                     </p>
                     <p className="font-mono text-[11px] text-muted">
@@ -323,18 +148,19 @@ export default function HomeClient({
         </section>
       )}
 
-      {/* 9. The 4-Way Architectural Comparison Matrix */}
-      <section className="py-32 bg-background border-t border-white/10">
+      {/* 9. Why Leaders Choose NextCurrent Media (Operational Clarity Matrix) */}
+      <section className="py-28 bg-background border-t border-white/10">
         <div className="container mx-auto px-6 max-w-5xl space-y-12">
           <div className="text-center space-y-3">
-            <div className="font-mono text-xs text-primary/80">
-              // the nextcurrent advantage · operational clarity
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
+              <Sparkles size={12} />
+              <span>The NextCurrent Advantage · Operational Clarity</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif text-white">
-              Why Leaders Choose NextCurrent Media
+              Why Leaders Choose NextCurrent
             </h2>
             <p className="text-muted text-sm font-light max-w-lg mx-auto leading-relaxed">
-              Compare our operational model against traditional bloated agencies, fragmented freelancers, and expensive in-house overhead.
+              Compare our dedicated sprint model against bloated legacy agencies and unreliable fragmented freelancers.
             </p>
           </div>
 
@@ -403,9 +229,11 @@ export default function HomeClient({
 
       {/* 10. Final Call to Action */}
       <section className="py-24 bg-[var(--background-layer-1)] border-t border-white/10 text-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+
         <div className="container mx-auto px-6 max-w-3xl space-y-8 relative z-10">
-          <div className="font-mono text-xs text-primary/80">
-            // start your growth sprint · 24-hour response
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-primary">
+            <span>24-Hour Response Guarantee</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight leading-tight">
@@ -413,20 +241,20 @@ export default function HomeClient({
           </h2>
 
           <p className="text-muted text-base font-light leading-relaxed">
-            Tell us about your brand, technical requirements, or pipeline goals. We will prepare an architectural proposal within 24 hours.
+            Tell us about your brand, technical requirements, or pipeline goals. We will prepare an architectural roadmap within 24 hours.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-black font-semibold text-xs tracking-wider hover:bg-white transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-primary text-black font-semibold text-xs tracking-wider shadow-[0_0_35px_rgba(197,160,89,0.35)] hover:bg-white transition-all duration-300"
             >
               <span>Start a Project</span>
               <ArrowUpRight size={14} />
             </Link>
             <Link
               href="/book-a-call"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white hover:text-black font-mono text-xs transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white hover:text-black font-mono text-xs transition-all duration-300"
             >
               <span>Book Discovery Call</span>
             </Link>
