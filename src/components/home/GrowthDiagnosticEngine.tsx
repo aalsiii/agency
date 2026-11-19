@@ -91,7 +91,7 @@ export default function GrowthDiagnosticEngine() {
         focus: "Next.js Architectural Overhaul & Conversion Funnel",
         timeline: "2 to 3 Week Sprint",
         stack: ["Custom Next.js 16", "Tailwind CSS", "Sub-Second Edge Rendering", "Automated Lead Routing"],
-        benchmark: "Similar to Nada Yoga School's complete web redesign and enrollment surge to full capacity.",
+        benchmark: "Complete web redesign and enrollment surge to full cohort capacity.",
         deliverables: [
           "Sub-second Core Web Vitals (95+ Lighthouse Score)",
           "Bespoke mobile checkout / application funnel",

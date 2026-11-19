@@ -106,7 +106,7 @@ export default function BeforeAfterTransformation() {
                   <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
                     <XCircle size={16} className="text-red-400 shrink-0 mt-0.5" />
                     <div className="space-y-0.5">
-                      <h4 className="text-sm font-serif font-semibold text-white/90">
+                      <h4 className="text-sm font-sans font-medium text-white/90">
                         {item.title}
                       </h4>
                       <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -147,7 +147,7 @@ export default function BeforeAfterTransformation() {
                   <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-primary/[0.04] border border-primary/20">
                     <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
                     <div className="space-y-0.5">
-                      <h4 className="text-sm font-serif font-semibold text-white">
+                      <h4 className="text-sm font-sans font-medium text-white">
                         {item.title}
                       </h4>
                       <p className="text-xs text-neutral-300 font-light leading-relaxed">
@@ -161,7 +161,7 @@ export default function BeforeAfterTransformation() {
 
             <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-xs font-mono text-emerald-400 font-semibold">
-                ✓ Verified Nada Yoga & Client Playbook
+                ✓ Proven Growth & Client Acquisition Playbook
               </span>
               <Link
                 href="/start-a-project"

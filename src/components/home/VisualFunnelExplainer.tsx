@@ -155,7 +155,7 @@ export default function VisualFunnelExplainer() {
       title: "You Scale & Cohorts Fill Up",
       subtitle: "Predictable, Compounding Growth",
       plainDescription:
-        "Once the machine is running, leads arrive consistently week after week. Just like Nada Yoga School filling cohorts through next year, you gain predictable revenue.",
+        "Once the machine is running, leads arrive consistently week after week. Your client cohorts and booking calendars fill up to full capacity, giving you predictable revenue.",
       illustration: (
         <div className="relative w-full h-40 rounded-xl bg-black/60 border border-white/10 p-3 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between">
