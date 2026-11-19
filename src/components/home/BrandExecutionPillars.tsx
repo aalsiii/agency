@@ -382,119 +382,39 @@ export default function BrandExecutionPillars() {
         </div>
 
         {/* =========================================================================
-            PILLAR 4: EMAIL MARKETING & AUTOMATED FUNNELS (Visual Lifecycle Flow)
+            PILLAR 4: EMAIL MARKETING & AUTOMATED RETENTION (Visual Dashboard Showcase)
            ========================================================================= */}
         <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Visual Column on Left for Alternating Flow */}
-            <div className="lg:col-span-6 order-2 lg:order-1 space-y-4">
-              <div className="p-6 rounded-2xl bg-black border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <Mail size={14} className="text-primary" />
-                    <span className="font-mono text-xs text-white font-medium">
-                      Automated Lead Nurture Flow Canvas
-                    </span>
+            <div className="lg:col-span-6 order-2 lg:order-1">
+              {/* App / Browser Window Frame */}
+              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
+                {/* Window Header */}
+                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                   </div>
-                  <span className="font-mono text-[10px] text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                    48.2% Avg Open Rate
-                  </span>
-                </div>
-
-                {/* Visual Step-by-Step Email Sequence Nodes */}
-                <div className="space-y-2.5 relative">
-                  {/* Step 1: Form Trigger */}
-                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-mono font-bold">
-                        01
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-medium text-white">
-                          Trigger: Website Inquiry or Audit Opt-In
-                        </div>
-                        <div className="text-[10px] text-neutral-400 font-light">
-                          Visitor submits email to download guide or request audit
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-neutral-400">Instant</span>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
+                    <Mail size={11} className="text-primary" />
+                    <span>automation-lifecycle.engine</span>
                   </div>
-
-                  {/* Flow Arrow */}
-                  <div className="w-0.5 h-3 bg-primary/40 mx-auto" />
-
-                  {/* Step 2: Instant Welcome Email */}
-                  <div className="p-3 rounded-xl bg-primary/[0.04] border border-primary/20 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-primary text-black flex items-center justify-center text-xs font-mono font-bold">
-                        02
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-medium text-white">
-                          Day 0: The Brand Authority Story & Value Asset
-                        </div>
-                        <div className="text-[10px] text-neutral-400 font-light">
-                          Instant delivery of promised asset + credibility teardown
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400 font-semibold">
-                      68.4% Open
-                    </span>
-                  </div>
-
-                  {/* Flow Arrow */}
-                  <div className="w-0.5 h-3 bg-primary/40 mx-auto" />
-
-                  {/* Step 3: Social Proof & Case Study */}
-                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-mono font-bold">
-                        03
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-medium text-white">
-                          Day 2: Client Transformation & Proof Breakdown
-                        </div>
-                        <div className="text-[10px] text-neutral-400 font-light">
-                          Real student/client milestone story answering key objections
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400 font-semibold">
-                      54.1% Open
-                    </span>
-                  </div>
-
-                  {/* Flow Arrow */}
-                  <div className="w-0.5 h-3 bg-primary/40 mx-auto" />
-
-                  {/* Step 4: Direct Calendar Invite */}
-                  <div className="p-3 rounded-xl bg-emerald-500/[0.05] border border-emerald-500/20 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-400 text-black flex items-center justify-center text-xs font-mono font-bold">
-                        04
-                      </div>
-                      <div>
-                        <div className="text-xs font-mono font-medium text-white">
-                          Day 4: Limited Seat Calendar Invitation
-                        </div>
-                        <div className="text-[10px] text-neutral-400 font-light">
-                          Direct CTA to reserve an upcoming cohort consultation
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-primary font-semibold">
-                      41.8% CTR
-                    </span>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    Active Flows
                   </div>
                 </div>
 
-                {/* Bottom Metric Bar */}
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-300">
-                  <span>Compounding 24/7 Retention</span>
-                  <span className="text-primary font-semibold">32% of Client Revenue</span>
+                {/* Inner Real Email Marketing Dashboard Visual */}
+                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
+                  <Image
+                    src="/images/marketing/email-dashboard.jpg"
+                    alt="Email Marketing Automation Platform Interface"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
               </div>
             </div>
