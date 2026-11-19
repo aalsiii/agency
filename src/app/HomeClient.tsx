@@ -16,6 +16,7 @@ import GrowthDiagnosticEngine from "@/components/home/GrowthDiagnosticEngine";
 import VisualFunnelExplainer from "@/components/home/VisualFunnelExplainer";
 import BeforeAfterTransformation from "@/components/home/BeforeAfterTransformation";
 import SimpleClientProcess from "@/components/home/SimpleClientProcess";
+import BrandExecutionPillars from "@/components/home/BrandExecutionPillars";
 
 const HorizonHeroSection = dynamic(
   () => import("@/components/ui/horizon-hero-section").then((mod) => mod.HorizonHeroSection),
@@ -72,7 +73,10 @@ export default function HomeClient({
       {/* 2. Visual Client Acquisition Funnel (Explains in Plain English How We Turn Strangers into Paying Clients) */}
       <VisualFunnelExplainer />
 
-      {/* 3. Selected Real Client Work (Real Screenshots in Mac Browser Frame & Deliverables) */}
+      {/* 3. Core Brand Execution Pillars (Social Media Feed Mockup, Web Dev, Paid Ads & Email Retention) */}
+      <BrandExecutionPillars />
+
+      {/* 4. Selected Real Client Work (Real Screenshots in Mac Browser Frame & Deliverables) */}
       <EditorialWorkShowcase />
 
       {/* 4. Before vs. After NextCurrent (Side-by-Side Visual Comparison in Plain English) */}
