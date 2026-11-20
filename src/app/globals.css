@@ -47,11 +47,23 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
-  /* Hide default cursor for custom cursor on public site */
 }
 
-/* Allow normal cursor inside admin dashboard or for touch devices */
+/* Hide default cursor on devices with fine pointer (mouse) for custom luxury cursor */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Allow normal cursor inside admin dashboard */
 body.admin-mode,
 .admin-mode html {
   cursor: auto !important;
