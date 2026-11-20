@@ -178,36 +178,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        {/* Bottom CTA Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden py-32 px-6 text-center"
-        >
-          <div className="absolute inset-0 bg-zinc-900/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent opacity-80 pointer-events-none" />
-
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1]">
-              Create Bold. <br />
-              <span className="text-white/40 italic">Deliver Better.</span>
-            </h2>
-
-            <p className="text-xl md:text-2xl text-muted mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              We partner with ambitious brands to create digital experiences and client funnels that define the future.
-            </p>
-
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 text-lg font-bold uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-10 py-5 rounded-full hover:bg-primary hover:text-black transition-all duration-500"
-            >
-              Start Your Project
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </motion.section>
       </div>
     </main>
   );
