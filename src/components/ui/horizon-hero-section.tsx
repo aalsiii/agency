@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
 
 export const HorizonHeroSection = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +15,6 @@ export const HorizonHeroSection = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [currentSection, setCurrentSection] = useState(0);
     const [isMobileDevice, setIsMobileDevice] = useState(false);
-    const [isThreeLoaded, setIsThreeLoaded] = useState(false);
 
     const totalSections = 3;
 
@@ -47,7 +44,6 @@ export const HorizonHeroSection = () => {
     });
 
     useEffect(() => {
-        // Detect mobile / touch devices to prevent heavy Three.js execution on mobile
         const checkIsMobile = () => {
             const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
             const isSmall = window.innerWidth < 768;
@@ -57,12 +53,8 @@ export const HorizonHeroSection = () => {
         const mobile = checkIsMobile();
         setIsMobileDevice(mobile);
 
-        // Mobile users get an ultra-fast, zero-JS-overhead, pure CSS dark luxury hero
-        if (mobile) {
-            return;
-        }
+        if (mobile) return;
 
-        // On Desktop, defer Three.js loading so initial hydration & paint are never blocked
         let isCancelled = false;
 
         const startDesktopThree = async () => {
@@ -126,7 +118,7 @@ export const HorizonHeroSection = () => {
                 );
                 refs.composer.addPass(bloomPass);
 
-                // 1. Star field (optimized: 1,500 particles per layer vs 5,000)
+                // 1. Star field
                 const starCount = 1500;
                 for (let i = 0; i < 3; i++) {
                     const geometry = new THREE.BufferGeometry();
@@ -148,7 +140,7 @@ export const HorizonHeroSection = () => {
                         if (colorChoice < 0.7) {
                             color.setHex(0xffffff);
                         } else if (colorChoice < 0.9) {
-                            color.setHex(0xc5a059); // Gold
+                            color.setHex(0xc5a059);
                         } else {
                             color.setHex(0xa0a0a0);
                         }
@@ -201,7 +193,7 @@ export const HorizonHeroSection = () => {
                     refs.stars.push(stars);
                 }
 
-                // 2. Nebula (optimized: 25x25 segments vs 100x100 = 16x fewer vertices)
+                // 2. Nebula
                 const nebulaGeometry = new THREE.PlaneGeometry(8000, 4000, 25, 25);
                 const nebulaMaterial = new THREE.ShaderMaterial({
                     uniforms: {
@@ -323,7 +315,6 @@ export const HorizonHeroSection = () => {
                 const atmosphere = new THREE.Mesh(atmoGeometry, atmoMaterial);
                 refs.scene.add(atmosphere);
 
-                // Animation loop with visibility throttling
                 const animate = () => {
                     if (!isVisibleRef.current) {
                         refs.animationId = null;
@@ -374,7 +365,6 @@ export const HorizonHeroSection = () => {
                     }
                 };
 
-                // Pause RAF when hero section is not visible
                 const observer = new IntersectionObserver(([entry]) => {
                     isVisibleRef.current = entry.isIntersecting;
                     if (entry.isIntersecting && !refs.animationId) {
@@ -387,17 +377,27 @@ export const HorizonHeroSection = () => {
                 }
 
                 animate();
-                setIsThreeLoaded(true);
 
-                // Initial GSAP headline entrance
+                // GSAP text animations
                 if (titleRef.current) {
                     const titleChars = titleRef.current.querySelectorAll(".title-char");
                     gsap.from(titleChars, {
-                        y: 120,
+                        y: 200,
                         opacity: 0,
-                        duration: 1.2,
-                        stagger: 0.04,
+                        duration: 1.5,
+                        stagger: 0.05,
                         ease: "power4.out"
+                    });
+                }
+
+                if (subtitleRef.current) {
+                    const subtitleLines = subtitleRef.current.querySelectorAll(".subtitle-line");
+                    gsap.from(subtitleLines, {
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        stagger: 0.2,
+                        ease: "power3.out"
                     });
                 }
 
@@ -422,7 +422,6 @@ export const HorizonHeroSection = () => {
             }
         };
 
-        // Use requestIdleCallback or brief timeout to let main-thread finish initial hydration
         const timer = (window.requestIdleCallback as any)
             ? (window.requestIdleCallback as any)(startDesktopThree)
             : setTimeout(startDesktopThree, 60);
@@ -433,7 +432,6 @@ export const HorizonHeroSection = () => {
         };
     }, []);
 
-    // Desktop scroll progress listener for the 3D camera trajectory
     useEffect(() => {
         if (isMobileDevice) return;
 
@@ -488,102 +486,58 @@ export const HorizonHeroSection = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[100svh] min-h-[580px] md:h-[300vh] bg-black overflow-hidden"
+            className="relative w-full h-[100svh] md:h-[300vh] bg-black"
         >
-            {/* Desktop 3D Canvas (Hidden on mobile to save 100% of GPU & CPU) */}
             <canvas
                 ref={canvasRef}
-                className="hidden md:block fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
+                className="fixed top-0 left-0 w-full h-full z-0"
             />
 
-            {/* Radiant Ambient Horizon Background Glow (Hardware-accelerated CSS) */}
-            <div
-                className="absolute inset-0 pointer-events-none z-[1] bg-[radial-gradient(ellipse_85%_55%_at_50%_65%,rgba(197,160,89,0.22)_0%,rgba(197,160,89,0.06)_40%,transparent_75%)]"
-            />
-            <div
-                className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[2] bg-gradient-to-t from-black via-black/80 to-transparent"
-            />
-
-            {/* Mobile Star Dust Texture (Pure CSS, 0 JS runtime overhead) */}
-            <div className="md:hidden absolute inset-0 pointer-events-none z-[1] opacity-40 bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:24px_24px]" />
-
-            {/* =========================================================================
-                SECTION 1: "VISION" (Visible immediately on both Mobile and Desktop)
-               ========================================================================= */}
-            <section className="relative md:absolute top-0 left-0 w-full h-[100svh] min-h-[580px] md:h-screen z-10 flex flex-col items-center justify-center text-white overflow-hidden px-6 text-center">
-                {/* Status pill badge */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-[11px] font-mono text-primary mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(197,160,89,0.15)] animate-fade-in">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <span>NEXT-GEN CLIENT ACQUISITION ARCHITECTURE</span>
-                </div>
-
+            {/* SECTION 1: VISION */}
+            <section className="absolute top-0 left-0 w-full h-screen z-10 flex flex-col items-center justify-center pointer-events-none text-white overflow-hidden">
                 <h1
                     ref={titleRef}
-                    className="text-6xl sm:text-7xl md:text-9xl font-normal tracking-[0.2em] mb-4 text-white font-sans drop-shadow-[0_0_40px_rgba(197,160,89,0.25)] select-none"
+                    className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans"
                 >
                     {splitTitle("VISION")}
                 </h1>
 
                 <div
                     ref={subtitleRef}
-                    className="text-center font-light tracking-widest text-xs sm:text-sm md:text-base text-white/70 uppercase font-sans max-w-xl mx-auto space-y-1 mb-8"
+                    className="text-center font-light tracking-widest text-sm md:text-base text-white/50 uppercase font-sans"
                 >
-                    <p className="subtitle-line block">Redefining Digital Landscapes,</p>
-                    <p className="subtitle-line block text-primary/90 font-medium">Crafting the future of your brand</p>
-                </div>
-
-                {/* Direct Action Buttons */}
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-sm sm:max-w-none justify-center z-20 pointer-events-auto">
-                    <Link
-                        href="/start-a-project"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-black font-semibold text-xs font-mono hover:bg-primary-hover transition-all shadow-[0_0_25px_rgba(197,160,89,0.35)]"
-                    >
-                        <span>Book Free Strategy Call</span>
-                        <ArrowRight size={14} />
-                    </Link>
-
-                    <Link
-                        href="#work"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/[0.04] border border-white/15 hover:border-primary/50 text-white font-medium text-xs font-mono transition-all backdrop-blur-sm"
-                    >
-                        <span>Explore Client Results</span>
-                    </Link>
-                </div>
-
-                {/* Mobile scroll hint */}
-                <div className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[10px] font-mono text-white/40 tracking-widest">
-                    <span>SCROLL DOWN</span>
-                    <span className="w-1 h-3 rounded-full bg-primary/60 animate-bounce" />
+                    <p className="subtitle-line block mb-2">
+                        Redefining Digital Landscapes,
+                    </p>
+                    <p className="subtitle-line block">
+                        Crafting the future of your brand
+                    </p>
                 </div>
             </section>
 
-            {/* =========================================================================
-                SECTION 2: "CRAFT" (Desktop 300vh scroll trajectory)
-               ========================================================================= */}
-            <section className="hidden md:flex absolute top-[100vh] left-0 w-full h-screen z-10 flex-col items-center justify-center pointer-events-none text-white text-center px-6">
+            {/* SECTION 2: CRAFT */}
+            <section className="hidden md:flex absolute top-[100vh] left-0 w-full h-screen z-10 flex-col items-center justify-center pointer-events-none text-white">
                 <h2 className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans">
                     CRAFT
                 </h2>
                 <div className="text-center font-light tracking-widest text-sm md:text-base text-white/80 uppercase font-sans">
                     <p>Design operations & Digital Excellence,</p>
-                    <p className="text-primary/90">Forged with precision</p>
+                    <p>Forged with precision</p>
                 </div>
             </section>
 
-            {/* =========================================================================
-                SECTION 3: "IMPACT" (Desktop 300vh scroll trajectory)
-               ========================================================================= */}
-            <section className="hidden md:flex absolute top-[200vh] left-0 w-full h-screen z-10 flex-col items-center justify-center pointer-events-none text-white text-center px-6">
+            {/* SECTION 3: IMPACT */}
+            <section className="hidden md:flex absolute top-[200vh] left-0 w-full h-screen z-10 flex-col items-center justify-center pointer-events-none text-white">
                 <h2 className="text-6xl md:text-9xl font-normal tracking-[0.2em] mb-4 mix-blend-overlay text-primary/60 font-sans">
                     IMPACT
                 </h2>
                 <div className="text-center font-light tracking-widest text-sm md:text-base text-white/80 uppercase font-sans">
                     <p>Helping Businesses Go Global,</p>
-                    <p className="text-primary/90">One pixel at a time</p>
+                    <p>One pixel at a time</p>
                 </div>
             </section>
 
-            {/* Desktop Vertical Scroll Progress Meter */}
+            {/* Scroll progress meter */}
             <div
                 ref={scrollProgressRef}
                 className="hidden md:flex fixed bottom-12 right-12 z-50 items-center gap-4 text-white text-[10px] tracking-widest transition-all duration-700 pointer-events-none"
