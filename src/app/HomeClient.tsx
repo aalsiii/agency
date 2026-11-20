@@ -12,6 +12,7 @@ import {
 import HorizontalServices from "@/components/home/HorizontalServices";
 import EditorialWorkShowcase from "@/components/home/EditorialWorkShowcase";
 import VisualFunnelExplainer from "@/components/home/VisualFunnelExplainer";
+import TechStackMarquee from "@/components/home/TechStackMarquee";
 import BeforeAfterTransformation from "@/components/home/BeforeAfterTransformation";
 import SimpleClientProcess from "@/components/home/SimpleClientProcess";
 import BrandExecutionPillars from "@/components/home/BrandExecutionPillars";
@@ -66,6 +67,9 @@ export default function HomeClient({
 
       {/* 2. Visual Client Acquisition Funnel (Explains in Plain English How We Turn Strangers into Paying Clients) */}
       <VisualFunnelExplainer />
+
+      {/* 2.5 Infinite Tech Stacks & Platforms Marquee (Fills the gap with infinite scrolling tech ecosystem) */}
+      <TechStackMarquee />
 
       {/* 3. Core Brand Execution Pillars (Social Media Feed Mockup, Web Dev, Paid Ads & Email Retention) */}
       <BrandExecutionPillars />
