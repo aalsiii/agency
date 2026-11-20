@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,11 +15,7 @@ import VisualFunnelExplainer from "@/components/home/VisualFunnelExplainer";
 import BeforeAfterTransformation from "@/components/home/BeforeAfterTransformation";
 import SimpleClientProcess from "@/components/home/SimpleClientProcess";
 import BrandExecutionPillars from "@/components/home/BrandExecutionPillars";
-
-const HorizonHeroSection = dynamic(
-  () => import("@/components/ui/horizon-hero-section").then((mod) => mod.HorizonHeroSection),
-  { ssr: false }
-);
+import { HorizonHeroSection } from "@/components/ui/horizon-hero-section";
 
 interface ServiceData {
   id: string;

@@ -36,7 +36,7 @@ export default function BrandExecutionPillars() {
   const websiteScreenshots = [
     "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148753/agency/images/websites/nitasha-buldeo.jpg",
     "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148756/agency/images/websites/yogamani.jpg",
-    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148755/agency/images/websites/valalino-web.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148752/agency/images/websites/bestseller-author.jpg",
     "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148752/agency/images/websites/echoes-shop.jpg",
     "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148754/agency/images/websites/rudraksha-store.jpg",
     "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148751/agency/images/websites/admin-gallery.jpg",

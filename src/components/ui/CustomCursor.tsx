@@ -4,20 +4,16 @@ import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 export default function CustomCursor() {
-    const [isMobile, setIsMobile] = useState(false);
+    const [enabled, setEnabled] = useState(false);
 
     useEffect(() => {
-        // Check if device is mobile or touch-enabled
-        const checkMobile = () => {
-            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            const isSmallScreen = window.innerWidth <= 1024;
-            setIsMobile(isTouch || isSmallScreen);
-        };
+        // Fast bail-out on mobile, touch, or small screens
+        if (typeof window === 'undefined') return;
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isSmallScreen = window.innerWidth <= 1024;
+        if (isTouch || isSmallScreen) return;
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        if (isMobile) return;
+        setEnabled(true);
 
         const dot = document.getElementById('cursor-dot');
         const outline = document.getElementById('cursor-outline');
@@ -38,9 +34,8 @@ export default function CustomCursor() {
             yOutline(e.clientY);
         };
 
-        window.addEventListener('mousemove', moveCursor);
+        window.addEventListener('mousemove', moveCursor, { passive: true });
 
-        // Optimize: Target cursor elements directly instead of body to avoid global style recalc
         const addHover = () => {
             outline.classList.add('cursor-hover');
             dot.classList.add('cursor-hover');
@@ -52,39 +47,40 @@ export default function CustomCursor() {
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            // Use lighter check
-            if (target.tagName.toLowerCase() === 'a' ||
-                target.tagName.toLowerCase() === 'button' ||
-                target.closest('.hover-trigger') ||
-                target.closest('a') ||
-                target.closest('button')) {
+            if (
+                target &&
+                (target.tagName.toLowerCase() === 'a' ||
+                    target.tagName.toLowerCase() === 'button' ||
+                    target.closest('.hover-trigger') ||
+                    target.closest('a') ||
+                    target.closest('button'))
+            ) {
                 addHover();
             } else {
                 removeHover();
             }
         };
 
-        window.addEventListener('mouseover', handleMouseOver);
+        window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
         return () => {
-            window.removeEventListener('resize', checkMobile);
             window.removeEventListener('mousemove', moveCursor);
             window.removeEventListener('mouseover', handleMouseOver);
-        }
-    }, [isMobile]);
+        };
+    }, []);
 
-    if (isMobile) return null;
+    if (!enabled) return null;
 
     return (
         <>
             <div
                 id="cursor-dot"
                 className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full z-[9999] pointer-events-none -translate-x-1/2 -translate-y-1/2 will-change-transform"
-            ></div>
+            />
             <div
                 id="cursor-outline"
                 className="fixed top-0 left-0 w-10 h-10 border border-primary/40 rounded-full z-[9998] pointer-events-none -translate-x-1/2 -translate-y-1/2 transition-all duration-200 will-change-transform [&.cursor-hover]:scale-150 [&.cursor-hover]:bg-primary/10 [&.cursor-hover]:border-primary"
-            ></div>
+            />
         </>
     );
 }
