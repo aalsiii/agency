@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import { CurrencyProvider } from "@/lib/currency-context";
 
 const cinzel = Cinzel({
@@ -46,6 +47,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <FloatingWhatsApp />
         </CurrencyProvider>
       </body>
     </html>
