@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { values } from "@/lib/about-data";
 
 export default function AboutPage() {
@@ -91,6 +92,44 @@ export default function AboutPage() {
               <p className="text-lg md:text-xl text-muted/80 font-light leading-relaxed">
                 We believe exceptional growth marketing should feel effortless and grounded in architectural discipline. Every millisecond of load speed matters, and every creative hook speaks directly to customer psychology.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Founder & Leadership Section */}
+        <section className="mb-16 md:mb-24">
+          <div className="flex flex-col sm:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-[var(--background-layer-1)] border border-white/10 shadow-2xl">
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-primary/40 shrink-0 shadow-xl bg-neutral-900">
+              <Image
+                src="/images/founder.jpg"
+                alt="Akshat Bijalwan - Founder & Lead Architect"
+                fill
+                sizes="(max-width: 640px) 144px, 176px"
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-3 text-center sm:text-left">
+              <div className="font-mono text-xs text-primary/80 uppercase tracking-widest">
+                // LEADERSHIP · TECHNICAL ARCHITECT
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-white tracking-tight">
+                Akshat Bijalwan
+              </h2>
+              <div className="font-mono text-xs text-primary font-medium">
+                Founder & Lead Architect · NextCurrent
+              </div>
+              <p className="text-muted text-sm sm:text-base font-light leading-relaxed">
+                Akshat founded NextCurrent to bridge the gap between creative performance marketing and sub-second web engineering. He advises growing brands and ambitious founders on custom Next.js conversion architecture, high-ticket client acquisition systems, and unit-economic growth.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/book-a-call"
+                  className="font-mono text-xs text-primary hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-1.5"
+                >
+                  <span>[ book a strategy consultation with akshat ]</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>

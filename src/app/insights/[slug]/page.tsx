@@ -282,7 +282,7 @@ export default async function InsightArticlePage({ params }: Props) {
             <div className="flex items-center gap-3">
               <div className="relative w-11 h-11 rounded-full overflow-hidden border border-primary/40 bg-white/10 shrink-0">
                 <Image
-                  src="/images/team-lead.jpg"
+                  src="/images/founder.jpg"
                   alt={post.authorName}
                   fill
                   sizes="44px"
@@ -331,7 +331,7 @@ export default async function InsightArticlePage({ params }: Props) {
             <div className="p-6 sm:p-8 rounded-3xl bg-[#0c0c11] border border-white/10 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-xl">
               <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-primary/40 bg-neutral-900 shrink-0">
                 <Image
-                  src="/images/team-lead.jpg"
+                  src="/images/founder.jpg"
                   alt={post.authorName}
                   fill
                   sizes="80px"
