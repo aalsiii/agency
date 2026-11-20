@@ -22,7 +22,7 @@ export const projects: Project[] = [
         title: "Nada Yoga School",
         category: "Full-Funnel Marketing & Web",
         role: "Full-Funnel Management & Redesign",
-        src: "/images/portfolio/nada-yoga-school.png",
+        src: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-yoga-school.png",
         desc: "Complete digital growth overhaul from website maintenance and full WordPress redesign to SEO, social media management, and Meta ad funnels—resulting in courses booked almost full through next year.",
         client: "Nada Yoga School",
         timeline: "Ongoing Retainer",
@@ -31,9 +31,9 @@ export const projects: Project[] = [
         results: "Transformed student intake into a predictable global pipeline. Courses and teacher training cohorts are now booked almost completely full through next year.",
         liveUrl: "https://www.nadyoga.org/",
         galleryImages: [
-            "/images/portfolio/nada-gallery-1.png",
-            "/images/portfolio/nada-gallery-2.png",
-            "/images/portfolio/nada-gallery-3.png"
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148737/agency/images/portfolio/nada-gallery-1.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148738/agency/images/portfolio/nada-gallery-2.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-gallery-3.png"
         ]
     },
     {
@@ -42,7 +42,7 @@ export const projects: Project[] = [
         title: "Val Alino Coach",
         category: "Executive Branding & Social",
         role: "Social Media & Brand Strategy",
-        src: "/images/portfolio/valalino-real.png",
+        src: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png",
         desc: "Personal brand elevation, strategic social media management, and website optimization tailored for an elite executive and transformational life coach.",
         client: "Val Alino Coaching",
         timeline: "Active Partnership",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
         results: "Established a cohesive aesthetic and unified executive brand voice across social channels and web touchpoints, driving consistent inbound inquiries from senior leaders.",
         liveUrl: "https://www.valalino.com/",
         galleryImages: [
-            "/images/portfolio/valalino-real.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png",
         ]
     },
     {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
         title: "Eazy Pregnancy",
         category: "Content Strategy & SEO",
         role: "Copywriting & SEO Content Architecture",
-        src: "/images/portfolio/eazypregnancy-real.png",
+        src: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png",
         desc: "Empathetic, medically accurate website copywriting and search-rich editorial content engineering to establish top Google rankings in the maternal wellness space.",
         client: "Eazy Pregnancy",
         timeline: "Sprint & Optimization",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
         results: "Established organic Google search footprint across key long-tail maternal queries and structured trusted copy across primary landing pages.",
         liveUrl: "https://www.eazypregnancy.com/",
         galleryImages: [
-            "/images/portfolio/eazypregnancy-real.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png",
         ]
     },
     {
@@ -78,7 +78,7 @@ export const projects: Project[] = [
         title: "Luisa Photography",
         category: "Portfolio & Editorial Design",
         role: "Bespoke Web Development",
-        src: "/images/portfolio/luisa-fotografia.png",
+        src: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148733/agency/images/portfolio/luisa-fotografia.png",
         desc: "An editorial-grade fine art photography portfolio engineered with sub-second image loading, minimalist framing, and an effortless client commission inquiry interface.",
         client: "Luisa Photography",
         timeline: "4 Weeks",
@@ -87,9 +87,9 @@ export const projects: Project[] = [
         results: "Achieved sub-second image load times, elegant fullscreen gallery navigation, and a frictionless inquiry interface for prospective editorial and commercial clients.",
         liveUrl: "https://www.luisaphotography.com/",
         galleryImages: [
-            "/images/portfolio/luisa-gallery-1.png",
-            "/images/portfolio/luisa-gallery-2.png",
-            "/images/portfolio/luisa-gallery-3.png"
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148734/agency/images/portfolio/luisa-gallery-1.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148735/agency/images/portfolio/luisa-gallery-2.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148736/agency/images/portfolio/luisa-gallery-3.png"
         ]
     },
     {
@@ -98,7 +98,7 @@ export const projects: Project[] = [
         title: "Rudraksha Antiquei",
         category: "Next.js E-Commerce & Brand",
         role: "Next.js Architecture & Brand Identity",
-        src: "/images/portfolio/rudraksha-real.png",
+        src: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png",
         desc: "Ground-up luxury brand creation and custom Next.js e-commerce engineering for authentic sacred spiritual artifacts and temple antiquities.",
         client: "Rudraksha Antiquei",
         timeline: "Active Build & Launch",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
         results: "Engineered and launched custom Next.js e-commerce architecture from scratch and actively building the complete visual brand identity.",
         liveUrl: "https://www.rudrakshaantiquei.com/",
         galleryImages: [
-            "/images/portfolio/rudraksha-real.png",
+            "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png",
         ]
     },
 ];

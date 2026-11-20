@@ -772,11 +772,11 @@ async function main() {
       ]),
       technologies: JSON.stringify(["WordPress", "PHP", "Technical SEO", "Meta Ads Manager", "Google Analytics", "Social Media Pipeline"]),
       websiteUrl: "https://www.nadyoga.org/",
-      coverImage: "/images/portfolio/nada-yoga-school.png",
+      coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-yoga-school.png",
       galleryImages: JSON.stringify([
-        "/images/portfolio/nada-gallery-1.png",
-        "/images/portfolio/nada-gallery-2.png",
-        "/images/portfolio/nada-gallery-3.png"
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148737/agency/images/portfolio/nada-gallery-1.png",
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148738/agency/images/portfolio/nada-gallery-2.png",
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-gallery-3.png"
       ]),
       testimonialQuote: "We were not getting a lot of students, our website was very old, social media was inconsistent, and paid marketing was not performing. NextCurrent took over our complete marketing management—redesigned our entire WordPress website, managed our SEO, social media, and Meta ads. Today, we are almost full till next year.",
       testimonialAuthor: "Nada Yoga School Leadership",
@@ -811,9 +811,9 @@ async function main() {
       ]),
       technologies: JSON.stringify(["Social Media Management", "Brand Strategy", "Web Optimization", "Content Direction"]),
       websiteUrl: "https://www.valalino.com/",
-      coverImage: "/images/portfolio/valalino-real.png",
+      coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png",
       galleryImages: JSON.stringify([
-        "/images/portfolio/valalino-real.png"
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png"
       ]),
       testimonialQuote: "NextCurrent currently handles my social media, and helps me with my website and branding. Having a dependable partner manage my digital presence allows me to focus fully on coaching my clients.",
       testimonialAuthor: "Val Alino",
@@ -848,10 +848,10 @@ async function main() {
       ]),
       technologies: JSON.stringify(["SEO Copywriting", "Keyword Research", "Google Search Optimization", "Content Strategy"]),
       websiteUrl: "https://www.eazypregnancy.com/",
-      coverImage: "/images/portfolio/eazypregnancy-real.png",
+      coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png",
       galleryImages: JSON.stringify([
-        "/images/portfolio/eazypregnancy.png",
-        "/images/portfolio/eazypregnancy-real.png"
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148729/agency/images/portfolio/eazypregnancy.png",
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png"
       ]),
       testimonialQuote: "The website copy and SEO-rich articles crafted for our platform gave us the organic brand visibility on Google we needed, while maintaining the warm, trusted tone that expecting mothers rely on.",
       testimonialAuthor: "Eazy Pregnancy Team",
@@ -886,11 +886,11 @@ async function main() {
       ]),
       technologies: JSON.stringify(["Custom Web Engineering", "Tailwind CSS", "JavaScript", "Responsive Image Engine"]),
       websiteUrl: "https://www.luisaphotography.com/",
-      coverImage: "/images/portfolio/luisa-fotografia.png",
+      coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148733/agency/images/portfolio/luisa-fotografia.png",
       galleryImages: JSON.stringify([
-        "/images/portfolio/luisa-gallery-1.png",
-        "/images/portfolio/luisa-gallery-2.png",
-        "/images/portfolio/luisa-gallery-3.png"
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148734/agency/images/portfolio/luisa-gallery-1.png",
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148735/agency/images/portfolio/luisa-gallery-2.png",
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148736/agency/images/portfolio/luisa-gallery-3.png"
       ]),
       testimonialQuote: "Built a stunning, bespoke portfolio website for my photography. It is clean, fast, and represents my work with the artistic polish it deserves.",
       testimonialAuthor: "Luisa",
@@ -925,9 +925,9 @@ async function main() {
       ]),
       technologies: JSON.stringify(["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Prisma", "E-Commerce Architecture"]),
       websiteUrl: "https://www.rudrakshaantiquei.com/",
-      coverImage: "/images/portfolio/rudraksha-real.png",
+      coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png",
       galleryImages: JSON.stringify([
-        "/images/portfolio/rudraksha-real.png"
+        "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png"
       ]),
       testimonialQuote: "NextCurrent built our custom Next.js e-commerce website and is currently helping us build this brand from scratch. Their technical execution and brand guidance have been invaluable.",
       testimonialAuthor: "Rudraksha Antiquei Team",

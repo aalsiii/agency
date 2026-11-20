@@ -16,30 +16,30 @@ import {
 export default function BrandExecutionPillars() {
   const socialFeeds = [
     {
-      img: "/images/social/nadayoga-feed.jpg",
+      img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148747/agency/images/social/nadayoga-feed.jpg",
       offset: "md:translate-y-0",
     },
     {
-      img: "/images/social/nadayoga-espanol-feed.jpg",
+      img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148746/agency/images/social/nadayoga-espanol-feed.jpg",
       offset: "md:translate-y-6",
     },
     {
-      img: "/images/social/valalino-feed.jpg",
+      img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148749/agency/images/social/valalino-feed.jpg",
       offset: "md:-translate-y-3",
     },
     {
-      img: "/images/social/syara-rae-feed.jpg",
+      img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148748/agency/images/social/syara-rae-feed.jpg",
       offset: "md:translate-y-4",
     },
   ];
 
   const websiteScreenshots = [
-    "/images/websites/nitasha-buldeo.jpg",
-    "/images/websites/yogamani.jpg",
-    "/images/websites/valalino-web.jpg",
-    "/images/websites/echoes-shop.jpg",
-    "/images/websites/rudraksha-store.jpg",
-    "/images/websites/admin-gallery.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148753/agency/images/websites/nitasha-buldeo.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148756/agency/images/websites/yogamani.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148755/agency/images/websites/valalino-web.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148752/agency/images/websites/echoes-shop.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148754/agency/images/websites/rudraksha-store.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148751/agency/images/websites/admin-gallery.jpg",
   ];
 
   return (
@@ -332,7 +332,7 @@ export default function BrandExecutionPillars() {
                 {/* Inner Real Meta Ads Dashboard Visual */}
                 <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
                   <Image
-                    src="/images/marketing/meta-ads-dashboard.jpg"
+                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148727/agency/images/marketing/meta-ads-dashboard.jpg"
                     alt="Meta Ads Performance Marketing Telemetry Dashboard"
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -373,7 +373,7 @@ export default function BrandExecutionPillars() {
                 {/* Inner Real Email Marketing Dashboard Visual */}
                 <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
                   <Image
-                    src="/images/marketing/email-dashboard.jpg"
+                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148726/agency/images/marketing/email-dashboard.jpg"
                     alt="Email Marketing Automation Platform Interface"
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

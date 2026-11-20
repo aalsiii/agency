@@ -30,7 +30,7 @@ const projects: ProjectShowcase[] = [
     displayUrl: "www.nadyoga.org",
     title: "Complete WordPress Redesign & Full Marketing Management",
     categoryBadge: "Web Engineering · SEO · SMM · Meta Ads",
-    screenshot: "/images/portfolio/nada-yoga-school.png",
+    screenshot: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-yoga-school.png",
     milestone: "Courses and training cohorts almost fully booked through next year.",
     scopeSummary:
       "Full digital overhaul from complete WordPress rebuild to daily social media management, organic search indexing, and high-converting Meta ads.",
@@ -45,7 +45,7 @@ const projects: ProjectShowcase[] = [
     displayUrl: "www.luisaphotography.com",
     title: "Bespoke Photographer Portfolio & Visual Showcase",
     categoryBadge: "Web Development · Editorial Portfolio",
-    screenshot: "/images/portfolio/luisa-fotografia.png",
+    screenshot: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148733/agency/images/portfolio/luisa-fotografia.png",
     milestone: "High-performance editorial layout with instant image rendering.",
     scopeSummary:
       "Engineered bespoke photography portfolio with fluid full-bleed galleries, minimalist typography, and sub-second asset delivery.",
@@ -60,7 +60,7 @@ const projects: ProjectShowcase[] = [
     displayUrl: "www.rudrakshaantiquei.com",
     title: "Custom Next.js E-Commerce Architecture & Brand Launch",
     categoryBadge: "Next.js Development · Brand Building",
-    screenshot: "/images/portfolio/rudraksha-real.png",
+    screenshot: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png",
     milestone: "Custom Next.js e-commerce storefront engineered from scratch.",
     scopeSummary:
       "Architected custom Next.js e-commerce storefront, curated catalog architecture, and currently building the visual brand identity from ground up.",
@@ -75,7 +75,7 @@ const projects: ProjectShowcase[] = [
     displayUrl: "www.valalino.com",
     title: "Executive Coaching Social Media & Brand Strategy",
     categoryBadge: "SMM · Brand Identity · Web Advisory",
-    screenshot: "/images/portfolio/valalino-real.png",
+    screenshot: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png",
     milestone: "Cohesive aesthetic and unified personal brand across all channels.",
     scopeSummary:
       "Managing Val's social media channels, curating high-authority content, and consulting on website visual presentation and branding.",
@@ -90,7 +90,7 @@ const projects: ProjectShowcase[] = [
     displayUrl: "www.eazypregnancy.com",
     title: "SEO-Rich Content Architecture & Website Copywriting",
     categoryBadge: "Copywriting · SEO Articles · Content Strategy",
-    screenshot: "/images/portfolio/eazypregnancy-real.png",
+    screenshot: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png",
     milestone: "Authored SEO-rich informative articles building organic Google footprint.",
     scopeSummary:
       "Crafted full website copy and high-ranking maternal health educational articles that expand search engine discoverability and brand trust.",

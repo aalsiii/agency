@@ -124,19 +124,19 @@ export default async function IndividualServicePage({ params }: PageProps) {
 
   // Visual Assets
   const websiteScreenshots = [
-    "/images/websites/nitasha-buldeo.jpg",
-    "/images/websites/yogamani.jpg",
-    "/images/websites/valalino-web.jpg",
-    "/images/websites/echoes-shop.jpg",
-    "/images/websites/rudraksha-store.jpg",
-    "/images/websites/admin-gallery.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148753/agency/images/websites/nitasha-buldeo.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148756/agency/images/websites/yogamani.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148755/agency/images/websites/valalino-web.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148752/agency/images/websites/echoes-shop.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148754/agency/images/websites/rudraksha-store.jpg",
+    "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148751/agency/images/websites/admin-gallery.jpg",
   ];
 
   const socialFeeds = [
-    { img: "/images/social/nadayoga-feed.jpg", offset: "md:translate-y-0" },
-    { img: "/images/social/nadayoga-espanol-feed.jpg", offset: "md:translate-y-6" },
-    { img: "/images/social/valalino-feed.jpg", offset: "md:-translate-y-3" },
-    { img: "/images/social/syara-rae-feed.jpg", offset: "md:translate-y-4" },
+    { img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148747/agency/images/social/nadayoga-feed.jpg", offset: "md:translate-y-0" },
+    { img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148746/agency/images/social/nadayoga-espanol-feed.jpg", offset: "md:translate-y-6" },
+    { img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148749/agency/images/social/valalino-feed.jpg", offset: "md:-translate-y-3" },
+    { img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148748/agency/images/social/syara-rae-feed.jpg", offset: "md:translate-y-4" },
   ];
 
   return (
@@ -227,7 +227,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
               {/* Real Dashboard Image */}
               <div className="relative aspect-[16/9] md:aspect-[16/8] w-full bg-neutral-950 overflow-hidden">
                 <Image
-                  src="/images/marketing/meta-ads-dashboard.jpg"
+                  src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148727/agency/images/marketing/meta-ads-dashboard.jpg"
                   alt="Meta Ads Performance Telemetry Dashboard"
                   fill
                   className="object-cover object-top"
@@ -449,7 +449,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
 
               <div className="relative aspect-[16/9] md:aspect-[16/8] w-full bg-neutral-950 overflow-hidden">
                 <Image
-                  src="/images/marketing/email-dashboard.jpg"
+                  src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148726/agency/images/marketing/email-dashboard.jpg"
                   alt="Email Marketing Automation Platform Interface"
                   fill
                   className="object-cover object-top"

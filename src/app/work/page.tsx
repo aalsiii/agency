@@ -38,7 +38,7 @@ const defaultCaseStudies = [
       { label: "Marketing Channels", value: "SEO + SMM + Meta Ads managed" },
       { label: "Brand Presence", value: "Established global authority" },
     ]),
-    coverImage: "/images/portfolio/nada-yoga-school.png",
+    coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148739/agency/images/portfolio/nada-yoga-school.png",
     websiteUrl: "https://www.nadyoga.org/",
   },
   {
@@ -70,7 +70,7 @@ const defaultCaseStudies = [
       { label: "Website Consulting", value: "UX & brand advisory provided" },
       { label: "Target Audience", value: "Corporate & transformational leaders" },
     ]),
-    coverImage: "/images/portfolio/valalino-real.png",
+    coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148745/agency/images/portfolio/valalino-real.png",
     websiteUrl: "https://www.valalino.com/",
   },
   {
@@ -102,7 +102,7 @@ const defaultCaseStudies = [
       { label: "Organic Reach", value: "Google search visibility established" },
       { label: "Content Quality", value: "Medically informed & search-optimized" },
     ]),
-    coverImage: "/images/portfolio/eazypregnancy-real.png",
+    coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148728/agency/images/portfolio/eazypregnancy-real.png",
     websiteUrl: "https://www.eazypregnancy.com/",
   },
   {
@@ -134,7 +134,7 @@ const defaultCaseStudies = [
       { label: "Performance", value: "Sub-second visual presentation" },
       { label: "Inquiry Flow", value: "Streamlined commission contact" },
     ]),
-    coverImage: "/images/portfolio/luisa-fotografia.png",
+    coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148733/agency/images/portfolio/luisa-fotografia.png",
     websiteUrl: "https://www.luisaphotography.com/",
   },
   {
@@ -166,7 +166,7 @@ const defaultCaseStudies = [
       { label: "Platform Status", value: "Live transactional web store" },
       { label: "Ongoing Scope", value: "Brand architecture & optimization" },
     ]),
-    coverImage: "/images/portfolio/rudraksha-real.png",
+    coverImage: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148744/agency/images/portfolio/rudraksha-real.png",
     websiteUrl: "https://www.rudrakshaantiquei.com/",
   },
 ];
