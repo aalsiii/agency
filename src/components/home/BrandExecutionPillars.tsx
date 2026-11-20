@@ -107,6 +107,16 @@ export default function BrandExecutionPillars() {
                 </span>
               ))}
             </div>
+
+            <div className="pt-2 flex items-center gap-4">
+              <Link
+                href="/services/social-media-marketing"
+                className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
+              >
+                <span>Explore Social Media Growth Systems</span>
+                <ArrowRight size={13} />
+              </Link>
+            </div>
           </div>
 
           {/* 4-Phone Visual Showcase: Pure aesthetic display of the feeds */}
@@ -179,6 +189,16 @@ export default function BrandExecutionPillars() {
                   {pill}
                 </span>
               ))}
+            </div>
+
+            <div className="pt-2 flex items-center gap-4">
+              <Link
+                href="/services/website-development"
+                className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
+              >
+                <span>Explore Website Engineering Systems</span>
+                <ArrowRight size={13} />
+              </Link>
             </div>
           </div>
 
@@ -418,7 +438,7 @@ export default function BrandExecutionPillars() {
 
               <div className="pt-2 flex items-center gap-4">
                 <Link
-                  href="/services/performance-marketing"
+                  href="/services/email-marketing"
                   className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
                 >
                   <span>Explore Retention Email Systems</span>
