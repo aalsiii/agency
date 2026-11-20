@@ -1,4 +1,4 @@
-import { Box, Code, Layout, LineChart, Megaphone, Palette, PenTool, RefreshCw } from "lucide-react";
+import { Code, Figma, Layout, LineChart, Megaphone, Palette, PenTool, RefreshCw } from "lucide-react";
 
 export interface Service {
     id: string;
@@ -117,17 +117,17 @@ export const services: Service[] = [
     },
     {
         id: "08",
-        title: "2D & 3D Modelling",
-        description: "Precision visualization and immersive conceptual design.",
-        longDescription: "We bring your abstract concepts into reality through meticulous 2D drafting and immersive 3D modelling. Whether it's product visualization, architectural walkthroughs, or creative conceptual art, our modelling services provide the clarity and depth needed for production-ready designs and stunning visual presentations.",
+        title: "Figma UI/UX Design",
+        description: "Bespoke design systems, interactive prototypes, and conversion UX.",
+        longDescription: "We design category-defining digital interfaces and conversion-engineered design systems in Figma. From user journeys and wireframing to responsive high-fidelity interactive prototypes and scalable component tokens, our UI/UX design delivers unquestioned brand credibility and frictionless user conversion.",
         features: [
-            "3D Product Rendering",
-            "Architectural Visualization",
-            "2D Technical Drafting",
-            "Concept Art Modelling",
-            "Texture & Lighting Design",
-            "Production-Ready 3D Assets"
+            "Figma Component Systems & Tokens",
+            "High-Fidelity Interactive Prototypes",
+            "Wireframing & Information Architecture",
+            "Responsive Mobile & Desktop Layouts",
+            "Developer-Ready Figma Handoff",
+            "Conversion-Focused UX Optimization"
         ],
-        icon: Box
+        icon: Figma
     }
 ];

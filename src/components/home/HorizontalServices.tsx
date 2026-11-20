@@ -10,7 +10,7 @@ import {
   PenTool,
   Palette,
   Megaphone,
-  Box,
+  Figma,
   ExternalLink,
   Sparkles,
 } from "lucide-react";
@@ -220,27 +220,49 @@ export default function HorizontalServices() {
           </div>
         );
 
-      case "08": // 2D & 3D Modelling
+      case "08": // Figma UI/UX Design
         return (
           <div className="relative w-full h-28 rounded-xl bg-black/50 border border-white/10 p-2.5 overflow-hidden flex items-center justify-between group-hover:border-primary/40 transition-all duration-300">
-            {/* Isometric 3D Wireframe Cube */}
-            <div className="relative w-16 h-16 flex items-center justify-center">
-              <svg className="w-14 h-14" viewBox="0 0 60 60">
-                <polygon points="30,5 52,17 30,29 8,17" fill="rgba(197,160,89,0.2)" stroke="#C5A059" strokeWidth="1" />
-                <polygon points="8,17 30,29 30,55 8,43" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-                <polygon points="30,29 52,17 52,43 30,55" fill="rgba(197,160,89,0.1)" stroke="#C5A059" strokeWidth="1" />
-                <circle cx="30" cy="5" r="1.5" fill="#FFF" />
-                <circle cx="52" cy="17" r="1.5" fill="#C5A059" />
-                <circle cx="8" cy="17" r="1.5" fill="#FFF" />
-                <circle cx="30" cy="29" r="2" fill="#C5A059" />
-              </svg>
+            {/* Interactive Figma Frame / Component Vector */}
+            <div className="relative w-20 h-20 rounded-lg bg-white/[0.03] border border-[#0D99FF]/40 p-1.5 flex flex-col justify-between overflow-hidden shadow-[0_0_12px_rgba(13,153,255,0.15)]">
+              {/* Figma Corner Handles */}
+              <div className="absolute -top-1 -left-1 w-2 h-2 border border-[#0D99FF] bg-black" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 border border-[#0D99FF] bg-black" />
+              <div className="absolute -bottom-1 -left-1 w-2 h-2 border border-[#0D99FF] bg-black" />
+              <div className="absolute -bottom-1 -right-1 w-2 h-2 border border-[#0D99FF] bg-black" />
+
+              {/* Figma Top Frame Tag */}
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[7px] text-[#0D99FF] bg-[#0D99FF]/10 px-1 rounded flex items-center gap-0.5">
+                  <Figma size={8} /> Frame
+                </span>
+                <span className="font-mono text-[7px] text-neutral-400">#HeroUI</span>
+              </div>
+
+              {/* UI Mockup Elements */}
+              <div className="space-y-1 my-auto">
+                <div className="w-full h-2 rounded bg-primary/30 flex items-center px-1">
+                  <div className="w-2/3 h-1 bg-primary rounded-sm" />
+                </div>
+                <div className="grid grid-cols-2 gap-1">
+                  <div className="h-4 rounded bg-white/10 border border-white/10" />
+                  <div className="h-4 rounded bg-primary/20 border border-primary/30" />
+                </div>
+              </div>
+
+              {/* Auto Layout Indicator */}
+              <div className="flex items-center justify-between text-[7px] font-mono text-neutral-400 border-t border-white/10 pt-0.5">
+                <span>AutoLayout</span>
+                <span className="text-emerald-400">100%</span>
+              </div>
             </div>
-            {/* 3D Specs */}
+
+            {/* Figma Specs */}
             <div className="space-y-1 text-right font-mono">
-              <span className="text-[10px] text-white font-bold block">3D Spatial Models</span>
-              <span className="text-[8px] text-primary block">glTF · Blender · OBJ</span>
-              <span className="text-[8px] text-neutral-400 block">PBR Shaders & Lighting</span>
-              <span className="text-[8px] text-emerald-400 block">60 FPS WebGL Ready</span>
+              <span className="text-[10px] text-white font-bold block">Figma Design System</span>
+              <span className="text-[8px] text-primary block">Tokens · Auto-Layout</span>
+              <span className="text-[8px] text-neutral-400 block">Interactive Prototypes</span>
+              <span className="text-[8px] text-emerald-400 block">Pixel-Perfect Handoff</span>
             </div>
           </div>
         );
