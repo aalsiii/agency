@@ -52,6 +52,31 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
+// Helper for inline markdown like **bold** and `code`
+function renderInlineFormatted(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+  return parts.map((part, idx) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={idx} className="font-semibold text-white">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return (
+        <code
+          key={idx}
+          className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-primary text-[0.9em]"
+        >
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return part;
+  });
+}
+
 export default async function InsightArticlePage({ params }: Props) {
   const { slug } = await params;
   let post: any = null;
@@ -231,18 +256,70 @@ export default async function InsightArticlePage({ params }: Props) {
 
         {/* Article Body Content */}
         <div className="prose prose-invert prose-lg max-w-none space-y-8 font-light leading-relaxed text-neutral-300">
-          {(post.content as string).split("\n\n").map((block: string, i: number) => {
-            // Level 3 Heading
-            if (block.startsWith("### ")) {
+          {(post.content as string).split("\n\n").map((rawBlock: string, i: number) => {
+            const block = rawBlock.trim();
+            if (!block) return null;
+
+            // Image markdown: ![alt](url)
+            const imgMatch = block.match(/^!\[(.*?)\]\((.*?)\)$/);
+            if (imgMatch) {
+              const alt = imgMatch[1];
+              const src = imgMatch[2];
               return (
-                <div key={i} className="pt-8 pb-2 border-b border-white/10 space-y-2">
+                <figure key={i} className="my-8 space-y-3">
+                  <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 shadow-xl">
+                    <Image
+                      src={src}
+                      alt={alt || post.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 896px"
+                      className="object-cover"
+                    />
+                  </div>
+                  {alt && (
+                    <figcaption className="text-center font-mono text-xs text-neutral-400">
+                      // {alt}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            }
+
+            // Level 2 Major Heading: ## Heading
+            if (block.startsWith("## ")) {
+              return (
+                <div key={i} className="pt-10 pb-3 border-b border-white/10 space-y-2">
                   <span className="font-mono text-xs text-primary/80 uppercase tracking-widest block">
-                    // SECTION 0{i + 1}
+                    // SECTION 0{i + 1} · STRATEGIC DIRECTIVE
                   </span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
-                    {block.replace("### ", "")}
+                    {block.replace(/^##\s+/, "")}
                   </h2>
                 </div>
+              );
+            }
+
+            // Level 3 Subheading: ### Heading
+            if (block.startsWith("### ")) {
+              return (
+                <div key={i} className="pt-6 pb-2 space-y-1">
+                  <h3 className="text-xl sm:text-2xl font-sans font-medium text-white tracking-tight flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                    <span>{block.replace(/^###\s+/, "")}</span>
+                  </h3>
+                </div>
+              );
+            }
+
+            // Blockquote: > Quote
+            if (block.startsWith("> ")) {
+              return (
+                <blockquote
+                  key={i}
+                  className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border-l-4 border-primary italic text-neutral-200 text-base sm:text-lg my-6 shadow-inner"
+                >
+                  {renderInlineFormatted(block.replace(/^>\s*/, ""))}
+                </blockquote>
               );
             }
 
@@ -269,10 +346,10 @@ export default async function InsightArticlePage({ params }: Props) {
                         <div className="space-y-1 text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                           {title && (
                             <span className="font-medium text-white block">
-                              {title}
+                              {renderInlineFormatted(title)}
                             </span>
                           )}
-                          <span>{desc}</span>
+                          <span>{renderInlineFormatted(desc)}</span>
                         </div>
                       </div>
                     );
@@ -282,14 +359,16 @@ export default async function InsightArticlePage({ params }: Props) {
             }
 
             // Bullet List
-            if (block.startsWith("- ")) {
+            if (block.startsWith("- ") || block.startsWith("* ")) {
               const lines = block.split("\n");
               return (
                 <div key={i} className="space-y-2.5 my-4 pl-2">
                   {lines.map((l, idx) => (
                     <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-300">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <span className="leading-relaxed">{l.replace(/^-\s*/, "")}</span>
+                      <span className="leading-relaxed">
+                        {renderInlineFormatted(l.replace(/^[-*]\s*/, ""))}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -299,7 +378,7 @@ export default async function InsightArticlePage({ params }: Props) {
             // Standard Paragraph
             return (
               <p key={i} className="text-sm sm:text-base md:text-lg leading-relaxed text-neutral-300">
-                {block}
+                {renderInlineFormatted(block)}
               </p>
             );
           })}

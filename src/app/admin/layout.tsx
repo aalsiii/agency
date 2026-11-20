@@ -13,6 +13,7 @@ import {
   MessageSquare,
   Briefcase,
   Star,
+  BookOpen,
 } from "lucide-react";
 import AdminNavActions from "./AdminNavActions";
 
@@ -89,6 +90,14 @@ export default async function AdminLayout({ children }: { children: ReactNode })
           >
             <FolderGit2 className="w-4 h-4 text-primary/80 group-hover:scale-105 transition-transform" />
             <span>Work & Case Studies</span>
+          </Link>
+
+          <Link
+            href="/admin/blog"
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-neutral-300 hover:text-white hover:bg-white/5 transition group"
+          >
+            <BookOpen className="w-4 h-4 text-primary/80 group-hover:scale-105 transition-transform" />
+            <span>Blog & Articles</span>
           </Link>
 
           <Link
