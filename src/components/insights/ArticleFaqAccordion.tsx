@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export interface FaqItem {
   question: string;
@@ -22,13 +22,8 @@ export default function ArticleFaqAccordion({ faqs }: { faqs: FaqItem[] }) {
   };
 
   return (
-    <section className="pt-10 pb-6 space-y-6 border-t border-white/10" id="frequently-asked-questions">
-      <div className="flex items-center gap-2.5 font-mono text-xs text-primary uppercase tracking-wider">
-        <HelpCircle size={15} />
-        <span>// STRATEGIC ADVISORY · FREQUENTLY ASKED QUESTIONS</span>
-      </div>
-
-      <h2 className="text-2xl sm:text-3xl font-sans font-medium text-white tracking-tight">
+    <section className="pt-10 pb-6 space-y-4 border-t border-white/10" id="frequently-asked-questions">
+      <h2 className="text-2xl sm:text-3xl font-sans font-bold text-white tracking-tight">
         Frequently Asked Questions
       </h2>
 
