@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import HorizontalServices from "@/components/home/HorizontalServices";
 import EditorialWorkShowcase from "@/components/home/EditorialWorkShowcase";
-import GrowthDiagnosticEngine from "@/components/home/GrowthDiagnosticEngine";
 import VisualFunnelExplainer from "@/components/home/VisualFunnelExplainer";
 import BeforeAfterTransformation from "@/components/home/BeforeAfterTransformation";
 import SimpleClientProcess from "@/components/home/SimpleClientProcess";
@@ -88,10 +87,7 @@ export default function HomeClient({
       {/* 6. Simple 4-Step Client Roadmap (How Easy It Is to Work With Us · Kickoff to Launch) */}
       <SimpleClientProcess />
 
-      {/* 7. Unified Growth Diagnostic & Free Audit Studio (5-Min Video Teardown + Playbooks + Free Tools) */}
-      <GrowthDiagnosticEngine />
-
-      {/* 8. Executive Client Endorsements & Proof */}
+      {/* 7. Executive Client Endorsements & Proof */}
       {testimonials.length > 0 && (
         <section className="py-28 bg-[var(--background-layer-1)] border-t border-white/10 relative overflow-hidden">
           <div className="container mx-auto px-6 max-w-6xl space-y-12">
