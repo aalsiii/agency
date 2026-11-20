@@ -15,17 +15,29 @@ import ServiceClientActions from "./ServiceClientActions";
 
 export const dynamic = "force-dynamic";
 
+const SERVICE_ALIASES: Record<string, string> = {
+  "ad-campaigning": "performance-marketing",
+  "paid-ads": "performance-marketing",
+  "marketing": "performance-marketing",
+  "paid-advertising": "performance-marketing",
+  "social-media": "social-media-marketing",
+  "social": "social-media-marketing",
+  "web-development": "website-development",
+  "web-design": "website-redesign",
+};
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
+  const targetSlug = SERVICE_ALIASES[slug] || slug;
   let service: any = null;
   try {
-    service = await prisma.service.findUnique({ where: { slug } });
+    service = await prisma.service.findUnique({ where: { slug: targetSlug } });
   } catch (error) {
-    console.error("Metadata fetch fallback for service:", slug);
+    console.error("Metadata fetch fallback for service:", targetSlug);
   }
 
   if (!service) {
@@ -44,11 +56,12 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function IndividualServicePage({ params }: PageProps) {
   const { slug } = await params;
+  const targetSlug = SERVICE_ALIASES[slug] || slug;
   let service: any = null;
 
   try {
     service = await prisma.service.findUnique({
-      where: { slug },
+      where: { slug: targetSlug },
     });
   } catch (error) {
     console.error("Database connection fallback on ServiceDetail:", error);
@@ -121,7 +134,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
             )}
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-normal text-white tracking-tight leading-tight">
             {service.title}
           </h1>
 
@@ -140,7 +153,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
         {/* 2. Overview & Problem Diagnosis (Colhead layout) */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-serif text-white">
+            <h2 className="text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
               Executive Overview
             </h2>
             <div className="font-mono text-xs text-primary/80">
@@ -190,7 +203,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
         <section className="p-8 md:p-12 rounded-2xl bg-[var(--background-layer-1)] border border-white/10 space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif text-white">
+              <h2 className="text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
                 Methodology & Deliverables
               </h2>
               <div className="font-mono text-xs text-primary/80 mt-2">
@@ -262,7 +275,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
         {benefits.length > 0 && (
           <section className="space-y-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif text-white">
+              <h2 className="text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
                 Compounding Returns
               </h2>
               <div className="font-mono text-xs text-primary/80 mt-2">
@@ -293,7 +306,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
           <section className="space-y-8 border-t border-white/10 pt-16">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif text-white">
+                <h2 className="text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
                   Relevant Case Studies
                 </h2>
                 <div className="font-mono text-xs text-primary/80 mt-2">
@@ -329,7 +342,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
                   </div>
                   <div>
                     <span className="font-mono text-xs text-primary/70 block">// {p.clientName}</span>
-                    <h3 className="text-xl font-serif text-white group-hover:text-primary transition-colors mt-1">
+                    <h3 className="text-xl font-sans font-medium text-white group-hover:text-primary transition-colors mt-1">
                       {p.title}
                     </h3>
                   </div>
@@ -343,7 +356,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
         {faqs.length > 0 && (
           <section className="space-y-8 border-t border-white/10 pt-16 max-w-3xl">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif text-white">
+              <h2 className="text-3xl md:text-4xl font-sans font-medium text-white tracking-tight">
                 Frequently Asked Questions
               </h2>
               <div className="font-mono text-xs text-primary/80 mt-2">
@@ -357,7 +370,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
                   key={i}
                   className="group p-5 rounded-xl bg-[var(--background-layer-1)] border border-white/10 hover:border-white/20 transition-colors open:bg-[var(--background-layer-2)] open:border-primary/30"
                 >
-                  <summary className="font-serif text-base text-white cursor-pointer list-none flex items-center justify-between gap-4">
+                  <summary className="font-sans font-medium text-base text-white cursor-pointer list-none flex items-center justify-between gap-4">
                     <span>{faq.question}</span>
                     <span className="font-mono text-xs text-primary transition-transform group-open:rotate-45">
                       +
@@ -374,7 +387,7 @@ export default async function IndividualServicePage({ params }: PageProps) {
 
         {/* 7. Final Conversion Section */}
         <section className="border-t border-white/10 pt-20 text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl font-serif text-white">
+          <h2 className="text-4xl md:text-5xl font-sans font-normal text-white tracking-tight">
             Ready to deploy {service.title}?
           </h2>
           <p className="text-muted text-base max-w-xl mx-auto font-light leading-relaxed">

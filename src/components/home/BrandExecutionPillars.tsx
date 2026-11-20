@@ -280,7 +280,7 @@ export default function BrandExecutionPillars() {
 
               <div className="pt-2 flex items-center gap-4">
                 <Link
-                  href="/services/ad-campaigning"
+                  href="/services/performance-marketing"
                   className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
                 >
                   <span>Explore Paid Campaign Systems</span>
@@ -418,7 +418,7 @@ export default function BrandExecutionPillars() {
 
               <div className="pt-2 flex items-center gap-4">
                 <Link
-                  href="/services/marketing"
+                  href="/services/performance-marketing"
                   className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
                 >
                   <span>Explore Retention Email Systems</span>
