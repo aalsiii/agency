@@ -18,6 +18,9 @@ export const getArticleCoverImage = (slug?: string, category?: string, currentIm
     if (slug.includes("high-ticket") || slug.includes("funnel")) {
       return "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80";
     }
+    if (slug.includes("instagram") || slug.includes("dm") || slug.includes("social")) {
+      return "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1600&q=80";
+    }
     if (slug.includes("figma") || slug.includes("design-system")) {
       return "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80";
     }
