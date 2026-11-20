@@ -243,13 +243,13 @@ export default function EditorialWorkShowcase() {
           </div>
         </div>
 
-        {/* 5-Card Interactive Selector Row Below */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {/* 5-Card Interactive Selector Row Below: Horizontal on mobile, grid on sm+ */}
+        <div className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 snap-x snap-mandatory scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
           {projects.map((p, idx) => (
             <button
               key={p.id}
               onClick={() => setActiveTab(idx)}
-              className={`p-3.5 rounded-2xl text-left transition-all duration-300 cursor-pointer flex flex-col gap-3 group ${
+              className={`min-w-[190px] sm:min-w-0 shrink-0 sm:shrink snap-center p-3.5 rounded-2xl text-left transition-all duration-300 cursor-pointer flex flex-col gap-3 group ${
                 activeTab === idx
                   ? "bg-[#0c0c11] border-2 border-primary shadow-[0_0_30px_rgba(197,160,89,0.25)]"
                   : "bg-[#0c0c11] border border-white/10 hover:border-white/30"

@@ -124,11 +124,21 @@ export default function BrandExecutionPillars() {
             {/* Ambient gold glow behind the phones */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-48 bg-primary/[0.06] blur-[90px] rounded-full pointer-events-none" />
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative z-10">
+            {/* Mobile swipe helper pill */}
+            <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-3 px-1">
+              <span className="flex items-center gap-1.5 text-primary">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span>← Swipe to explore feeds →</span>
+              </span>
+              <span className="text-neutral-500">4 Curated Feeds</span>
+            </div>
+
+            {/* Horizontal snap slider on mobile, responsive grid on desktop */}
+            <div className="flex md:grid md:grid-cols-4 gap-4 sm:gap-6 relative z-10 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scrollbar-none -mx-3 px-3 md:mx-0 md:px-0">
               {socialFeeds.map((feed, idx) => (
                 <div
                   key={idx}
-                  className={`transition-all duration-500 hover:-translate-y-2 ${feed.offset}`}
+                  className={`min-w-[210px] max-w-[250px] md:min-w-0 md:max-w-none shrink-0 md:shrink snap-center transition-all duration-500 hover:-translate-y-2 ${feed.offset}`}
                 >
                   {/* Smartphone Hardware Frame */}
                   <div className="rounded-[36px] bg-[#0c0c11] border-[4px] border-neutral-700/70 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/40 hover:shadow-[0_25px_60px_rgba(197,160,89,0.15)] transition-all">
@@ -144,7 +154,7 @@ export default function BrandExecutionPillars() {
                         alt="Curated Social Media Feed Visual"
                         fill
                         className="object-cover object-top"
-                        sizes="(max-width: 768px) 50vw, 25vw"
+                        sizes="(max-width: 768px) 70vw, 25vw"
                       />
                     </div>
                   </div>
@@ -202,12 +212,21 @@ export default function BrandExecutionPillars() {
             </div>
           </div>
 
-          {/* 6-Card Visual Website Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+          {/* Mobile swipe helper pill */}
+          <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-2 px-1">
+            <span className="flex items-center gap-1.5 text-primary">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span>← Swipe to preview 6 platforms →</span>
+            </span>
+            <span className="text-neutral-500">6 Live Builds</span>
+          </div>
+
+          {/* 6-Card Visual Website Carousel on mobile / Grid on desktop */}
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory scrollbar-none -mx-3 px-3 md:mx-0 md:px-0">
             {websiteScreenshots.map((imgSrc, idx) => (
               <div
                 key={idx}
-                className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.8)] hover:border-primary/50 hover:shadow-[0_20px_45px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
+                className="min-w-[280px] sm:min-w-[340px] md:min-w-0 shrink-0 md:shrink snap-center group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.8)] hover:border-primary/50 hover:shadow-[0_20px_45px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
               >
                 {/* Minimalist macOS Browser Bar (Zero brand names, clean concept) */}
                 <div className="px-3.5 py-2.5 bg-[#121217] border-b border-white/10 flex items-center justify-between">
