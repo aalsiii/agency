@@ -85,10 +85,8 @@ export default function ArticleContentRenderer({
 }: ContentRendererProps) {
   const blocks = content.split("\n\n").map((b) => b.trim()).filter(Boolean);
 
-  let sectionCounter = 0;
-
   return (
-    <div className="space-y-8 font-light leading-relaxed text-neutral-300">
+    <div className="prose-content text-neutral-300 font-light leading-relaxed">
       {blocks.map((block, i) => {
         // Image markdown: ![alt](url)
         const imgMatch = block.match(/^!\[(.*?)\]\((.*?)\)$/);
@@ -96,8 +94,8 @@ export default function ArticleContentRenderer({
           const alt = imgMatch[1];
           const src = imgMatch[2];
           return (
-            <figure key={i} className="my-8 space-y-3">
-              <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/15 bg-neutral-900 shadow-xl">
+            <figure key={i} className="my-8">
+              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/10 bg-neutral-900 shadow-lg">
                 <Image
                   src={src}
                   alt={alt || articleTitle}
@@ -107,115 +105,90 @@ export default function ArticleContentRenderer({
                 />
               </div>
               {alt && (
-                <figcaption className="text-center font-mono text-xs text-neutral-400">
-                  // {alt}
+                <figcaption className="text-center font-sans text-xs text-neutral-400 mt-2">
+                  {alt}
                 </figcaption>
               )}
             </figure>
           );
         }
 
-        // Level 2 Heading: ## Heading
+        // Level 2 Heading: ## Heading (Clean WordPress-style H2)
         if (block.startsWith("## ")) {
-          sectionCounter++;
           const text = block.replace(/^##\s+/, "");
           const anchorId = slugifyHeading(text);
 
           return (
-            <div key={i} id={anchorId} className="pt-10 pb-2 border-b border-white/10 space-y-2 scroll-mt-28">
-              <span className="font-mono text-xs text-primary/80 uppercase tracking-widest block">
-                // SECTION 0{sectionCounter} · STRATEGIC DIRECTIVE
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-sans font-medium text-white tracking-tight">
-                {text}
-              </h2>
-            </div>
+            <h2
+              key={i}
+              id={anchorId}
+              className="text-2xl sm:text-3xl font-sans font-bold text-white mt-10 mb-4 tracking-tight scroll-mt-28"
+            >
+              {text}
+            </h2>
           );
         }
 
-        // Level 3 Subheading: ### Heading
+        // Level 3 Subheading: ### Heading (Clean WordPress-style H3)
         if (block.startsWith("### ")) {
           const text = block.replace(/^###\s+/, "");
           const anchorId = slugifyHeading(text);
 
           return (
-            <div key={i} id={anchorId} className="pt-6 pb-1 space-y-1 scroll-mt-28">
-              <h3 className="text-xl sm:text-2xl font-sans font-medium text-white tracking-tight flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-                <span>{text}</span>
-              </h3>
-            </div>
+            <h3
+              key={i}
+              id={anchorId}
+              className="text-xl sm:text-2xl font-sans font-semibold text-white mt-8 mb-3 tracking-tight scroll-mt-28"
+            >
+              {text}
+            </h3>
           );
         }
 
-        // Blockquote / Callout: > Quote
+        // Blockquote / Quote: > Quote (Clean WordPress-style Blockquote)
         if (block.startsWith("> ")) {
           const quoteText = block.replace(/^>\s*/, "");
           return (
             <blockquote
               key={i}
-              className="p-6 sm:p-7 rounded-2xl bg-[#0c0c11] border border-primary/30 border-l-4 border-l-primary italic text-neutral-200 text-sm sm:text-base my-6 shadow-xl leading-relaxed"
+              className="border-l-4 border-primary/70 pl-5 py-2 my-6 italic text-neutral-200 text-base sm:text-lg bg-white/[0.02] rounded-r-lg"
             >
               {renderRichText(quoteText)}
             </blockquote>
           );
         }
 
-        // Numbered Steps: 1. , 2. , 3.
+        // Numbered List: 1. , 2. , 3. (Clean Standard WordPress Ordered List)
         if (block.startsWith("1. ") || block.startsWith("2. ") || block.startsWith("3. ")) {
           const lines = block.split("\n");
           return (
-            <div key={i} className="grid grid-cols-1 gap-3.5 my-6">
-              {lines.map((l, idx) => {
-                const stepNum = String(idx + 1).padStart(2, "0");
-                const cleaned = l.replace(/^\d+\.\s*/, "");
-                const parts = cleaned.split("**:");
-                const title = parts.length > 1 ? parts[0].replace(/\*\*/g, "") : null;
-                const desc = parts.length > 1 ? parts[1] : cleaned;
-
-                return (
-                  <div
-                    key={idx}
-                    className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 flex items-start gap-4 hover:border-primary/40 transition-colors"
-                  >
-                    <span className="font-mono text-sm text-primary font-bold bg-primary/10 border border-primary/20 w-8 h-8 rounded-xl flex items-center justify-center shrink-0">
-                      {stepNum}
-                    </span>
-                    <div className="space-y-1 text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
-                      {title && (
-                        <span className="font-medium text-white block">
-                          {renderRichText(title)}
-                        </span>
-                      )}
-                      <span>{renderRichText(desc)}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <ol key={i} className="list-decimal pl-6 my-4 space-y-2 text-base text-neutral-300">
+              {lines.map((l, idx) => (
+                <li key={idx} className="leading-relaxed pl-1">
+                  {renderRichText(l.replace(/^\d+\.\s*/, ""))}
+                </li>
+              ))}
+            </ol>
           );
         }
 
-        // Bulleted Lists: - or *
+        // Bulleted List: - or * (Clean Standard WordPress Unordered List)
         if (block.startsWith("- ") || block.startsWith("* ")) {
           const lines = block.split("\n");
           return (
-            <div key={i} className="space-y-2.5 my-4 pl-2">
+            <ul key={i} className="list-disc pl-6 my-4 space-y-2 text-base text-neutral-300">
               {lines.map((l, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-300">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                  <span className="leading-relaxed">
-                    {renderRichText(l.replace(/^[-*]\s*/, ""))}
-                  </span>
-                </div>
+                <li key={idx} className="leading-relaxed pl-1">
+                  {renderRichText(l.replace(/^[-*]\s*/, ""))}
+                </li>
               ))}
-            </div>
+            </ul>
           );
         }
 
-        // Standard Paragraph with inline formatting and links
+        // Standard Paragraph
         return (
-          <p key={i} className="text-sm sm:text-base leading-relaxed text-neutral-300">
+          <p key={i} className="text-base sm:text-lg leading-relaxed text-neutral-300 my-4 font-normal">
             {renderRichText(block)}
           </p>
         );

@@ -159,13 +159,6 @@ export default async function InsightArticlePage({ params }: Props) {
     console.error("Error fetching related articles:", e);
   }
 
-  // Derive 3 actionable executive takeaways
-  const takeaways = [
-    "Sub-second latency directly protects ad spend by preventing mobile bounce rates before first render.",
-    "Systematic batch creative production prevents algorithm saturation and maintains steady customer acquisition costs.",
-    "Pairing high-intent search intent with conversational qualification yields the highest compounding ROAS.",
-  ];
-
   // Headings & FAQs for TOC & SEO Schema
   const tocItems = extractHeadings(post.content);
   const faqs = getArticleFaqs(slug);
@@ -313,90 +306,23 @@ export default async function InsightArticlePage({ params }: Props) {
         </header>
 
         {/* Cinematic Hero Cover Visual */}
-        <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.8)] group">
+        <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group">
           <Image
             src={coverUrl}
             alt={post.title}
             fill
             priority
             sizes="(max-width: 1200px) 100vw, 1152px"
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
-
-          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] sm:text-xs text-white/80">
-            <span className="bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-              // EXECUTIVE DIRECTIVE · PRODUCTION PLAYBOOK
-            </span>
-            <span className="hidden sm:inline-block bg-primary/20 text-primary border border-primary/40 px-3 py-1.5 rounded-full backdrop-blur-md">
-              Google SEO Indexed & Verified
-            </span>
-          </div>
         </div>
 
         {/* TWO-COLUMN LAYOUT: Content (Left) + Sticky Sidebar (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start">
           {/* Main Content Column (Col 8) */}
-          <main className="lg:col-span-8 space-y-10">
-            {/* Executive Takeaways / Summary Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0c0c11] border border-primary/30 relative overflow-hidden shadow-2xl space-y-4">
-              <div className="flex items-center gap-2 font-mono text-xs text-primary font-bold tracking-wider">
-                <Sparkles size={16} />
-                <span>EXECUTIVE BRIEFING · CORE TAKEAWAYS</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-                {takeaways.map((point, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-neutral-300 font-sans leading-relaxed">
-                    <CheckCircle2 size={15} className="text-primary shrink-0 mt-0.5" />
-                    <span>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Markdown Body Content with Internal Links & Headings */}
+          <main className="lg:col-span-8 space-y-8">
+            {/* Clean Editorial Blog Body (WordPress-style formatting) */}
             <ArticleContentRenderer content={post.content} articleTitle={post.title} />
-
-            {/* In-Article Architectural Outcome Callout */}
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-[#0c0c11] to-[#12121a] border border-white/10 relative overflow-hidden space-y-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2 font-mono text-xs text-primary font-semibold">
-                  <TrendingUp size={15} />
-                  <span>// DIRECT-RESPONSE VERIFIED OUTCOME</span>
-                </div>
-                <span className="font-mono text-[11px] text-neutral-400">NextCurrent Benchmarks</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
-                  <span className="text-3xl sm:text-4xl font-mono font-bold text-white block">
-                    0.4s
-                  </span>
-                  <span className="font-mono text-[11px] text-primary block mt-1">
-                    Sub-Second LCP Edge Speed
-                  </span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
-                  <span className="text-3xl sm:text-4xl font-mono font-bold text-[#C5A059] block">
-                    4.2x+
-                  </span>
-                  <span className="font-mono text-[11px] text-neutral-300 block mt-1">
-                    Verified Blended ROAS
-                  </span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
-                  <span className="text-3xl sm:text-4xl font-mono font-bold text-emerald-400 block">
-                    -42%
-                  </span>
-                  <span className="font-mono text-[11px] text-neutral-300 block mt-1">
-                    Lower Cost Per Lead
-                  </span>
-                </div>
-              </div>
-            </div>
 
             {/* FAQ Accordion Section (Google FAQPage Schema Powered) */}
             <ArticleFaqAccordion faqs={faqs} />
