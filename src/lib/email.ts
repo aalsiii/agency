@@ -1,11 +1,5 @@
 import { Resend } from "resend";
 
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
-
-const ADMIN_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || process.env.ADMIN_EMAIL || "bijalwanakshat@gmail.com";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "NextCurrent Alerts <onboarding@resend.dev>";
-
 export interface LeadEmailPayload {
   name: string;
   email: string;
@@ -21,10 +15,15 @@ export interface LeadEmailPayload {
 }
 
 export async function sendLeadNotification(lead: LeadEmailPayload) {
-  if (!resend) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
     console.warn("⚠️ RESEND_API_KEY not configured. Skipping email notification.");
     return null;
   }
+
+  const resend = new Resend(apiKey);
+  const toEmail = process.env.ADMIN_NOTIFY_EMAIL || process.env.ADMIN_EMAIL || "bijalwanakshat@gmail.com";
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "NextCurrent Alerts <onboarding@resend.dev>";
 
   try {
     const subject = `🔥 New Lead: ${lead.name} (${lead.company || lead.serviceInterested || "General Inquiry"})`;
@@ -112,13 +111,14 @@ export async function sendLeadNotification(lead: LeadEmailPayload) {
     `;
 
     const res = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ADMIN_EMAIL,
+      from: fromEmail,
+      to: toEmail,
       replyTo: lead.email,
       subject,
       html,
     });
 
+    console.log("✅ Resend lead alert sent:", res);
     return res;
   } catch (error) {
     console.error("❌ Resend lead notification failed:", error);
@@ -140,10 +140,15 @@ export interface AuditEmailPayload {
 }
 
 export async function sendAuditNotification(audit: AuditEmailPayload) {
-  if (!resend) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
     console.warn("⚠️ RESEND_API_KEY not configured. Skipping email notification.");
     return null;
   }
+
+  const resend = new Resend(apiKey);
+  const toEmail = process.env.ADMIN_NOTIFY_EMAIL || process.env.ADMIN_EMAIL || "bijalwanakshat@gmail.com";
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "NextCurrent Alerts <onboarding@resend.dev>";
 
   try {
     const subject = `⚡ Free Audit Request: ${audit.businessName} (${audit.name}) — Score: ${audit.auditScore}/100`;
@@ -226,13 +231,14 @@ export async function sendAuditNotification(audit: AuditEmailPayload) {
     `;
 
     const res = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ADMIN_EMAIL,
+      from: fromEmail,
+      to: toEmail,
       replyTo: audit.email,
       subject,
       html,
     });
 
+    console.log("✅ Resend audit alert sent:", res);
     return res;
   } catch (error) {
     console.error("❌ Resend audit notification failed:", error);

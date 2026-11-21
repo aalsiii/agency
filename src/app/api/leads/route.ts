@@ -69,20 +69,24 @@ export async function POST(req: NextRequest) {
       // ignore activity log error
     }
 
-    // Trigger instant Resend email notification (non-blocking)
-    sendLeadNotification({
-      name,
-      email,
-      phone,
-      company,
-      website,
-      serviceInterested: lead.serviceInterested,
-      budget,
-      currency,
-      timeline,
-      message,
-      source: lead.source,
-    }).catch(err => console.error("Lead email alert error:", err));
+    // Trigger instant Resend email notification
+    try {
+      await sendLeadNotification({
+        name,
+        email,
+        phone,
+        company,
+        website,
+        serviceInterested: lead.serviceInterested,
+        budget,
+        currency,
+        timeline,
+        message,
+        source: lead.source,
+      });
+    } catch (emailErr) {
+      console.error("Lead email alert error:", emailErr);
+    }
 
     return NextResponse.json({ success: true, leadId: lead.id }, { status: 201 });
   } catch (err: unknown) {

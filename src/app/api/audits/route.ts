@@ -49,19 +49,23 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Trigger instant Resend email notification (non-blocking)
-    sendAuditNotification({
-      businessName,
-      websiteUrl,
-      instagramHandle,
-      industry: audit.industry,
-      primaryGoal: audit.primaryGoal,
-      monthlySpend,
-      name,
-      email,
-      phone,
-      auditScore: finalScore,
-    }).catch(err => console.error("Audit email alert error:", err));
+    // Trigger instant Resend email notification
+    try {
+      await sendAuditNotification({
+        businessName,
+        websiteUrl,
+        instagramHandle,
+        industry: audit.industry,
+        primaryGoal: audit.primaryGoal,
+        monthlySpend,
+        name,
+        email,
+        phone,
+        auditScore: finalScore,
+      });
+    } catch (emailErr) {
+      console.error("Audit email alert error:", emailErr);
+    }
 
     return NextResponse.json({
       success: true,
