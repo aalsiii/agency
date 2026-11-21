@@ -12,8 +12,8 @@ export default function Footer() {
   const { isAdmin } = useAdmin();
   const isHomepage = pathname === "/";
 
-  // Hide footer on admin routes
-  if (pathname?.startsWith("/admin")) {
+  // Hide footer on admin and client portal routes
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) {
     return null;
   }
 

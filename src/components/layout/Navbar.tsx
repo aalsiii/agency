@@ -35,8 +35,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Do not render public navbar on admin routes
-  if (pathname?.startsWith("/admin")) {
+  // Do not render public navbar on admin or client portal routes
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) {
     return null;
   }
 
