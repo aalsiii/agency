@@ -3,352 +3,286 @@
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Sparkles,
-  Zap,
-  ShieldCheck,
   TrendingUp,
-  Cpu,
-  Layers,
-  Globe2,
+  ShieldCheck,
   CheckCircle2,
-  Compass,
+  Users,
+  Target,
+  Clock,
+  Sparkles,
+  Award,
+  Globe2,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const studioStats = [
-  { value: "< 1.2s", label: "Average Mobile Latency", hint: "Sub-second Next.js speed" },
-  { value: "3.8x", label: "Blended Retainer ROAS", hint: "Across active client campaigns" },
-  { value: "0", label: "Junior Middlemen", hint: "Direct senior strategist access" },
-  { value: "30-Day", label: "Retainer Agreements", hint: "Earned trust, zero lock-in" },
+const operationSteps = [
+  {
+    step: "01",
+    title: "We Understand Your Business & Ideal Customers",
+    description:
+      "Before touching a single ad or design file, we sit down with you to learn your margins, your best-paying customers, and exactly what makes your service special. No guesswork.",
+  },
+  {
+    step: "02",
+    title: "We Build Websites That Actually Turn Visitors Into Sales",
+    description:
+      "A pretty website that doesn't bring in inquiries is useless. We design modern, fast websites that look stunning on mobile, load instantly, and make it effortless for people to call, book, or buy.",
+  },
+  {
+    step: "03",
+    title: "We Bring Ready-to-Buy Customers to Your Door",
+    description:
+      "We launch targeted ads on Instagram, Facebook, and Google, combined with search engine optimization so when people search for what you offer, your business shows up first.",
+  },
+  {
+    step: "04",
+    title: "We Deliver Transparent Weekly Updates & Real Revenue",
+    description:
+      "Every week, you see exactly what was spent, how many bookings or leads came in, and what we're improving next. You never have to wonder what your marketing agency is doing.",
+  },
 ];
 
-const studioPrinciples = [
+const pillars = [
   {
-    number: "01",
-    title: "Engineering-First Conversion Architecture",
+    title: "Sales & Inquiries Over Vanity Likes",
     description:
-      "Most agencies run ads to bloated WordPress sites that take 5 seconds to load on mobile. We handcraft custom Next.js web applications that render in under 1.2 seconds, instantly preventing traffic bounce before it starts.",
-    icon: Cpu,
+      "We don't celebrate empty impressions or follower counts that don't pay your bills. Our primary goal is putting qualified customer inquiries, bookings, and revenue on your calendar.",
+    icon: Target,
   },
   {
-    number: "02",
-    title: "Unit-Economic Revenue Discipline",
+    title: "Direct Access to Your Strategist",
     description:
-      "We refuse to report on vanity metrics like impressions or empty likes. Every ad set, keyword cluster, and funnel step is tied directly to qualified booking inquiries, customer acquisition cost (CAC), and pipeline revenue.",
-    icon: TrendingUp,
+      "You will never be passed off to a junior account manager who doesn't understand your business. You get direct WhatsApp and email access to the senior team executing your work.",
+    icon: Users,
   },
   {
-    number: "03",
-    title: "Direct Senior Strategist Access",
+    title: "Month-to-Month Flexibility",
     description:
-      "You will never be handed off to an inexperienced junior account manager. Clients work directly with senior architects and strategists via private communication hotlines with a strict 24-hour response guarantee.",
+      "We don't lock you into long, rigid 12-month contracts. We operate month-to-month and earn your trust every 30 days by delivering real, noticeable business growth.",
     icon: ShieldCheck,
-  },
-  {
-    number: "04",
-    title: "Earned Trust Over Binding Contracts",
-    description:
-      "We operate strictly on month-to-month retainers. If we are not compounding your pipeline and proving measurable return on ad spend every 30 days, you are free to walk away with zero penalties.",
-    icon: Zap,
-  },
-];
-
-const studioValues = [
-  {
-    title: "Quiet Focus, Deep Craft",
-    description:
-      "We trade agency noise and bureaucratic meetings for intense, uninterrupted focus on client output. Every line of code and creative frame is held to publication standards.",
-  },
-  {
-    title: "Radical Performance Transparency",
-    description:
-      "Clients receive unedited Search Console telemetry, Meta Ad Manager readouts, and weekly video teardowns. If something isn't working, we tell you immediately and pivot.",
-  },
-  {
-    title: "Sub-Second Speed Obsession",
-    description:
-      "Every 100ms of latency costs conversion rate. We engineer for 100/100 Core Web Vitals scores, optimized vector assets, and instantaneous route transitions.",
-  },
-  {
-    title: "Full-Funnel Alignment",
-    description:
-      "Ad creative hooks must match the landing page headline, and the landing page must guide effortlessly into the checkout or inquiry form. Complete end-to-end cohesion.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background overflow-hidden selection:bg-primary selection:text-black">
-      {/* Background Aesthetics */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-background to-background pointer-events-none" />
+      {/* Background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-primary/10 via-zinc-900/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Background Stroke Text */}
-      <div className="absolute top-1/4 -right-20 pointer-events-none select-none overflow-hidden">
-        <span className="text-[15rem] md:text-[25rem] font-serif font-black text-stroke uppercase leading-none opacity-10">
-          STUDIO
-        </span>
-      </div>
-
-      <div className="container mx-auto relative z-10 space-y-24 md:space-y-32">
-        {/* 1. Hero Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6 max-w-4xl"
-        >
+      <div className="container mx-auto relative z-10 max-w-5xl space-y-24 md:space-y-32">
+        {/* ========================================================= */}
+        {/* 1. HERO SECTION                                           */}
+        {/* ========================================================= */}
+        <section className="space-y-8 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>The Independent Growth Studio</span>
+            <span>Digital Growth & Performance Studio</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif text-white tracking-tight leading-[1.05]">
-            Engineered for <br />
-            <span className="italic font-light text-primary">Enduring Growth.</span>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-white tracking-tight leading-[1.1]">
+            We Help Businesses Get More <br className="hidden sm:inline" />
+            <span className="italic font-light text-primary">Customers & Consistent Sales.</span>
           </h1>
 
-          <div className="font-mono text-xs text-primary/80">
-            // founded in Uttarakhand · operating worldwide · custom Next.js engineering
-          </div>
-
-          <p className="text-lg md:text-2xl text-neutral-300 font-light leading-relaxed max-w-3xl pt-2">
-            NextCurrent Media is a dual-core performance marketing and web engineering studio. We eliminate the fatal disconnect between high-production ad creative and post-click web conversion.
+          <p className="text-lg sm:text-xl text-neutral-300 font-light max-w-3xl leading-relaxed">
+            At NextCurrent Media, our job is simple: we help ambitious business owners grow their revenue. We build beautiful websites that convert visitors into paying clients, run high-return ads on Google and Instagram, and help you dominate your local and global market.
           </p>
-        </motion.div>
 
-        {/* 2. Key Stats Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-        >
-          {studioStats.map((stat, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-2xl bg-[var(--background-layer-1)] border border-white/10 space-y-2 hover:border-primary/40 transition duration-300"
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <Link
+              href="/start-a-project"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-primary text-black font-semibold text-xs tracking-wider uppercase hover:bg-white hover:text-black transition duration-300 shadow-[0_0_20px_rgba(197,160,89,0.25)]"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary">
-                {stat.value}
-              </div>
-              <div className="text-sm font-medium text-white">{stat.label}</div>
-              <div className="text-xs text-neutral-400 font-mono">{stat.hint}</div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* 3. Studio Visual Collage (Bento Grid) */}
-        <section className="space-y-6">
-          <div className="space-y-2">
-            <span className="font-mono text-xs text-primary/80 uppercase tracking-widest">
-              // INSIDE THE STUDIO & CRAFT
-            </span>
-            <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight">
-              Where Engineering Meets Creative Vision
-            </h2>
+              <span>Start a Project</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/free-audit"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs transition duration-300"
+            >
+              <span>Get Free Marketing Audit →</span>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Main Studio Image */}
-            <div className="md:col-span-8 relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden border border-white/10 group">
-              <Image
-                src="/images/about/studio-workspace.jpg"
-                alt="NextCurrent Studio Workspace and Digital Architecture Setup"
-                fill
-                sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8 space-y-2">
-                <span className="font-mono text-xs text-primary uppercase tracking-wider">
-                  The Engineering Laboratory
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  Custom Next.js & Web Performance Infrastructure
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-300 font-light max-w-xl">
-                  Every web property is architected from scratch with zero template bloat, achieving sub-second mobile rendering times and seamless conversion flows.
-                </p>
-              </div>
-            </div>
-
-            {/* Himalayan Roots Card */}
-            <div className="md:col-span-4 relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden border border-white/10 group">
-              <Image
-                src="/images/about/himalayan-roots.jpg"
-                alt="Himalayan mountains symbolizing serene focus and calm execution"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-85 group-hover:brightness-95"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-8 space-y-2">
-                <span className="font-mono text-xs text-primary uppercase tracking-wider">
-                  Roots in Uttarakhand
-                </span>
-                <h3 className="text-xl font-serif font-bold text-white">
-                  Quiet Intensity, Global Impact
-                </h3>
-                <p className="text-xs text-neutral-300 font-light">
-                  Born in the tranquil foothills of Rishikesh, free from metropolitan agency noise. We channel intense focus into compounding revenue for international brands.
-                </p>
-              </div>
-            </div>
-
-            {/* Creative Direction Card */}
-            <div className="md:col-span-6 relative h-[320px] sm:h-[380px] rounded-3xl overflow-hidden border border-white/10 group">
-              <Image
-                src="/images/about/creative-direction.jpg"
-                alt="Creative direction and brand design typography"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-85 group-hover:brightness-95"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8 space-y-2">
-                <span className="font-mono text-xs text-primary uppercase tracking-wider">
-                  Creative Direction
-                </span>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-white">
-                  High-Retention Storytelling & Content Production
-                </h3>
-                <p className="text-xs text-neutral-300 font-light">
-                  Creating visual media that cuts through algorithmic fatigue—designed not just to capture eyes, but to trigger immediate consideration.
-                </p>
-              </div>
-            </div>
-
-            {/* Strategic Growth Session Card */}
-            <div className="md:col-span-6 relative h-[320px] sm:h-[380px] rounded-3xl overflow-hidden border border-white/10 group">
-              <Image
-                src="/images/about/strategy-session.jpg"
-                alt="Strategy session and growth planning"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-85 group-hover:brightness-95"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8 space-y-2">
-                <span className="font-mono text-xs text-primary uppercase tracking-wider">
-                  Media Buying & Attribution
-                </span>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-white">
-                  Disciplined Ad Capital Allocation
-                </h3>
-                <p className="text-xs text-neutral-300 font-light">
-                  Data-backed media buying across Meta Ads and Google Search, tracking genuine closed pipeline rather than inflated platform statistics.
-                </p>
-              </div>
+          {/* Hero Studio Banner Image */}
+          <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] rounded-3xl overflow-hidden border border-white/10 mt-12 shadow-2xl">
+            <Image
+              src="/images/about/studio-workspace.jpg"
+              alt="NextCurrent Media workspace and digital growth team"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover filter brightness-90 hover:brightness-100 transition duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 sm:p-10">
+              <span className="font-mono text-xs text-primary uppercase tracking-wider">
+                NextCurrent Studio
+              </span>
+              <p className="text-white text-base sm:text-xl font-serif font-medium mt-1">
+                Where creative strategy, stunning design, and customer acquisition come together.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* 4. Our Operational Principles (Two-Column Standards) */}
-        <section className="space-y-12 pt-8">
-          <div className="max-w-2xl space-y-3">
+        {/* ========================================================= */}
+        {/* 2. WHO WE ARE                                             */}
+        {/* ========================================================= */}
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-6 space-y-6">
+            <div className="space-y-2">
+              <span className="font-mono text-xs text-primary/80 uppercase tracking-widest">
+                // WHO WE ARE
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+                A Dedicated Growth Partner, Not Another Middleman.
+              </h2>
+            </div>
+
+            <p className="text-neutral-300 font-light leading-relaxed text-sm sm:text-base">
+              Most business owners are tired of dealing with agencies that make big promises, talk in confusing technical acronyms, and deliver zero actual sales.
+            </p>
+
+            <p className="text-neutral-300 font-light leading-relaxed text-sm sm:text-base">
+              We started NextCurrent Media to give ambitious founders a true competitive advantage. Based in Uttarakhand and serving clients worldwide, we combine world-class visual design with aggressive client acquisition systems.
+            </p>
+
+            <p className="text-neutral-300 font-light leading-relaxed text-sm sm:text-base">
+              Whether you run a high-end wellness retreat, a boutique eCommerce brand, or a premium service business, we treat your business like our own. Our single metric of success is whether your revenue grew this month.
+            </p>
+
+            <div className="pt-2">
+              <div className="flex items-center gap-6 font-mono text-xs text-neutral-400">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Transparent Pricing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>Weekly Video Updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-6 relative h-[360px] sm:h-[440px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <Image
+              src="/images/about/strategy-session.jpg"
+              alt="Strategic growth review session"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-6 space-y-1">
+              <span className="font-mono text-xs text-primary">Strategic Alignment</span>
+              <p className="text-sm font-serif text-white">
+                Every strategy is built specifically around your margins, market, and growth targets.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================= */}
+        {/* 3. HOW WE OPERATE                                         */}
+        {/* ========================================================= */}
+        <section className="space-y-12">
+          <div className="space-y-3 max-w-2xl">
             <span className="font-mono text-xs text-primary/80 uppercase tracking-widest">
-              // WHY AMBITIOUS FOUNDERS PARTNER WITH US
+              // HOW WE OPERATE
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight">
-              The NextCurrent Standard
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+              Simple, Predictable & Focused on Revenue.
             </h2>
-            <p className="text-muted text-base font-light">
-              We replaced obsolete agency retainer models with an agile, high-touch engineering partnership.
+            <p className="text-neutral-400 text-sm sm:text-base font-light">
+              No complicated corporate bureaucracy. Here is the exact 4-step framework we use to scale our clients:
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {studioPrinciples.map((principle, index) => {
-              const Icon = principle.icon;
+            {operationSteps.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="p-8 rounded-3xl bg-[var(--background-layer-1)] border border-white/10 space-y-4 hover:border-primary/40 transition duration-300"
+              >
+                <div className="font-mono text-xs font-bold text-primary">
+                  [ STEP {item.step} ]
+                </div>
+                <h3 className="text-xl font-serif font-bold text-white leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-neutral-300 font-light leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========================================================= */}
+        {/* 4. WHAT MAKES US DIFFERENT                                */}
+        {/* ========================================================= */}
+        <section className="p-8 sm:p-12 md:p-14 rounded-3xl bg-[var(--background-layer-1)] border border-white/10 space-y-10">
+          <div className="space-y-3 text-center sm:text-left">
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">
+              // WHY CLIENTS CHOOSE US
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+              Built for Results, Not Excuses.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pillars.map((pillar, i) => {
+              const Icon = pillar.icon;
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-8 rounded-3xl bg-[var(--background-layer-1)] border border-white/10 space-y-4 hover:border-primary/40 transition duration-300"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-primary/70">
-                      // {principle.number}
-                    </span>
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                      <Icon className="w-5 h-5" />
-                    </div>
+                <div key={i} className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                    <Icon className="w-5 h-5" />
                   </div>
-
-                  <h3 className="text-xl font-serif font-bold text-white">
-                    {principle.title}
+                  <h3 className="text-lg font-serif font-bold text-white">
+                    {pillar.title}
                   </h3>
-
                   <p className="text-sm text-neutral-300 font-light leading-relaxed">
-                    {principle.description}
+                    {pillar.description}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
         </section>
 
-        {/* 5. Core Values Grid */}
-        <section className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[var(--background-layer-1)] border border-white/10 space-y-10">
-          <div className="max-w-2xl space-y-3">
-            <span className="font-mono text-xs text-primary uppercase tracking-widest">
-              // STUDIO VALUES
-            </span>
-            <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tight">
-              How We Make Decisions
+        {/* ========================================================= */}
+        {/* 5. FINAL CALL TO ACTION                                   */}
+        {/* ========================================================= */}
+        <section className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[var(--background-layer-1)] to-neutral-900 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div className="space-y-2 max-w-xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-white">
+              Ready to grow your customer base?
             </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {studioValues.map((val, i) => (
-              <div key={i} className="space-y-3">
-                <div className="flex items-center gap-2 font-mono text-xs text-primary font-bold">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>0{i + 1}</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-white">
-                  {val.title}
-                </h3>
-                <p className="text-sm text-neutral-400 font-light leading-relaxed">
-                  {val.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 6. Global Reach & Heritage */}
-        <section className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[var(--background-layer-1)] to-neutral-900/60 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="space-y-3 max-w-xl">
-            <div className="flex items-center gap-2 font-mono text-xs text-primary">
-              <Globe2 className="w-4 h-4" />
-              <span>Global Footprint</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-              Based in Uttarakhand. Executing Globally.
-            </h2>
-            <p className="text-sm text-neutral-400 font-light leading-relaxed">
-              We partner with wellness sanctuaries, high-growth eCommerce brands, and ambitious service firms across India, the United States, the UK, Europe, and Australia.
+            <p className="text-sm text-neutral-300 font-light leading-relaxed">
+              Book a quick strategy call with our team to explore how we can help you increase leads, bookings, and revenue.
             </p>
           </div>
 
-          <div className="space-y-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-black font-semibold text-xs tracking-wider uppercase hover:bg-white hover:text-black transition duration-300 shadow-[0_0_20px_rgba(197,160,89,0.25)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-primary text-black font-semibold text-xs tracking-wider uppercase hover:bg-white hover:text-black transition duration-300 shadow-[0_0_20px_rgba(197,160,89,0.3)]"
             >
-              <span>Initiate Project Scope</span>
+              <span>Start a Project</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <div className="text-center md:text-left">
-              <Link
-                href="/free-audit"
-                className="font-mono text-xs text-neutral-400 hover:text-primary transition"
-              >
-                or request a complimentary audit →
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs transition"
+            >
+              <span>Contact Us</span>
+            </Link>
           </div>
         </section>
       </div>
