@@ -10,10 +10,7 @@ import { useAdmin } from "@/lib/use-admin";
 export default function Footer() {
   const pathname = usePathname();
   const { isAdmin } = useAdmin();
-  const isExcludedFromBanner =
-    pathname === "/services" ||
-    pathname === "/about" ||
-    pathname?.startsWith("/insights");
+  const isHomepage = pathname === "/";
 
   // Hide footer on admin routes
   if (pathname?.startsWith("/admin")) {
@@ -23,11 +20,11 @@ export default function Footer() {
   return (
     <footer
       className={`bg-[var(--background-layer-1)] pb-12 relative z-50 ${
-        isExcludedFromBanner ? "pt-12 border-t border-[var(--border-subtle)]" : "pt-32 border-t border-[var(--border-subtle)]"
+        isHomepage ? "pt-32 border-t border-[var(--border-subtle)]" : "pt-12 border-t border-[var(--border-subtle)]"
       }`}
     >
       <div className="container mx-auto px-6">
-        {!isExcludedFromBanner && (
+        {isHomepage && (
           <div className="mb-24 text-center space-y-6">
             <h2 className="text-4xl md:text-7xl lg:text-8xl font-sans font-normal text-white tracking-tight leading-none">
               LET&apos;S BUILD SOMETHING ENDURING
