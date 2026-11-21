@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getCurrentAdmin } from "@/lib/auth";
+import { sendAuditNotification } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
@@ -47,6 +48,20 @@ export async function POST(req: NextRequest) {
         reportNotes: `Initial submission received. Website: ${websiteUrl}. Goal: ${primaryGoal}.`,
       },
     });
+
+    // Trigger instant Resend email notification (non-blocking)
+    sendAuditNotification({
+      businessName,
+      websiteUrl,
+      instagramHandle,
+      industry: audit.industry,
+      primaryGoal: audit.primaryGoal,
+      monthlySpend,
+      name,
+      email,
+      phone,
+      auditScore: finalScore,
+    }).catch(err => console.error("Audit email alert error:", err));
 
     return NextResponse.json({
       success: true,

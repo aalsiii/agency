@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getCurrentAdmin } from "@/lib/auth";
+import { sendLeadNotification } from "@/lib/email";
 
 // Public: Submit a lead / contact message / multi-step project enquiry
 export async function POST(req: NextRequest) {
@@ -67,6 +68,21 @@ export async function POST(req: NextRequest) {
     } catch {
       // ignore activity log error
     }
+
+    // Trigger instant Resend email notification (non-blocking)
+    sendLeadNotification({
+      name,
+      email,
+      phone,
+      company,
+      website,
+      serviceInterested: lead.serviceInterested,
+      budget,
+      currency,
+      timeline,
+      message,
+      source: lead.source,
+    }).catch(err => console.error("Lead email alert error:", err));
 
     return NextResponse.json({ success: true, leadId: lead.id }, { status: 201 });
   } catch (err: unknown) {
