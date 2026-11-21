@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ShieldCheck, Lock, Mail, ArrowRight, Loader2, AlertCircle, Sparkles, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Lock, Mail, ArrowRight, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 
 export default function ClientLoginPage() {
   const router = useRouter();
@@ -203,3 +203,4 @@ export default function ClientLoginPage() {
     </div>
   );
 }
+

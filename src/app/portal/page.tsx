@@ -13,3 +13,4 @@ export default async function ClientPortalPage() {
 
   return <ClientPortalDashboard client={client} />;
 }
+

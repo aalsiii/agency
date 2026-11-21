@@ -1,6 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import bcrypt from "bcryptjs";
 import prisma from "./prisma";
 
 // Separate secret key exclusively for client tokens to guarantee mutual isolation with admin tokens
@@ -105,3 +104,4 @@ export async function getCurrentClient(): Promise<ClientSessionPayload | null> {
   if (!token) return null;
   return await verifyClientSessionToken(token);
 }
+

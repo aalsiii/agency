@@ -12,16 +12,15 @@ export default function Footer() {
   const { isAdmin } = useAdmin();
   const isHomepage = pathname === "/";
 
-  // Hide footer on admin and client portal routes
-  if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) {
+  // Hide footer on admin routes
+  if (pathname?.startsWith("/admin")) {
     return null;
   }
 
   return (
     <footer
-      className={`bg-background pb-12 relative z-50 ${
-        isHomepage ? "pt-32 border-t border-[var(--border-subtle)]" : "pt-8"
-      }`}
+      className={`bg-background pb-12 relative z-50 ${isHomepage ? "pt-32 border-t border-[var(--border-subtle)]" : "pt-8"
+        }`}
     >
       <div className="container mx-auto px-6">
         {isHomepage && (
@@ -49,9 +48,8 @@ export default function Footer() {
           </div>
         )}
 
-        <div className={`grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 text-center md:text-left ${
-          isHomepage ? "border-t border-[var(--border-subtle)] pt-12" : ""
-        }`}>
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 text-center md:text-left ${isHomepage ? "border-t border-[var(--border-subtle)] pt-12" : ""
+          }`}>
           <div>
             <h4 className="text-white font-serif text-lg mb-4">Location</h4>
             <p className="text-muted text-sm leading-relaxed">

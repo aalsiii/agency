@@ -6,3 +6,4 @@ export async function POST() {
   response.cookies.delete(CLIENT_COOKIE_NAME);
   return response;
 }
+

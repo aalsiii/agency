@@ -768,3 +768,4 @@ export default function ClientPortalDashboard({ client }: ClientPortalProps) {
     </div>
   );
 }
+
