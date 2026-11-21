@@ -139,63 +139,14 @@ export default async function IndividualServicePage({ params }: PageProps) {
     { img: "https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148748/agency/images/social/syara-rae-feed.jpg", offset: "md:translate-y-4" },
   ];
 
-  const socialProofs = [
-    {
-      img: "/images/social-proof/proof-1m-followers.jpg",
-      metric: "1,043,716",
-      label: "Total Followers Scaled",
-      badge: "1M+ Milestone",
-      highlight: "86.5% Women Demographic",
-      desc: "Client account scaled to 1,043,716 organic followers through curated editorial carousels and hooks.",
-    },
-    {
-      img: "/images/social-proof/proof-4m-views.jpg",
-      metric: "4.8M Views",
-      label: "Monthly Content Views",
-      badge: "Professional Dashboard",
-      highlight: "+5.2K New Followers (30 Days)",
-      desc: "Professional dashboard reporting 4,800,000+ views and 5,200+ warm new followers in one 30-day window.",
-    },
-    {
-      img: "/images/social-proof/proof-reach-1-4m.jpg",
-      metric: "1,478,769",
-      label: "Unique Accounts Reached",
-      badge: "Content Velocity",
-      highlight: "4.7M Post Impressions",
-      desc: "1,478,769 accounts reached with daily view velocity spiking to 335,000 views per day on breakout content.",
-    },
-    {
-      img: "/images/social-proof/proof-niche-146k-views.jpg",
-      metric: "76.1% Discovery",
-      label: "Non-Follower Reach",
-      badge: "Algorithmic Virality",
-      highlight: "146,329 Views · 4,575 Interactions",
-      desc: "Nada Yoga School: 76.1% reach outside existing followers, continually funneling new prospective students.",
-    },
-    {
-      img: "/images/social-proof/proof-niche-dashboard.jpg",
-      metric: "146.3K Views",
-      label: "Verified Growth Telemetry",
-      badge: "Academy Growth",
-      highlight: "+745 Followers (↑ Upward)",
-      desc: "High-ticket retreat & yoga academy generating consistent course enrollments through aesthetic sound healing reels.",
-    },
-    {
-      img: "/images/social-proof/proof-niche-followers.jpg",
-      metric: "13,036 Followers",
-      label: "High-Intent Community",
-      badge: "Conversion Proof",
-      highlight: "+3.9% Steady Expansion",
-      desc: "Direct course applications and workshop bookings driven by authentic behind-the-scenes instructor reels.",
-    },
-    {
-      img: "/images/social-proof/proof-spanish-reach.jpg",
-      metric: "4.7M+ Views",
-      label: "International Scale",
-      badge: "Multilingual Expansion",
-      highlight: "1.47M Cuentas Alcanzadas",
-      desc: "Bespoke Spanish-language content pipeline driving viral reach across international and Latin American markets.",
-    },
+  const socialProofScreenshots = [
+    { img: "/images/social-proof/proof-1m-followers.jpg", title: "Audience Demographics" },
+    { img: "/images/social-proof/proof-4m-views.jpg", title: "Professional Dashboard" },
+    { img: "/images/social-proof/proof-reach-1-4m.jpg", title: "Reach & Views" },
+    { img: "/images/social-proof/proof-niche-146k-views.jpg", title: "Content Activity" },
+    { img: "/images/social-proof/proof-niche-dashboard.jpg", title: "Account Overview" },
+    { img: "/images/social-proof/proof-niche-followers.jpg", title: "Follower Trends" },
+    { img: "/images/social-proof/proof-spanish-reach.jpg", title: "Regional Reach" },
   ];
 
   return (
@@ -325,109 +276,63 @@ export default async function IndividualServicePage({ params }: PageProps) {
         {(targetSlug === "social-media-marketing" || targetSlug === "social-media-content-engine") && (
           <div className="space-y-12">
             {/* =========================================================================
-                PART 1: VERIFIED CLIENT GROWTH & SOCIAL PROOF SHOWCASE (7 Real Proofs)
+                PART 1: REAL ANALYTICS & DASHBOARD DISPLAY PREVIEWS (Pure Display)
                ========================================================================= */}
-            <section className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl space-y-10">
-              {/* Radial ambient glow */}
-              <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-primary/[0.04] blur-[120px] pointer-events-none rounded-full" />
-
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6 relative z-10">
-                <div className="space-y-2 max-w-3xl">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
-                    <Activity size={13} />
-                    <span>Verified Client Telemetry · Unedited Instagram Insights</span>
+            <section className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl space-y-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6 relative z-10">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
+                    <Smartphone size={13} />
+                    <span>Analytics & Dashboard Interface Previews</span>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-sans font-normal text-white tracking-tight leading-snug">
-                    Documented Proof: 1.04M+ Audiences, 4.8M Views & Viral Scale
+                  <h2 className="text-2xl md:text-3xl font-sans font-medium text-white tracking-tight">
+                    Audience, Reach & Performance Dashboards
                   </h2>
-                  <p className="text-neutral-300 text-sm md:text-base font-light leading-relaxed">
-                    We don&apos;t just build aesthetic feeds—we engineer high-converting distribution engines that capture millions of organic impressions, convert non-followers, and fill high-ticket client calendars.
-                  </p>
                 </div>
-                <div className="flex items-center gap-2 self-start md:self-auto shrink-0 font-mono text-xs text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span>7 Documented Client Proofs</span>
-                </div>
-              </div>
-
-              {/* 4 Top KPI Stat Banners */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/60 border border-white/10 space-y-1 hover:border-primary/40 transition-all">
-                  <span className="font-mono text-[10px] sm:text-xs text-muted block uppercase tracking-wider">Top Account Following</span>
-                  <div className="text-2xl sm:text-3xl font-mono font-bold text-primary">1,043,716+</div>
-                  <p className="text-[11px] text-emerald-400 font-mono">1M+ Milestone Achieved</p>
-                </div>
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/60 border border-white/10 space-y-1 hover:border-primary/40 transition-all">
-                  <span className="font-mono text-[10px] sm:text-xs text-muted block uppercase tracking-wider">Monthly Video Discovery</span>
-                  <div className="text-2xl sm:text-3xl font-mono font-bold text-white">4.8M Views</div>
-                  <p className="text-[11px] text-emerald-400 font-mono">+5.2K Inbound Followers / Mo</p>
-                </div>
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/60 border border-white/10 space-y-1 hover:border-primary/40 transition-all">
-                  <span className="font-mono text-[10px] sm:text-xs text-muted block uppercase tracking-wider">30-Day Unique Reach</span>
-                  <div className="text-2xl sm:text-3xl font-mono font-bold text-white">1,478,769</div>
-                  <p className="text-[11px] text-primary font-mono">4.7M Post Impressions</p>
-                </div>
-                <div className="p-4 sm:p-5 rounded-2xl bg-black/60 border border-white/10 space-y-1 hover:border-primary/40 transition-all">
-                  <span className="font-mono text-[10px] sm:text-xs text-muted block uppercase tracking-wider">Algorithmic Virality</span>
-                  <div className="text-2xl sm:text-3xl font-mono font-bold text-white">76.1%</div>
-                  <p className="text-[11px] text-emerald-400 font-mono">Reach Beyond Existing Audience</p>
-                </div>
+                <span className="font-mono text-xs text-neutral-400 self-start md:self-auto">
+                  // mobile analytics preview
+                </span>
               </div>
 
               {/* Mobile swipe helper pill */}
               <div className="flex items-center justify-between text-[11px] font-mono text-muted px-1 relative z-10">
                 <span className="flex items-center gap-1.5 text-primary">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span>← Swipe / Scroll to view all 7 verified analytics dashboards →</span>
+                  <span>← Swipe to explore 7 dashboard views →</span>
                 </span>
-                <span className="text-neutral-500 hidden sm:inline">Instagram Professional Telemetry</span>
+                <span className="text-neutral-500">7 Previews</span>
               </div>
 
-              {/* 7-Phone Horizontal Snap Carousel */}
-              <div className="flex gap-5 sm:gap-6 relative z-10 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent -mx-3 px-3 sm:mx-0 sm:px-0">
-                {socialProofs.map((proof, idx) => (
+              {/* 7-Phone Horizontal Snap Carousel - Pure Visual Display, No Claims */}
+              <div className="flex gap-4 sm:gap-6 relative z-10 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent -mx-2 px-2 sm:mx-0 sm:px-0">
+                {socialProofScreenshots.map((proof, idx) => (
                   <div
                     key={idx}
-                    className="min-w-[240px] max-w-[260px] sm:min-w-[270px] sm:max-w-[290px] shrink-0 snap-center group flex flex-col"
+                    className="min-w-[210px] max-w-[240px] sm:min-w-[230px] sm:max-w-[250px] shrink-0 snap-center transition-all duration-500 hover:-translate-y-2"
                   >
-                    {/* Titanium Smartphone Frame */}
-                    <div className="rounded-[36px] bg-[#0c0c11] border-[4px] border-neutral-700/70 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:border-primary/60 group-hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 group-hover:-translate-y-1.5 flex flex-col h-full">
-                      {/* Dynamic Island Speaker Notch */}
-                      <div className="w-16 h-3 bg-black rounded-full mx-auto mb-2 flex items-center justify-center">
+                    {/* Smartphone Hardware Frame */}
+                    <div className="rounded-[36px] bg-[#0c0c11] border-[4px] border-neutral-700/70 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/40 transition-all">
+                      {/* Dynamic Island / Speaker Notch */}
+                      <div className="w-16 h-3 bg-black rounded-full mx-auto mb-1.5 flex items-center justify-center">
                         <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
                       </div>
 
-                      {/* Screen with Real Instagram Screenshot */}
-                      <div className="rounded-[28px] overflow-hidden bg-black relative aspect-[9/19.5] border border-white/5 w-full">
+                      {/* Screen with Real Screenshot */}
+                      <div className="rounded-[28px] overflow-hidden bg-black relative aspect-[9/19.5] border border-white/5">
                         <Image
                           src={proof.img}
-                          alt={`${proof.metric} ${proof.label} - NextCurrent Media Social Proof`}
+                          alt={proof.title}
                           fill
-                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 75vw, 280px"
+                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 70vw, 240px"
                         />
                       </div>
+                    </div>
 
-                      {/* Caption Card */}
-                      <div className="pt-3 pb-1 px-1.5 space-y-1.5">
-                        <div className="flex items-center justify-between gap-1">
-                          <span className="text-[10px] font-mono text-primary font-semibold truncate">
-                            {proof.badge}
-                          </span>
-                          <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded shrink-0">
-                            Verified
-                          </span>
-                        </div>
-                        <div className="text-base font-mono font-bold text-white tracking-tight">
-                          {proof.metric}
-                        </div>
-                        <div className="text-[11px] text-emerald-400 font-mono">
-                          {proof.highlight}
-                        </div>
-                        <p className="text-[11px] text-neutral-400 font-light leading-snug line-clamp-2 pt-0.5">
-                          {proof.desc}
-                        </p>
-                      </div>
+                    <div className="pt-2.5 text-center">
+                      <span className="text-[11px] font-mono text-neutral-400">
+                        {proof.title}
+                      </span>
                     </div>
                   </div>
                 ))}
