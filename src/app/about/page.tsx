@@ -89,7 +89,7 @@ export default function AboutPage() {
               As a business grows, its website, content, and advertising can drift apart. Different people run different channels, while the audience, offer, and business goals lose their connection.
             </p>
             <p>
-              We built NextCurrent to fix that: <strong className="text-white font-medium">one team, one plan, and one place</strong> where every task, post, report, and invoice lives. Our clients get their own client portal, so they always know what is happening without chasing anyone.
+              We built NextCurrent to fix that: <strong className="text-white font-medium">one team, one plan, and one place</strong> where every task, post, report, and deliverable aligns with your goals. Our clients get direct weekly reporting and continuous communication, so they always know what is happening without chasing anyone.
             </p>
           </div>
         </section>
@@ -159,9 +159,9 @@ export default function AboutPage() {
               <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-1">
                 <Layers className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-serif font-bold text-white">Your own client portal</h3>
+              <h3 className="text-base font-serif font-bold text-white">Direct weekly reporting</h3>
               <p className="text-sm text-neutral-300 font-light leading-relaxed">
-                See tasks, approve posts, send requests, and open reports and invoices in one place, any time.
+                Get clear weekly breakdowns of live tasks, ad spend, inbound inquiries, and next steps delivered straight to you.
               </p>
             </div>
 
