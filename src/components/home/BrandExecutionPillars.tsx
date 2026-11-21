@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
+  Search,
 } from "lucide-react";
 
 export default function BrandExecutionPillars() {
@@ -59,7 +60,7 @@ export default function BrandExecutionPillars() {
               Everything Your Brand Needs to Win Online
             </h2>
             <p className="text-muted text-base font-light leading-relaxed">
-              No technical confusion or fragmented agencies. We handle your complete digital presence—from aesthetic social media feeds to custom-built websites, high-converting paid ads, and automated email revenue.
+              No technical confusion or fragmented agencies. We handle your complete digital presence—from aesthetic social media feeds to custom-built websites, top-ranking search engine optimization (SEO), high-converting paid ads, and automated email revenue.
             </p>
           </div>
 
@@ -260,15 +261,170 @@ export default function BrandExecutionPillars() {
         </div>
 
         {/* =========================================================================
-            PILLAR 3: PERFORMANCE MARKETING & PAID ADS (Meta/Google Telemetry HUD)
+            PILLAR 3: SEARCH ENGINE OPTIMIZATION & ORGANIC DOMINANCE (Google Search Console HUD)
            ========================================================================= */}
         <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
+                <Search size={13} />
+                <span>03 · Search Engine Optimization & Organic Dominance</span>
+              </div>
+
+              <h3 className="text-3xl md:text-4xl font-sans font-normal text-white tracking-tight leading-snug">
+                Search Rankings That Compound Free, High-Intent Traffic 24/7
+              </h3>
+
+              <p className="text-neutral-300 text-sm md:text-base font-light leading-relaxed">
+                Stop relying entirely on ad spend or unpredictable social algorithms. We engineer authoritative SEO architectures, build programmatic topic clusters, and optimize sub-second Core Web Vitals to rank your brand at the very top of Google when prospects are ready to buy.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                {[
+                  "Entity-Based Topical Clusters",
+                  "Programmatic Internal Linking",
+                  "Sub-400ms Core Web Vitals",
+                  "Commercial Keyword Dominance",
+                  "Schema.org Semantic Markup",
+                ].map((pill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-xs font-mono text-neutral-300"
+                  >
+                    {pill}
+                  </span>
+                ))}
+              </div>
+
+              <div className="space-y-3.5 pt-2">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <h4 className="text-sm font-sans font-medium text-white">
+                      High-Intent Commercial Query Targeting
+                    </h4>
+                    <p className="text-xs text-neutral-400 font-light">
+                      We target queries searched right before high-ticket decisions, capturing high-intent prospects actively looking for your exact expertise.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <h4 className="text-sm font-sans font-medium text-white">
+                      Sub-Second Technical Crawl Architecture
+                    </h4>
+                    <p className="text-xs text-neutral-400 font-light">
+                      Server-rendered Next.js with automated structured schema, zero layout shift, and 98+ Google PageSpeed scores for rapid indexation.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                  <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <h4 className="text-sm font-sans font-medium text-white">
+                      Compounding Organic Pipeline Without Ad Spend
+                    </h4>
+                    <p className="text-xs text-neutral-400 font-light">
+                      Unlike paid campaigns that vanish when budgets halt, organic search rankings compound over months and years, lowering your blended client acquisition costs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center gap-4">
+                <Link
+                  href="/services/seo-content-marketing"
+                  className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-white transition-colors"
+                >
+                  <span>Explore SEO & Organic Search Systems</span>
+                  <ArrowRight size={13} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual Column: Google Search Console Dashboard Visual */}
+            <div className="lg:col-span-6">
+              {/* App / Browser Window Frame */}
+              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
+                {/* Window Header */}
+                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
+                    <Search size={11} className="text-primary" />
+                    <span>search.google.com/search-console.performance</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    Top 3 Rankings
+                  </div>
+                </div>
+
+                {/* Inner Real Google Search Console Dashboard Visual */}
+                <div className="relative aspect-[16/10] w-full bg-white overflow-hidden">
+                  <Image
+                    src="/images/marketing/search-console.jpg"
+                    alt="Google Search Console Organic SEO Performance Dashboard - Real Growth Metrics"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PILLAR 4: PERFORMANCE MARKETING & PAID ADS (Meta/Google Telemetry HUD)
+           ========================================================================= */}
+        <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Visual Column on Left for Alternating Flow */}
+            <div className="lg:col-span-6 order-2 lg:order-1">
+              {/* App / Browser Window Frame */}
+              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
+                {/* Window Header */}
+                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
+                    <TrendingUp size={11} className="text-primary" />
+                    <span>meta-ads-manager.telemetry</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    Live Campaigns
+                  </div>
+                </div>
+
+                {/* Inner Real Meta Ads Dashboard Visual */}
+                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
+                  <Image
+                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148727/agency/images/marketing/meta-ads-dashboard.jpg"
+                    alt="Meta Ads Performance Marketing Telemetry Dashboard"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content Column */}
+            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
                 <TrendingUp size={13} />
-                <span>03 · Performance Marketing & Paid Advertising</span>
+                <span>04 · Performance Marketing & Paid Advertising</span>
               </div>
 
               <h3 className="text-3xl md:text-4xl font-sans font-normal text-white tracking-tight leading-snug">
@@ -327,86 +483,19 @@ export default function BrandExecutionPillars() {
                 </Link>
               </div>
             </div>
-
-            {/* Right Visual Column: Meta Ads Manager Dashboard Visual */}
-            <div className="lg:col-span-6">
-              {/* App / Browser Window Frame */}
-              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
-                {/* Window Header */}
-                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
-                    <TrendingUp size={11} className="text-primary" />
-                    <span>meta-ads-manager.telemetry</span>
-                  </div>
-                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                    Live Campaigns
-                  </div>
-                </div>
-
-                {/* Inner Real Meta Ads Dashboard Visual */}
-                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
-                  <Image
-                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148727/agency/images/marketing/meta-ads-dashboard.jpg"
-                    alt="Meta Ads Performance Marketing Telemetry Dashboard"
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* =========================================================================
-            PILLAR 4: EMAIL MARKETING & AUTOMATED RETENTION (Visual Dashboard Showcase)
+            PILLAR 5: EMAIL MARKETING & AUTOMATED RETENTION (Visual Dashboard Showcase)
            ========================================================================= */}
         <div className="rounded-3xl bg-[var(--background-layer-1)] border border-white/10 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Visual Column on Left for Alternating Flow */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
-              {/* App / Browser Window Frame */}
-              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
-                {/* Window Header */}
-                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
-                    <Mail size={11} className="text-primary" />
-                    <span>automation-lifecycle.engine</span>
-                  </div>
-                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                    Active Flows
-                  </div>
-                </div>
-
-                {/* Inner Real Email Marketing Dashboard Visual */}
-                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
-                  <Image
-                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148726/agency/images/marketing/email-dashboard.jpg"
-                    alt="Email Marketing Automation Platform Interface"
-                    fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content Column */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
                 <Mail size={13} />
-                <span>04 · Automated Lifecycle & Retention Marketing</span>
+                <span>05 · Automated Lifecycle & Retention Marketing</span>
               </div>
 
               <h3 className="text-3xl md:text-4xl font-sans font-normal text-white tracking-tight leading-snug">
@@ -463,6 +552,39 @@ export default function BrandExecutionPillars() {
                   <span>Explore Retention Email Systems</span>
                   <ArrowRight size={13} />
                 </Link>
+              </div>
+            </div>
+
+            {/* Right Visual Column: Email Dashboard */}
+            <div className="lg:col-span-6">
+              {/* App / Browser Window Frame */}
+              <div className="group rounded-2xl bg-black border border-white/15 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-primary/50 hover:shadow-[0_25px_60px_rgba(197,160,89,0.2)] transition-all duration-500 hover:-translate-y-1">
+                {/* Window Header */}
+                <div className="px-4 py-3 bg-[#111116] border-b border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="px-3 py-0.5 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-neutral-300 flex items-center gap-1.5">
+                    <Mail size={11} className="text-primary" />
+                    <span>automation-lifecycle.engine</span>
+                  </div>
+                  <div className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                    Active Flows
+                  </div>
+                </div>
+
+                {/* Inner Real Email Marketing Dashboard Visual */}
+                <div className="relative aspect-[16/10] w-full bg-neutral-950 overflow-hidden">
+                  <Image
+                    src="https://res.cloudinary.com/daoolgxuk/image/upload/f_auto,q_auto/v1795148726/agency/images/marketing/email-dashboard.jpg"
+                    alt="Email Marketing Automation Platform Interface"
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
