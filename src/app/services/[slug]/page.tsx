@@ -295,12 +295,9 @@ export default async function IndividualServicePage({ params }: PageProps) {
               </div>
 
               {/* Mobile swipe helper pill */}
-              <div className="flex items-center justify-between text-[11px] font-mono text-muted px-1 relative z-10">
-                <span className="flex items-center gap-1.5 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span>← Swipe to explore 7 dashboard views →</span>
-                </span>
-                <span className="text-neutral-500">7 Previews</span>
+              <div className="flex items-center text-[11px] font-mono text-primary px-1 gap-1.5 relative z-10">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span>Swipe →</span>
               </div>
 
               {/* 7-Phone Horizontal Snap Carousel - Pure Visual Display, No Claims */}
@@ -359,12 +356,9 @@ export default async function IndividualServicePage({ params }: PageProps) {
               </div>
 
               {/* Mobile swipe helper pill */}
-              <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-2 px-1">
-                <span className="flex items-center gap-1.5 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span>← Swipe to explore feeds →</span>
-                </span>
-                <span className="text-neutral-500">4 Curated Feeds</span>
+              <div className="md:hidden flex items-center text-[11px] font-mono text-primary mb-2 px-1 gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span>Swipe →</span>
               </div>
 
               {/* 4-Phone Visual Showcase: Horizontal on mobile, grid on desktop */}
@@ -441,12 +435,9 @@ export default async function IndividualServicePage({ params }: PageProps) {
             </div>
 
             {/* Mobile swipe helper pill */}
-            <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-2 px-1">
-              <span className="flex items-center gap-1.5 text-primary">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span>← Swipe to preview 6 platforms →</span>
-              </span>
-              <span className="text-neutral-500">6 Live Builds</span>
+            <div className="md:hidden flex items-center text-[11px] font-mono text-primary mb-2 px-1 gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span>Swipe →</span>
             </div>
 
             {/* 6-Card Visual Website Carousel on mobile / Grid on desktop */}

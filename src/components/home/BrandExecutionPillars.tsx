@@ -126,12 +126,9 @@ export default function BrandExecutionPillars() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-48 bg-primary/[0.06] blur-[90px] rounded-full pointer-events-none" />
 
             {/* Mobile swipe helper pill */}
-            <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-3 px-1">
-              <span className="flex items-center gap-1.5 text-primary">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span>← Swipe to explore feeds →</span>
-              </span>
-              <span className="text-neutral-500">4 Curated Feeds</span>
+            <div className="md:hidden flex items-center text-[11px] font-mono text-primary mb-3 px-1 gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span>Swipe →</span>
             </div>
 
             {/* Horizontal snap slider on mobile, responsive grid on desktop */}
@@ -214,12 +211,9 @@ export default function BrandExecutionPillars() {
           </div>
 
           {/* Mobile swipe helper pill */}
-          <div className="md:hidden flex items-center justify-between text-[11px] font-mono text-muted mb-2 px-1">
-            <span className="flex items-center gap-1.5 text-primary">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span>← Swipe to preview 6 platforms →</span>
-            </span>
-            <span className="text-neutral-500">6 Live Builds</span>
+          <div className="md:hidden flex items-center text-[11px] font-mono text-primary mb-2 px-1 gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span>Swipe →</span>
           </div>
 
           {/* 6-Card Visual Website Carousel on mobile / Grid on desktop */}
