@@ -19,8 +19,8 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-[var(--background-layer-1)] pb-12 relative z-50 ${
-        isHomepage ? "pt-32 border-t border-[var(--border-subtle)]" : "pt-12 border-t border-[var(--border-subtle)]"
+      className={`bg-background pb-12 relative z-50 ${
+        isHomepage ? "pt-32 border-t border-[var(--border-subtle)]" : "pt-8"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -49,7 +49,9 @@ export default function Footer() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 border-t border-[var(--border-subtle)] pt-12 text-center md:text-left">
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 text-center md:text-left ${
+          isHomepage ? "border-t border-[var(--border-subtle)] pt-12" : ""
+        }`}>
           <div>
             <h4 className="text-white font-serif text-lg mb-4">Location</h4>
             <p className="text-muted text-sm leading-relaxed">
